@@ -24,90 +24,112 @@ function App() {
   function changeKey(event: React.ChangeEvent<HTMLInputElement>) {
     setKey(event.target.value);
   }
+
+/*
+<a 
+          className="App-link"
+          href="https://reactjs.org/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Easy Questions
+        </a>
+
+*/
+
   return (
     <div className="App">
       <header>
         <h1>Detailed Questions Page</h1>
       </header>
+
+
+
       <Container>
         <Row>
           {/* First column */}
           <Col>
             {/* Question 1 */}
             <Form.Group controlId="question1">
-              <Form.Label>Question #1:</Form.Label>
+              <Form.Label style={{ fontSize: '1.2rem' }}>Question #1:</Form.Label>
               <Form.Control
                 type="text"
+                style={{ fontSize: '1.2rem' }}
                 placeholder="Enter your answer"
               />
             </Form.Group>
   
             {/* Question 2 */}
             <Form.Group controlId="question2">
-              <Form.Label>Question #2:</Form.Label>
+              <Form.Label style={{ fontSize: '1.2rem' }}>Question #2:</Form.Label>
               <Form.Control
                 type="text"
+                style={{ fontSize: '1.2rem' }}
                 placeholder="Enter your answer"
               />
             </Form.Group>
-  
+          
             {/* Question 3 */}
             <Form.Group controlId="question3">
-              <Form.Label>Question #3:</Form.Label>
+              <Form.Label style={{ fontSize: '1.2rem' }}>Question #3:</Form.Label>
               <Form.Control
                 type="text"
+                style={{ fontSize: '1.2rem' }}
                 placeholder="Enter your answer"
               />
             </Form.Group>
   
             {/* Question 4 */}
             <Form.Group controlId="question4">
-              <Form.Label>Question #4:</Form.Label>
+              <Form.Label style={{ fontSize: '1.2rem' }}>Question #4:</Form.Label>
               <Form.Control
                 type="text"
+                style={{ fontSize: '1.2rem' }}
                 placeholder="Enter your answer"
               />
             </Form.Group>
           </Col>
-          
-          {/* Second column */}
-          <Col>
+            <Col>
             {/* Question 5 */}
-            <Form.Group controlId="question5">
-              <Form.Label>Question #5:</Form.Label>
+            <Form.Group controlId="question1">
+              <Form.Label style={{ fontSize: '1.2rem' }}>Question #5:</Form.Label>
               <Form.Control
                 type="text"
+                style={{ fontSize: '1.2rem' }}
                 placeholder="Enter your answer"
               />
             </Form.Group>
   
             {/* Question 6 */}
-            <Form.Group controlId="question6">
-              <Form.Label>Question #6:</Form.Label>
+            <Form.Group controlId="question2">
+              <Form.Label style={{ fontSize: '1.2rem' }}>Question #6:</Form.Label>
               <Form.Control
                 type="text"
+                style={{ fontSize: '1.2rem' }}
                 placeholder="Enter your answer"
               />
             </Form.Group>
-  
+          
             {/* Question 7 */}
-            <Form.Group controlId="question7">
-              <Form.Label>Question #7:</Form.Label>
+            <Form.Group controlId="question3">
+              <Form.Label style={{ fontSize: '1.2rem' }}>Question #7:</Form.Label>
               <Form.Control
                 type="text"
+                style={{ fontSize: '1.2rem' }}
                 placeholder="Enter your answer"
               />
             </Form.Group>
   
             {/* Question 8 */}
-            <Form.Group controlId="question8">
-              <Form.Label>Question #8:</Form.Label>
+            <Form.Group controlId="question4">
+              <Form.Label style={{ fontSize: '1.2rem' }}>Question #8:</Form.Label>
               <Form.Control
                 type="text"
+                style={{ fontSize: '1.2rem' }}
                 placeholder="Enter your answer"
               />
-            </Form.Group>
-          </Col>
+              </Form.Group>
+            </Col>
         </Row>
       </Container>
   
