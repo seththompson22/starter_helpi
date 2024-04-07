@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import { Button, Form } from 'react-bootstrap';
+import { Button, Col, Container, Form, Row } from 'react-bootstrap';
 
 //local storage and API Key: key should be entered in by the user and will be stored in local storage (NOT session storage)
 let keyData = "";
@@ -26,38 +26,98 @@ function App() {
   }
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-         <code>
-          
-          Matthew Holinger</code>
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-        <p> Jordan Photis </p>
-        <p>Seth Thompson</p>
+      <header>
+        <h1>Detailed Questions Page</h1>
       </header>
-      <Form>
-        <Form.Label>API Key:</Form.Label>
-        <Form.Control
-          type="password"
-          placeholder="Insert API Key Here"
-          onChange={changeKey}
-        ></Form.Control>
-        <br></br>
-        <Button className="Submit-Button" onClick={handleSubmit}>
-          Submit
-        </Button>
-      </Form>
+      <Container>
+        <Row>
+          {/* First column */}
+          <Col>
+            {/* Question 1 */}
+            <Form.Group controlId="question1">
+              <Form.Label>Question #1:</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Enter your answer"
+              />
+            </Form.Group>
+  
+            {/* Question 2 */}
+            <Form.Group controlId="question2">
+              <Form.Label>Question #2:</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Enter your answer"
+              />
+            </Form.Group>
+  
+            {/* Question 3 */}
+            <Form.Group controlId="question3">
+              <Form.Label>Question #3:</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Enter your answer"
+              />
+            </Form.Group>
+  
+            {/* Question 4 */}
+            <Form.Group controlId="question4">
+              <Form.Label>Question #4:</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Enter your answer"
+              />
+            </Form.Group>
+          </Col>
+          
+          {/* Second column */}
+          <Col>
+            {/* Question 5 */}
+            <Form.Group controlId="question5">
+              <Form.Label>Question #5:</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Enter your answer"
+              />
+            </Form.Group>
+  
+            {/* Question 6 */}
+            <Form.Group controlId="question6">
+              <Form.Label>Question #6:</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Enter your answer"
+              />
+            </Form.Group>
+  
+            {/* Question 7 */}
+            <Form.Group controlId="question7">
+              <Form.Label>Question #7:</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Enter your answer"
+              />
+            </Form.Group>
+  
+            {/* Question 8 */}
+            <Form.Group controlId="question8">
+              <Form.Label>Question #8:</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Enter your answer"
+              />
+            </Form.Group>
+          </Col>
+        </Row>
+      </Container>
+  
+      <Button className="Submit-Button" onClick={handleSubmit}>
+        Submit Answers
+      </Button>
     </div>
   );
+  
+  
 }
 
 export default App;
