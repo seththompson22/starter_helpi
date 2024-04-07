@@ -11,6 +11,20 @@ export function ButtonToPages(): JSX.Element {
       setCounter(counter+1);
     }
     
-    return <Button onClick={addOne}>Click to add 1 to: {counter}</Button>;
-  }
+    return (
+      <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Easy Questions
+        </a>
+    );
+  }  
+    
+    
+    
+    //<Button onClick={addOne}>Click to add 1 to: {counter}</Button>;
+
   
