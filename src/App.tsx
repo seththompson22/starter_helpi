@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
-import logo from './logo.svg';
+//import React, { useState } from 'react';
+//import logo from './logo.svg';
 import './App.css';
-import { Button, Form } from 'react-bootstrap';
-import { ButtonToPages } from './ButtonToPages';
+//import { Button, Form } from 'react-bootstrap';
+//import { ButtonToPages } from './ButtonToPages';
 import { LocalLink } from './LocalLink';
 import { Home } from './Home';
 
