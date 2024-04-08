@@ -3,8 +3,8 @@ import logo from './logo.svg';
 import './App.css';
 import { Button, Form } from 'react-bootstrap';
 import { ButtonToPages } from './ButtonToPages';
-import { LocalLink } from './LocalLink';
-import { HashRouter, Routes, Route } from 'react-router-dom';
+//import { LocalLink } from './LocalLink';
+//import { HashRouter, Routes, Route } from 'react-router-dom';
 
 //local storage and API Key: key should be entered in by the user and will be stored in local storage (NOT session storage)
 let keyData = "";
