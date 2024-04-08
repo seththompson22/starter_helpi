@@ -12,14 +12,17 @@ export function ButtonToPages(): JSX.Element {
     }
     
     return (
-      <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Easy Questions
-        </a>
+      <div>
+        <a
+            className="App-link"
+            href="https://reactjs.org"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Easy Questions
+          </a>
+          <p><a href="LocalLink.tsx">HTML Images</a></p>
+        </div>
     );
   }  
     
