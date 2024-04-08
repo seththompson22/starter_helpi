@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import { Button, Col, Container, Form, Row } from 'react-bootstrap';
+import DQPage from './DQpage';
+import {HashRouter, Routes, Route} from 'react-router-dom';
 
 //local storage and API Key: key should be entered in by the user and will be stored in local storage (NOT session storage)
 let keyData = "";
@@ -36,110 +38,24 @@ function App() {
         </a>
 
 */
+/*
+
+*/
+
 
   return (
-    <div className="App">
-      <header>
-        <h1>Detailed Questions Page</h1>
-      </header>
+    <div>
+      <h1>
+        aye
+      </h1>
+    <HashRouter>
+      <Routes>
+        <Route path = " /" element={<DQPage/>}/>
 
-
-
-      <Container>
-        <Row>
-          {/* First column */}
-          <Col>
-            {/* Question 1 */}
-            <Form.Group controlId="question1">
-              <Form.Label style={{ fontSize: '1.2rem' }}>Question #1:</Form.Label>
-              <Form.Control
-                type="text"
-                style={{ fontSize: '1.2rem' }}
-                placeholder="Enter your answer"
-              />
-            </Form.Group>
-  
-            {/* Question 2 */}
-            <Form.Group controlId="question2">
-              <Form.Label style={{ fontSize: '1.2rem' }}>Question #2:</Form.Label>
-              <Form.Control
-                type="text"
-                style={{ fontSize: '1.2rem' }}
-                placeholder="Enter your answer"
-              />
-            </Form.Group>
-          
-            {/* Question 3 */}
-            <Form.Group controlId="question3">
-              <Form.Label style={{ fontSize: '1.2rem' }}>Question #3:</Form.Label>
-              <Form.Control
-                type="text"
-                style={{ fontSize: '1.2rem' }}
-                placeholder="Enter your answer"
-              />
-            </Form.Group>
-  
-            {/* Question 4 */}
-            <Form.Group controlId="question4">
-              <Form.Label style={{ fontSize: '1.2rem' }}>Question #4:</Form.Label>
-              <Form.Control
-                type="text"
-                style={{ fontSize: '1.2rem' }}
-                placeholder="Enter your answer"
-              />
-            </Form.Group>
-          </Col>
-            <Col>
-            {/* Question 5 */}
-            <Form.Group controlId="question1">
-              <Form.Label style={{ fontSize: '1.2rem' }}>Question #5:</Form.Label>
-              <Form.Control
-                type="text"
-                style={{ fontSize: '1.2rem' }}
-                placeholder="Enter your answer"
-              />
-            </Form.Group>
-  
-            {/* Question 6 */}
-            <Form.Group controlId="question2">
-              <Form.Label style={{ fontSize: '1.2rem' }}>Question #6:</Form.Label>
-              <Form.Control
-                type="text"
-                style={{ fontSize: '1.2rem' }}
-                placeholder="Enter your answer"
-              />
-            </Form.Group>
-          
-            {/* Question 7 */}
-            <Form.Group controlId="question3">
-              <Form.Label style={{ fontSize: '1.2rem' }}>Question #7:</Form.Label>
-              <Form.Control
-                type="text"
-                style={{ fontSize: '1.2rem' }}
-                placeholder="Enter your answer"
-              />
-            </Form.Group>
-  
-            {/* Question 8 */}
-            <Form.Group controlId="question4">
-              <Form.Label style={{ fontSize: '1.2rem' }}>Question #8:</Form.Label>
-              <Form.Control
-                type="text"
-                style={{ fontSize: '1.2rem' }}
-                placeholder="Enter your answer"
-              />
-              </Form.Group>
-            </Col>
-        </Row>
-      </Container>
-  
-      <Button className="Submit-Button" onClick={handleSubmit}>
-        Submit Answers
-      </Button>
+      </Routes>
+    </HashRouter>
     </div>
-  );
-  
-  
+  ); 
 }
 
 export default App;
