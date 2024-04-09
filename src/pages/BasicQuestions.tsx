@@ -1,6 +1,7 @@
 //import React, { useState } from 'react';
 import { Form } from "react-bootstrap";
 import "../App";
+import "../styles/BasicQuestions.css";
 import { MultipleChoiceQuestion } from "../question-format-components/MultipleChoiceQuestion";
 import NavigationBar from "../components/NavigationBar";
 //import { Button, Form } from 'react-bootstrap';
