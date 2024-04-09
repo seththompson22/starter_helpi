@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
-import logo from './logo.svg';
-import './App.css';
-import { Button, Form } from 'react-bootstrap';
-import { ButtonToPages } from './ButtonToPages';
+import React, { useState } from "react";
+import logo from "../styles/logo.svg";
+import "../styles/App.css";
+import { Button, Form } from "react-bootstrap";
+import { ButtonToPages } from "../components/ButtonToPages";
+import NavigationBar from "../components/NavigationBar";
 //import { LocalLink } from './LocalLink';
 //import { HashRouter, Routes, Route } from 'react-router-dom';
 
@@ -16,7 +17,7 @@ if (prevKey !== null) {
 
 export function Home() {
   const [key, setKey] = useState<string>(keyData); //for api key input
-  
+
   //sets the local storage item to the api key the user inputed
   function handleSubmit() {
     localStorage.setItem(saveKeyData, JSON.stringify(key));
@@ -29,12 +30,11 @@ export function Home() {
   }
   return (
     <div className="App">
+      <NavigationBar></NavigationBar>
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-         <code>
-          
-          Matthew Holinger</code>
+          <code>Matthew Holinger</code>
         </p>
         <a
           className="App-link"
@@ -47,7 +47,7 @@ export function Home() {
         <p> Jordan Photis </p>
         <p>Seth Thompson</p>
         <hr></hr>
-            <ButtonToPages></ButtonToPages>
+        <ButtonToPages></ButtonToPages>
       </header>
       <Form>
         <Form.Label>API Key:</Form.Label>

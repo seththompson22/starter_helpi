@@ -1,11 +1,9 @@
 //import React, { useState } from 'react';
-import { Form } from "react-bootstrap";
-import "./App.css";
-import { MultipleChoiceQuestion } from "./question-format-components/MultipleChoiceQuestion";
+import "../styles/NavigationBar.css";
 //import { Button, Form } from 'react-bootstrap';
 //import { ButtonToPages } from './ButtonToPages';
 
-export function BasicQuestions() {
+export function NavigationBar() {
   //whenever there's a change it'll store the api key in a local state called key but it won't be set in the local storage until the user clicks the submit button
 
   return (
@@ -16,15 +14,15 @@ export function BasicQuestions() {
             <a href="/">Home</a>
           </li>
           <li>
-            <a href="/#/LocalLink">Detailed Questions Page (seth's fake)</a>
+            <a href="/#/LocalLink">Detailed Questions Page</a>
+          </li>
+          <li>
+            <a href="/#/BasicQuestions">Basic Question Page</a>
           </li>
         </ul>
       </header>
-      <Form>
-        <MultipleChoiceQuestion options={["a", "b", "c"]} expectedAnswer="b" />
-      </Form>
     </div>
   );
 }
 
-export default BasicQuestions;
+export default NavigationBar;

@@ -23,15 +23,6 @@ export function ButtonToPages(): JSX.Element {
         >
           Easy Questions
         </a>
-        <ul>
-          <li>
-            {/* change LocalLink for link to detailed questions page!! */}
-            <a href="/#/LocalLink">Detailed Questions (seth's fake)</a>
-          </li>
-          <li>
-            <a href="/#/BasicQuestions">Basic Questions Page</a>
-          </li>
-        </ul>
       </div>
     );
   }  
