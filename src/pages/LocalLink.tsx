@@ -1,5 +1,5 @@
 //import React, { useState } from 'react';
-import logo from "../logo.svg";
+import logo from "../styles/logo.svg";
 import "../styles/App.css";
 //import { Button, Form } from 'react-bootstrap';
 //import { ButtonToPages } from './ButtonToPages';

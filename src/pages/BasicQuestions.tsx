@@ -2,7 +2,7 @@
 import { Form } from "react-bootstrap";
 import "../App";
 import { MultipleChoiceQuestion } from "../question-format-components/MultipleChoiceQuestion";
-import NavigationBar from "../NavigationBar";
+import NavigationBar from "../components/NavigationBar";
 //import { Button, Form } from 'react-bootstrap';
 //import { ButtonToPages } from './ButtonToPages';
 

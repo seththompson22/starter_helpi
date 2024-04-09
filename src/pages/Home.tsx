@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import logo from "../logo.svg";
+import logo from "../styles/logo.svg";
 import "../styles/App.css";
 import { Button, Form } from "react-bootstrap";
-import { ButtonToPages } from "../ButtonToPages";
-import NavigationBar from "../NavigationBar";
+import { ButtonToPages } from "../components/ButtonToPages";
+import NavigationBar from "../components/NavigationBar";
 //import { LocalLink } from './LocalLink';
 //import { HashRouter, Routes, Route } from 'react-router-dom';
 
