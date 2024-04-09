@@ -1,7 +1,8 @@
 //import React, { useState } from 'react';
 import { Form } from "react-bootstrap";
-import "./App.css";
-import { MultipleChoiceQuestion } from "./question-format-components/MultipleChoiceQuestion";
+import "../App";
+import { MultipleChoiceQuestion } from "../question-format-components/MultipleChoiceQuestion";
+import NavigationBar from "../NavigationBar";
 //import { Button, Form } from 'react-bootstrap';
 //import { ButtonToPages } from './ButtonToPages';
 
@@ -10,16 +11,7 @@ export function BasicQuestions() {
 
   return (
     <div>
-      <header>
-        <ul>
-          <li>
-            <a href="/">Home</a>
-          </li>
-          <li>
-            <a href="/#/LocalLink">Detailed Questions Page (seth's fake)</a>
-          </li>
-        </ul>
-      </header>
+      <NavigationBar></NavigationBar>
       <Form>
         <MultipleChoiceQuestion options={["a", "b", "c"]} expectedAnswer="b" />
       </Form>
