@@ -15,9 +15,8 @@ export function MultipleChoiceQuestion({
   }
   return (
     <div>
-      <h3>Multiple Choice Question</h3>
       <Form.Group>
-        <Form.Label>Choose the correct answer:</Form.Label>
+        <Form.Label>Enter Question here: </Form.Label>
         <Form.Select value={selected} onChange={updateSelected}>
           {options.map((option: string) => (
             <option key={option} value={option}>
@@ -26,7 +25,8 @@ export function MultipleChoiceQuestion({
           ))}
         </Form.Select>
       </Form.Group>
-      <p>{selected === expectedAnswer ? "✔️" : "❌"}</p>
+      {/* store answer externally in line below */}
+      <p>{selected}</p>
     </div>
   );
 }

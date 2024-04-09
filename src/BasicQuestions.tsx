@@ -1,6 +1,7 @@
 //import React, { useState } from 'react';
 import { Form } from "react-bootstrap";
 import "./App.css";
+import { MultipleChoiceQuestion } from "./question-format-components/MultipleChoiceQuestion";
 //import { Button, Form } from 'react-bootstrap';
 //import { ButtonToPages } from './ButtonToPages';
 
@@ -10,10 +11,7 @@ export function BasicQuestions() {
   return (
     <div>
       <Form>
-        <Form.Group controlId="formBasicQuestions">
-          <Form.Label>Enter Question Here</Form.Label>
-          <Form.Control type="" />
-        </Form.Group>
+        <MultipleChoiceQuestion options={["a", "b", "c"]} expectedAnswer="b" />
       </Form>
     </div>
   );
