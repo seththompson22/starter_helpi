@@ -10,6 +10,16 @@ export function BasicQuestions() {
 
   return (
     <div>
+      <header>
+        <ul>
+          <li>
+            <a href="/">Home</a>
+          </li>
+          <li>
+            <a href="/#/LocalLink">Detailed Questions Page (seth's fake)</a>
+          </li>
+        </ul>
+      </header>
       <Form>
         <MultipleChoiceQuestion options={["a", "b", "c"]} expectedAnswer="b" />
       </Form>
