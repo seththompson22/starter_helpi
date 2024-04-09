@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import { Button, Col, Container, Form, Row } from 'react-bootstrap';
-import DQPage from './DQpage';
+import Questions from './Questions';
 import {HashRouter, Routes, Route} from 'react-router-dom';
 
 //local storage and API Key: key should be entered in by the user and will be stored in local storage (NOT session storage)
@@ -44,17 +44,14 @@ function App() {
 
 
   return (
-    <div>
-      <h1>
-        aye
-      </h1>
-    <HashRouter>
-      <Routes>
-        <Route path = " /" element={<DQPage/>}/>
-
-      </Routes>
-    </HashRouter>
-    </div>
+  <div>
+    
+      {/* HEADER FOR DQ PAGE */}
+        <header>
+        <h1>Detailed Questions Page</h1>
+      </header>
+    <Questions/>
+  </div>
   ); 
 }
 

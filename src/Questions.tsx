@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import logo from './logo.svg';
-import './DQPage.css';
+import './Questions.css';
 import { Button, Col, Container, Form, Row } from 'react-bootstrap';
 
 //local storage and API Key: key should be entered in by the user and will be stored in local storage (NOT session storage)
@@ -11,7 +11,7 @@ if (prevKey !== null) {
   keyData = JSON.parse(prevKey);
 }
 
-function DQPage() {
+function Questions() {
   const [key, setKey] = useState<string>(keyData); //for api key input
   
   //sets the local storage item to the api key the user inputed
@@ -38,12 +38,7 @@ function DQPage() {
 */
 
   return (
-    <div className="DQPage">
-      <header>
-        <h1>Detailed Questions Page</h1>
-      </header>
-
-
+    <div className="Questions">
 
       <Container>
         <Row>
@@ -142,4 +137,4 @@ function DQPage() {
   
 }
 
-export default DQPage;
+export default Questions;
