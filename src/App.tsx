@@ -3,7 +3,8 @@ import logo from './logo.svg';
 import './App.css';
 import { Button, Col, Container, Form, Row } from 'react-bootstrap';
 import Questions from './Questions';
-import { BrowserRouter as Router, Route} from 'react-router-dom';
+import { BrowserRouter as Router, Route, HashRouter, Routes} from 'react-router-dom';
+
 import {BrowserRouter as Switch} from 'react-router-dom';
 import HomeButton from './homeButton'; // Import HomeButton component
 
@@ -31,35 +32,30 @@ function App() {
   }
 
 /*
-<a 
-          className="App-link"
-          href="https://reactjs.org/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Easy Questions
-        </a>
-
-*/
-/*
 
           <Switch>
-              <Route path="/" Component={Home} /> 
-              <Route path="/questions" Component={Questions} />
+
           </Switch>
 */
 
 
-  return (
-  <div>
-
+/* previous code 
           <header style={{ textAlign: 'center', color: '#083fcb' }}>
             <h1 style = {{fontSize: '3rem'}}>
                Detailed Questions Page <HomeButton />
             </h1>
           </header>
+*/
 
-    <Questions/>
+  return (
+  <div>
+    <HashRouter>
+      <Routes>
+      <Route path="/" element={<Home/>}/>  
+      <Route path="/questions" element={<Questions/>} />
+      </Routes>
+    </HashRouter>
+
   
   </div>
   ); 
