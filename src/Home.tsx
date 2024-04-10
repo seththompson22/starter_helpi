@@ -1,7 +1,10 @@
-//import React, { useState } from 'react';
-//import logo from './logo.svg';
+import React, { useState } from 'react';
+import logo from './logo.svg';
 import './App.css';
 import { Button, Form } from 'react-bootstrap';
+import { ButtonToPages } from './ButtonToPages';
+//import { LocalLink } from './LocalLink';
+//import { HashRouter, Routes, Route } from 'react-router-dom';
 
 //local storage and API Key: key should be entered in by the user and will be stored in local storage (NOT session storage)
 let keyData = "";
@@ -11,7 +14,7 @@ if (prevKey !== null) {
   keyData = JSON.parse(prevKey);
 }
 
-function App() {
+export function Home() {
   const [key, setKey] = useState<string>(keyData); //for api key input
   
   //sets the local storage item to the api key the user inputed
@@ -43,6 +46,9 @@ function App() {
         </a>
         <p> Jordan Photis </p>
         <p>Seth Thompson</p>
+    
+        <hr></hr>
+            <ButtonToPages></ButtonToPages>
       </header>
       <Form>
         <Form.Label>API Key:</Form.Label>
@@ -60,4 +66,4 @@ function App() {
   );
 }
 
-export default App;
+export default Home;
