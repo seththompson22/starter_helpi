@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { Button, Col, Container, Form, Row } from 'react-bootstrap';
-import './Questions.css'; // Import CSS file
+import './DetailedQuestions.css'; // Import CSS file
+import HomeButton from './homeButton';
 
-function Questions() {
+function DetailedQuestions() {
   const [key, setKey] = useState<string>('');
 
   const handleSubmit = () => {
@@ -17,6 +18,11 @@ function Questions() {
   return (
     <div className="Questions">
       {/* HEADER FOR DQ PAGE */}
+      <header style={{ textAlign: 'center', color: '#083fcb' }}>
+              <h1 style={{ fontSize: '3rem' }}>
+                 Detailed Questions Page <HomeButton />
+              </h1>
+            </header>
 
 
       <Container>
@@ -141,4 +147,4 @@ function Questions() {
   );
 }
 
-export default Questions;
+export default DetailedQuestions;
