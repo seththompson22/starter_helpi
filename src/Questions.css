@@ -1,32 +1,27 @@
 /* Questions.css */
 
-.DQPage {
+.Questions {
     font-family: Arial, sans-serif;
-    color: #333;
+    color: #083fcb;
+    text-align: center; /* Center the content */
   }
   
-  .DQPage header {
-    text-align: center;
+  .Questions header {
     margin-bottom: 40px;
   }
   
-  .DQPage h1 {
+  .Questions h1 {
     font-size: 2.5rem;
   }
   
-  .DQPage .form-group {
-    margin-bottom: 20px;
+  .question-label {
+    font-size: 2.5rem; /* Increase font size for question labels */
   }
   
-  .DQPage .Submit-Button {
-    margin-top: 20px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    background-color: #007bff;
-    border-color: #007bff;
-    color: #fff;
+  .answer-input {
+    font-size: 1.75rem; /* Increase font size for answer inputs */
+    width: 30%; /* Make answer inputs full width */
   }
-  
-  /* Additional styles can be added here */
-  
+  .question-space {
+    margin-bottom: 30px; /* Add margin-bottom to create space between questions */
+  }    
