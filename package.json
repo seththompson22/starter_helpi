@@ -1,6 +1,5 @@
 {
   "name": "starter_helpi",
-  "homepage": "https://seththompson22.github.io/starter_helpi/#",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -50,5 +49,6 @@
   },
   "devDependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11"
-  }
+  },
+  "homepage": "https://seththompson22.github.io/starter_helpi/#"
 }
