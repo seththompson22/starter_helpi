@@ -11,13 +11,13 @@ export function NavigationBar() {
       <header>
         <ul>
           <li>
-            <a href="/">Home</a>
+            <a href="starter_helpi/">Home</a>
           </li>
           <li>
-            <a href="/#/LocalLink">Detailed Questions Page</a>
+            <a href="starter_helpi/#/LocalLink">Detailed Questions Page</a>
           </li>
           <li>
-            <a href="/#/BasicQuestions">Basic Question Page</a>
+            <a href="starter_helpi/#/BasicQuestions">Basic Question Page</a>
           </li>
         </ul>
       </header>
