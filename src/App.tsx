@@ -7,6 +7,7 @@ import logo from "./logo.svg";
 import { HashRouter, Route, Routes } from 'react-router-dom';
 import Home from './Home';
 import DetailedQuestions from './DetailedQuestions';
+import ResponsePage from './ResponsePage'; // Import the ResponsePage component
 
 //local storage and API Key: key should be entered in by the user and will be stored in local storage (NOT session storage)
 let keyData = "";
@@ -34,8 +35,9 @@ function App() {
   <Routes>
     <Route path = "/" element = {<Home/>} />
     <Route path = "/DetailedQuestions" element = {<DetailedQuestions/>} />
-    
+    <Route path = "/ResponsePage" element = {<ResponsePage/>} />
   </Routes>
+  
 </HashRouter>
   );
 }
