@@ -3,21 +3,28 @@
 > react-scripts test --coverage
 
 PASS src/App.test.tsx
-  ✓ renders learn react link (43 ms)
+  ✓ renders learn react link (45 ms)
 
---------------------|---------|----------|---------|---------|-------------------
-File                | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
---------------------|---------|----------|---------|---------|-------------------
-All files           |   33.33 |    16.66 |    37.5 |   33.33 |                   
- App.tsx            |     100 |      100 |     100 |     100 |                   
- ButtonToPages.tsx  |     100 |      100 |     100 |     100 |                   
- Home.tsx           |      60 |       50 |   33.33 |      60 | 14,22-28          
- LocalLink.tsx      |       0 |      100 |       0 |       0 | 13                
- index.tsx          |       0 |      100 |     100 |       0 | 7-19              
- reportWebVitals.ts |       0 |        0 |       0 |       0 | 3-10              
---------------------|---------|----------|---------|---------|-------------------
+--------------------------------|---------|----------|---------|---------|-------------------
+File                            | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
+--------------------------------|---------|----------|---------|---------|-------------------
+All files                       |   27.27 |    16.66 |   28.57 |   27.27 |                   
+ src                            |    8.33 |        0 |   33.33 |    8.33 |                   
+  App.tsx                       |     100 |      100 |     100 |     100 |                   
+  index.tsx                     |       0 |      100 |     100 |       0 | 7-19              
+  reportWebVitals.ts            |       0 |        0 |       0 |       0 | 3-10              
+ src/components                 |     100 |      100 |     100 |     100 |                   
+  ButtonToPages.tsx             |     100 |      100 |     100 |     100 |                   
+  NavigationBar.tsx             |     100 |      100 |     100 |     100 |                   
+ src/pages                      |      40 |       50 |   16.66 |      40 |                   
+  BasicQuestions.tsx            |       0 |      100 |       0 |       0 | 12-53             
+  Home.tsx                      |      60 |       50 |   33.33 |      60 | 15,23-29          
+  LocalLink.tsx                 |       0 |      100 |       0 |       0 | 10                
+ src/question-format-components |       0 |      100 |       0 |       0 |                   
+  MultipleChoiceQuestion.tsx    |       0 |      100 |       0 |       0 | 14-24             
+--------------------------------|---------|----------|---------|---------|-------------------
 Test Suites: 1 passed, 1 total
 Tests:       1 passed, 1 total
 Snapshots:   0 total
-Time:        2.252 s
+Time:        2.304 s
 Ran all test suites.
