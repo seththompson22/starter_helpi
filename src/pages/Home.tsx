@@ -46,6 +46,7 @@ export function Home() {
         </a>
         <p> Jordan Photis </p>
         <p>Seth Thompson</p>
+    
         <hr></hr>
         <ButtonToPages></ButtonToPages>
       </header>
