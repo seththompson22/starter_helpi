@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import logo from "../styles/logo.svg";
 import "../styles/App.css";
 import { Button, Form } from "react-bootstrap";
 import { ButtonToPages } from "../components/ButtonToPages";
@@ -32,7 +31,6 @@ export function Home() {
     <div className="App">
       <NavigationBar></NavigationBar>
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
         <p>
           <code>Matthew Holinger</code>
         </p>
@@ -46,7 +44,7 @@ export function Home() {
         </a>
         <p> Jordan Photis </p>
         <p>Seth Thompson</p>
-    
+
         <hr></hr>
         <ButtonToPages></ButtonToPages>
       </header>
