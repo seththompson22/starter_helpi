@@ -1,13 +1,14 @@
 //import React, { useState } from 'react';
-//import logo from './logo.svg';
-import { useState } from 'react';
-import './App.css';
-import { Button, Form } from 'react-bootstrap';
-import logo from "./logo.svg";
-import { HashRouter, Route, Routes } from 'react-router-dom';
-import Home from './Home';
-import DetailedQuestions from './DetailedQuestions';
-import ResponsePage from './ResponsePage'; // Import the ResponsePage component
+import "./styles/App.css";
+//import { Button, Form } from 'react-bootstrap';
+//import { ButtonToPages } from './ButtonToPages';
+import { LocalLink } from "./pages/DetailedQuestions";
+import { Home } from "./pages/Home";
+import { SignUp } from "./pages/SignUp";
+import { Login } from "./pages/Login";
+
+import { HashRouter, Routes, Route } from "react-router-dom";
+import BasicQuestions from "./pages/BasicQuestions";
 
 //local storage and API Key: key should be entered in by the user and will be stored in local storage (NOT session storage)
 let keyData = "";
@@ -31,14 +32,16 @@ function App() {
     setKey(event.target.value);
   }
   return (
-<HashRouter>
-  <Routes>
-    <Route path = "/" element = {<Home/>} />
-    <Route path = "/DetailedQuestions" element = {<DetailedQuestions/>} />
-    <Route path = "/ResponsePage" element = {<ResponsePage/>} />
-  </Routes>
-  
-</HashRouter>
+    <HashRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/starter_helpi" element={<Home />} />
+        <Route path="/DetailedQuestions" element={<LocalLink />} />
+        <Route path="/BasicQuestions" element={<BasicQuestions />} />
+        <Route path="/signup" element={<SignUp />} />
+        <Route path="/login" element={<Login />} />
+      </Routes>
+    </HashRouter>
   );
 }
 
