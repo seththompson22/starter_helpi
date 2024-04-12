@@ -13,12 +13,10 @@ function App() {
   return (
     <HashRouter>
       <Routes>
-        <Route path="starter_helpi/" element={<Home />} />
-        <Route path="starter_helpi/#/LocalLink" element={<LocalLink />} />
-        <Route
-          path="starter_helpi/#/BasicQuestions"
-          element={<BasicQuestions />}
-        />
+        <Route path="/" element={<Home />} />
+        <Route path="/starter_helpi" element={<Home />} />
+        <Route path="/LocalLink" element={<LocalLink />} />
+        <Route path="/BasicQuestions" element={<BasicQuestions />} />
       </Routes>
     </HashRouter>
   );
