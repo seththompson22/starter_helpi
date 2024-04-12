@@ -1,6 +1,7 @@
 //import React, { useState } from 'react';
 import logo from "../styles/logo.svg";
-import "../styles/App.css";
+import "../styles/BasicQuestions.css";
+import NavigationBar from "../components/NavigationBar";
 //import { Button, Form } from 'react-bootstrap';
 //import { ButtonToPages } from './ButtonToPages';
 
@@ -9,12 +10,11 @@ export function LocalLink() {
 
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          <code>Matthew Holinger</code>
-        </p>
-      </header>
+      <NavigationBar></NavigationBar>
+      <img src={logo} className="App-logo" alt="logo" />
+      <p>
+        <code>Matthew Holinger</code>
+      </p>
     </div>
   );
 }
