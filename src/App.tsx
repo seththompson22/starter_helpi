@@ -3,7 +3,7 @@
 import "./styles/App.css";
 //import { Button, Form } from 'react-bootstrap';
 //import { ButtonToPages } from './ButtonToPages';
-import { LocalLink } from "./pages/LocalLink";
+import { LocalLink } from "./pages/DetailedQuestions";
 import { Home } from "./pages/Home";
 
 import { HashRouter, Routes, Route } from "react-router-dom";
@@ -15,7 +15,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/starter_helpi" element={<Home />} />
-        <Route path="/LocalLink" element={<LocalLink />} />
+        <Route path="/DetailedQuestions" element={<LocalLink />} />
         <Route path="/BasicQuestions" element={<BasicQuestions />} />
       </Routes>
     </HashRouter>
