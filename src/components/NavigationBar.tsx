@@ -10,17 +10,27 @@ export function NavigationBar() {
     <div>
       <header>
         <ul>
-          <li>
-            <a href="/starter_helpi">Home</a>
-          </li>
-          <li>
-            <a href="/starter_helpi/#/DetailedQuestions">
-              Detailed Questions Page
-            </a>
-          </li>
-          <li>
-            <a href="/starter_helpi/#/BasicQuestions">Basic Question Page</a>
-          </li>
+          <div className="left-links">
+            <li>
+              <a href="/starter_helpi">Home</a>
+            </li>
+            <li>
+              <a href="/starter_helpi/#/DetailedQuestions">
+                Detailed Questions Page
+              </a>
+            </li>
+            <li>
+              <a href="/starter_helpi/#/BasicQuestions">Basic Question Page</a>
+            </li>
+          </div>
+          <div className="right-links">
+            <li>
+              <a href="/starter_help/#/signup">Sign Up</a>
+            </li>
+            <li>
+              <a href="/starter_help/#/login">Login</a>
+            </li>
+          </div>
         </ul>
       </header>
     </div>

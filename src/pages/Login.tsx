@@ -4,15 +4,15 @@ import NavigationBar from "../components/NavigationBar";
 //import { Button, Form } from 'react-bootstrap';
 //import { ButtonToPages } from './ButtonToPages';
 
-export function LocalLink() {
+export function Login() {
   //whenever there's a change it'll store the api key in a local state called key but it won't be set in the local storage until the user clicks the submit button
 
   return (
     <div className="App">
       <NavigationBar></NavigationBar>
-      <h1>Detailed Questions Page</h1>
+      <p>login</p>
     </div>
   );
 }
 
-export default LocalLink;
+export default Login;

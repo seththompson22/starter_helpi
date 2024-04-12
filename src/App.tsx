@@ -5,6 +5,8 @@ import "./styles/App.css";
 //import { ButtonToPages } from './ButtonToPages';
 import { LocalLink } from "./pages/DetailedQuestions";
 import { Home } from "./pages/Home";
+import { SignUp } from "./pages/SignUp";
+import { Login } from "./pages/Login";
 
 import { HashRouter, Routes, Route } from "react-router-dom";
 import BasicQuestions from "./pages/BasicQuestions";
@@ -17,6 +19,8 @@ function App() {
         <Route path="/starter_helpi" element={<Home />} />
         <Route path="/DetailedQuestions" element={<LocalLink />} />
         <Route path="/BasicQuestions" element={<BasicQuestions />} />
+        <Route path="/signup" element={<SignUp />} />
+        <Route path="/login" element={<Login />} />
       </Routes>
     </HashRouter>
   );
