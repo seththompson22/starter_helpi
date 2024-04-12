@@ -1,10 +1,33 @@
 import React, { useState } from "react";
 import { Button, Col, Container, Form, Row } from "react-bootstrap";
-import "../styles/DetailedQuestions.css"; // Import CSS file
+import "../styles/BasicQuestions.css"; // Import CSS file
 import NavigationBar from "../components/NavigationBar";
 
 function DetailedQuestions() {
   const [key, setKey] = useState<string>("");
+
+  const questionOptions = [
+    "Do you enjoy working with your hands and creating tangible objects or structures?",
+    "Do you thrive in environments where you can interact with people frequently?",
+    "Do you prefer working independently rather than in a team setting?",
+    "Are you passionate about helping others and making a positive impact on their lives?",
+    "Do you enjoy analyzing data, solving problems, and finding innovative solutions?",
+    "Are you comfortable with uncertainty and adapting to changes in your work environment?",
+    "Do you have a strong interest in technology and enjoy keeping up with the latest advancements?",
+    "Are you drawn to roles that involve creativity and expressing yourself artistically?",
+    "Do you prefer working in a structured and organized environment with clear guidelines?",
+    "Do you value work-life balance and prioritize your personal time outside of work?",
+    "Are you motivated by financial rewards and opportunities for career advancement?",
+    "Do you enjoy learning new skills and concepts, even if they are outside of your current expertise?",
+    "Are you comfortable taking risks and stepping out of your comfort zone to pursue opportunities?",
+    "Do you prefer a job that allows you to travel and experience different cultures?",
+    "Do you value job security and prefer roles with stable employment prospects?",
+    "Do you enjoy leading and guiding others in achieving common goals?",
+    "Do you prioritize environmental sustainability and seek career paths that align with this value?",
+    "Are you interested in roles that allow you to be entrepreneurial and create your own opportunities?",
+    "Do you prefer working in fast-paced environments where there's always something new happening?",
+    "Do you value autonomy and independence in your work decisions and tasks?",
+  ];
 
   const handleSubmit = () => {
     localStorage.setItem("MYKEY", JSON.stringify(key));
@@ -16,123 +39,125 @@ function DetailedQuestions() {
   };
 
   return (
-    <div>
+    <div className="detailed-q-page">
       <NavigationBar></NavigationBar>
-      <div className="Questions">
-        {/* HEADER FOR DQ PAGE */}
-        <header style={{ textAlign: "center", color: "#083fcb" }}>
-          <h1 style={{ fontSize: "3rem" }}>Detailed Questions Page</h1>
-        </header>
+      <h1 style={{ fontSize: "3rem" }}>Detailed Questions Page</h1>
+      <Form>
+        {questionOptions.map((question, index) => (
+          <Form.Group controlId={"question-" + (index + 1)}>
+            <Form.Label className="question-label">
+              Question #{index + 1}:
+            </Form.Label>
+            <Form.Control
+              type="text"
+              placeholder="Enter your answer"
+              onChange={handleChange}
+              className="answer-input" // Add class for answer input
+            />
+          </Form.Group>
+        ))}
 
-        <Container>
-          <Row className="justify-content-center">
+        {/* Add some space between questions */}
+        <div className="question-space"></div>
+      </Form>
+
+      <Container>
+        <Row className="justify-content-center">
+          {" "}
+          {/* Center the questions */}
+          <Col xs={12} md={6}>
             {" "}
-            {/* Center the questions */}
-            <Col xs={12} md={6}>
-              {" "}
-              {/* Adjust the column width for smaller screens */}
-              {/* Question 1 */}
-              <Form.Group controlId="question1">
-                <Form.Label className="question-label">Question #1:</Form.Label>
-                <Form.Control
-                  type="text"
-                  placeholder="Enter your answer"
-                  onChange={handleChange}
-                  className="answer-input" // Add class for answer input
-                />
-              </Form.Group>
-              {/* Add some space between questions */}
-              <div className="question-space"></div>
-              {/* Question 2 */}
-              <Form.Group controlId="question2">
-                <Form.Label className="question-label">Question #2:</Form.Label>
-                <Form.Control
-                  type="text"
-                  placeholder="Enter your answer"
-                  onChange={handleChange}
-                  className="answer-input" // Add class for answer input
-                />
-              </Form.Group>
-              {/* Add some space between questions */}
-              <div className="question-space"></div>
-              {/* Question 3 */}
-              <Form.Group controlId="question3">
-                <Form.Label className="question-label">Question #3:</Form.Label>
-                <Form.Control
-                  type="text"
-                  placeholder="Enter your answer"
-                  onChange={handleChange}
-                  className="answer-input" // Add class for answer input
-                />
-              </Form.Group>
-              {/* Add some space between questions */}
-              <div className="question-space"></div>
-              {/* Question 4 */}
-              <Form.Group controlId="question4">
-                <Form.Label className="question-label">Question #4:</Form.Label>
-                <Form.Control
-                  type="text"
-                  placeholder="Enter your answer"
-                  onChange={handleChange}
-                  className="answer-input" // Add class for answer input
-                />
-              </Form.Group>
-              {/* Add some space between questions */}
-              <div className="question-space"></div>
-              {/* Question 5 */}
-              <Form.Group controlId="question5">
-                <Form.Label className="question-label">Question #5:</Form.Label>
-                <Form.Control
-                  type="text"
-                  placeholder="Enter your answer"
-                  onChange={handleChange}
-                  className="answer-input" // Add class for answer input
-                />
-              </Form.Group>
-              {/* Add some space between questions */}
-              <div className="question-space"></div>
-              {/* Question 6 */}
-              <Form.Group controlId="question6">
-                <Form.Label className="question-label">Question #6:</Form.Label>
-                <Form.Control
-                  type="text"
-                  placeholder="Enter your answer"
-                  onChange={handleChange}
-                  className="answer-input" // Add class for answer input
-                />
-              </Form.Group>
-              {/* Add some space between questions */}
-              <div className="question-space"></div>
-              {/* Question 7 */}
-              <Form.Group controlId="question7">
-                <Form.Label className="question-label">Question #7:</Form.Label>
-                <Form.Control
-                  type="text"
-                  placeholder="Enter your answer"
-                  onChange={handleChange}
-                  className="answer-input" // Add class for answer input
-                />
-              </Form.Group>
-              {/* Add some space between questions */}
-              <div className="question-space"></div>
-              {/* Question 8 */}
-              <Form.Group controlId="question8">
-                <Form.Label className="question-label">Question #8:</Form.Label>
-                <Form.Control
-                  type="text"
-                  placeholder="Enter your answer"
-                  onChange={handleChange}
-                  className="answer-input" // Add class for answer input
-                />
-              </Form.Group>
-            </Col>
-          </Row>
-        </Container>
+            {/* Adjust the column width for smaller screens */}
+            {/* Question 1 */}
+            {/* Question 2 */}
+            <Form.Group controlId="question2">
+              <Form.Label className="question-label">Question #2:</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Enter your answer"
+                onChange={handleChange}
+                className="answer-input" // Add class for answer input
+              />
+            </Form.Group>
+            {/* Add some space between questions */}
+            <div className="question-space"></div>
+            {/* Question 3 */}
+            <Form.Group controlId="question3">
+              <Form.Label className="question-label">Question #3:</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Enter your answer"
+                onChange={handleChange}
+                className="answer-input" // Add class for answer input
+              />
+            </Form.Group>
+            {/* Add some space between questions */}
+            <div className="question-space"></div>
+            {/* Question 4 */}
+            <Form.Group controlId="question4">
+              <Form.Label className="question-label">Question #4:</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Enter your answer"
+                onChange={handleChange}
+                className="answer-input" // Add class for answer input
+              />
+            </Form.Group>
+            {/* Add some space between questions */}
+            <div className="question-space"></div>
+            {/* Question 5 */}
+            <Form.Group controlId="question5">
+              <Form.Label className="question-label">Question #5:</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Enter your answer"
+                onChange={handleChange}
+                className="answer-input" // Add class for answer input
+              />
+            </Form.Group>
+            {/* Add some space between questions */}
+            <div className="question-space"></div>
+            {/* Question 6 */}
+            <Form.Group controlId="question6">
+              <Form.Label className="question-label">Question #6:</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Enter your answer"
+                onChange={handleChange}
+                className="answer-input" // Add class for answer input
+              />
+            </Form.Group>
+            {/* Add some space between questions */}
+            <div className="question-space"></div>
+            {/* Question 7 */}
+            <Form.Group controlId="question7">
+              <Form.Label className="question-label">Question #7:</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Enter your answer"
+                onChange={handleChange}
+                className="answer-input" // Add class for answer input
+              />
+            </Form.Group>
+            {/* Add some space between questions */}
+            <div className="question-space"></div>
+            {/* Question 8 */}
+            <Form.Group controlId="question8">
+              <Form.Label className="question-label">Question #8:</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Enter your answer"
+                onChange={handleChange}
+                className="answer-input" // Add class for answer input
+              />
+            </Form.Group>
+          </Col>
+        </Row>
+      </Container>
 
-        <Button className="Submit-Button" onClick={handleSubmit}>
-          Submit Answers
-        </Button>
-      </div>
+      <Button className="Submit-Button" onClick={handleSubmit}>
+        Submit Answers
+      </Button>
     </div>
   );
 }
