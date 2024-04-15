@@ -2,6 +2,7 @@
   "name": "starter_helpi",
   "homepage": "https://seththompson22.github.io/starter_helpi/#",
   "version": "0.1.0",
+  "type": "module",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
