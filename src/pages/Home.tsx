@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import logo from "../styles/logo.svg";
 import "../styles/App.css";
 import { Button, Form } from "react-bootstrap";
-import { ButtonToPages } from "../components/ButtonToPages";
 import NavigationBar from "../components/NavigationBar";
+import HeroSection from "../components/HeroSection";
+import ChooseYourPathSection from "../components/ChooseYourPathSection";
 //import { LocalLink } from './LocalLink';
 //import { HashRouter, Routes, Route } from 'react-router-dom';
 
@@ -31,26 +31,12 @@ export function Home() {
   return (
     <div className="App">
       <NavigationBar></NavigationBar>
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          <code>Matthew Holinger</code>
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-        <p> Jordan Photis </p>
-        <p>Seth Thompson</p>
-    
-        <hr></hr>
-        <ButtonToPages></ButtonToPages>
-      </header>
-      <Form>
+      <div className="content">
+        <HeroSection sectionToScroll="choose-path-section" />
+        <ChooseYourPathSection />
+      </div>
+
+      <Form className="API-key">
         <Form.Label>API Key:</Form.Label>
         <Form.Control
           type="password"
