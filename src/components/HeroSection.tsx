@@ -17,10 +17,9 @@ function HeroSection({
       </video>
       <h1>NAVIGATE YOUR CAREER JOURNEY</h1>
       <p>
-        Ready to discover your ideal career path? Harness the power of
-        artificial intelligence with ChatGPT. Take our interactive career quiz
-        and receive a personalized career report powered by cutting-edge AI
-        technology.
+        Discover your path to success today. Take our interactive career quiz
+        and unlock personalized insights tailored just for you. Let's start your
+        journey together!
       </p>
       <ScrollToSectionButton
         className="hero-btn"
