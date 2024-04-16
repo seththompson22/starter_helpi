@@ -53,25 +53,27 @@ li a {
 /* Change the link color to #111 (black) on hover */
 li a:hover {
   border: 2.5px solid var(--black-color);
+  background-color: var(--white-color);
   border-radius: 5px;
   margin: 0px 3px 0px 3px;
 }
 
 .inverted-btn {
-  border: 2.5px solid var(--black-color);
-  border-radius: 5px;
+  background-color: var(--whtie-color);
   margin: 0px 3px 0px 3px;
+  border-radius: 5px;
+  border: 2.5px solid var(--black-color);
+
 }
 
 .inverted-btn:hover {
-  border: none;
-  margin: 2.5px 5.5px 2.5px 5.5px;
-  background-color: var(--black-color);
-  color: var(--white-color);
+  margin: 0px 3px 0px 3px;
+  background-color: var(--accent-color);
 }
 
+
 li a:visited {
-  color: var(--black-color);
+  color: inherit;
 }
 
 .active {

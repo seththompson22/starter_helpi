@@ -32,7 +32,7 @@ export function Home() {
     <div className="App">
       <NavigationBar></NavigationBar>
       <div className="content">
-        <HeroSection />
+        <HeroSection sectionToScroll="choose-path-section" />
         <ChooseYourPathSection />
       </div>
 

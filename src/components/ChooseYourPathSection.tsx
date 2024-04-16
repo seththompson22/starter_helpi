@@ -3,7 +3,7 @@ import "../styles/ChooseYourPathSection.css";
 
 function ChooseYourPathSection() {
   return (
-    <div className="path-section">
+    <div className="path-section" id="choose-path-section">
       <h1 className="path-title">CHOOSE YOUR PATH</h1>
     </div>
   );
