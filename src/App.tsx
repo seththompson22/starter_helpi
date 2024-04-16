@@ -9,6 +9,7 @@ import { Login } from "./pages/Login";
 
 import { HashRouter, Routes, Route } from "react-router-dom";
 import BasicQuestions from "./pages/BasicQuestions";
+import { useState } from "react";
 
 //local storage and API Key: key should be entered in by the user and will be stored in local storage (NOT session storage)
 let keyData = "";
