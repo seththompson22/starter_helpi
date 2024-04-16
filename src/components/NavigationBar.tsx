@@ -16,11 +16,11 @@ export function NavigationBar() {
             </li>
             <li>
               <a href="/starter_helpi/#/DetailedQuestions">
-                Detailed Questions Page
+                Detailed Career Quiz
               </a>
             </li>
             <li>
-              <a href="/starter_helpi/#/BasicQuestions">Basic Question Page</a>
+              <a href="/starter_helpi/#/BasicQuestions">Basic Career Quiz</a>
             </li>
           </div>
           <div className="right-links">

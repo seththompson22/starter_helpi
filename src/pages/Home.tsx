@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "../styles/App.css";
 import { Button, Form } from "react-bootstrap";
 import NavigationBar from "../components/NavigationBar";
+import HeroSection from "../components/HeroSection";
 //import { LocalLink } from './LocalLink';
 //import { HashRouter, Routes, Route } from 'react-router-dom';
 
@@ -29,7 +30,9 @@ export function Home() {
   return (
     <div className="App">
       <NavigationBar></NavigationBar>
-      <div className="content">Content</div>
+      <div className="content">
+        <HeroSection />
+      </div>
 
       <Form className="API-key">
         <Form.Label>API Key:</Form.Label>

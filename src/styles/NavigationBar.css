@@ -9,9 +9,6 @@ ul {
   position: fixed;
   top: 0;
   width: 100%;
-}
-
-ul {
   display: grid;
   column-gap: 50px;
   grid-template-columns: auto auto;
@@ -24,6 +21,7 @@ ul {
 
 .right-links {
  justify-self: end;
+ padding-right: 20px;
 }
 
 li {
