@@ -3,6 +3,7 @@ import "../styles/App.css";
 import { Button, Form } from "react-bootstrap";
 import NavigationBar from "../components/NavigationBar";
 import HeroSection from "../components/HeroSection";
+import ChooseYourPathSection from "../components/ChooseYourPathSection";
 //import { LocalLink } from './LocalLink';
 //import { HashRouter, Routes, Route } from 'react-router-dom';
 
@@ -32,6 +33,7 @@ export function Home() {
       <NavigationBar></NavigationBar>
       <div className="content">
         <HeroSection />
+        <ChooseYourPathSection />
       </div>
 
       <Form className="API-key">

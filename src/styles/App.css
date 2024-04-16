@@ -2,14 +2,14 @@
   display: none;
 }
 
-.App {
-  text-align: center;
-  padding: 0;
-  margin: 0;
-}
+:root { 
+  --white-color: #E2E0DE; 
+  --black-color: #100c08; 
+  --accent-color: #b07939;
+} 
+
 
 .content {
-  /* background-color: #282c34; */
   margin-top: 74px;
   min-height: 100vh;
   display: flex;

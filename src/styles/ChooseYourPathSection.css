@@ -1,0 +1,6 @@
+.path-section {
+    height: 100vh;
+    width: 100%;
+    background-color: var(--black-color);
+    z-index: 1;
+}
