@@ -5,12 +5,10 @@ import './App.css';
 import { Button, Form } from 'react-bootstrap';
 import logo from "./logo.svg";
 import { HashRouter, Route, Routes } from 'react-router-dom';
-import Home from './Home';
-import DetailedQuestions from './DetailedQuestions';
+import Home from './pages/Home';
+import DetailedQuestions from './pages/DetailedQuestions';
 import ResponsePage from './ResponsePage'; // Import the ResponsePage component
 import React from 'react';
-import ProgressBar from './progressBar'; // Import the ProgressBar component
-
 
 //local storage and API Key: key should be entered in by the user and will be stored in local storage (NOT session storage)
 let keyData = "";
@@ -21,34 +19,6 @@ if (prevKey !== null) {
 }
 
 function App() {
-
-  const [showText, setShowText] = useState(false); // State to manage text visibility
-  const [apiResponse, setApiResponse] = useState(""); // State to store API response
-
-  const toggleText = () => {
-    setShowText(!showText);
-  };
-  const apiText = async () => {
-    const apiText = async () => {
-      console.log('apiText function called');
-      try {
-        // API request code
-      } catch (error) {
-        console.error('Error fetching API data:', error);
-      }
-    };
-    try {
-      const response = await fetch('http://localhost:3017/generate-rap');
-      if (!response.ok) {
-        throw new Error('Failed to fetch API data');
-      }
-      const data = await response.text(); // Adjust this line based on API response format
-      setApiResponse(data); // Update state with API response
-    } catch (error) {
-      console.error('Error fetching API data:', error);
-    }
-  };
-
   const [key, setKey] = useState<string>(keyData); //for api key input
   
   //sets the local storage item to the api key the user inputed
@@ -62,23 +32,14 @@ function App() {
     setKey(event.target.value);
   }
   return (
-    <div className="App">
-    <button onClick={apiText}>Generate Rap</button>
-      {apiResponse && <p>{apiResponse}</p>} {/* Display API response if available */}
 <HashRouter>
   <Routes>
     <Route path = "/" element = {<Home/>} />
     <Route path = "/DetailedQuestions" element = {<DetailedQuestions/>} />
     <Route path = "/ResponsePage" element = {<ResponsePage/>} />
-    <Route path = "/progressBar" element = {<ProgressBar totalQuestions={0} answeredQuestions={0}/>} />
-
   </Routes>
   
 </HashRouter>
-
-
-</div>
-
   );
 }
 
