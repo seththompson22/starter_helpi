@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import { Button } from "react-bootstrap";
 
-import {openai} from "./Home"
+import {openai} from "../pages/Home"
 
 export function Counter(): JSX.Element {
   function inputAPI() {
