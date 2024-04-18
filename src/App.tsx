@@ -1,7 +1,7 @@
 //import React, { useState } from 'react';
 //import logo from './logo.svg';
 import { useState } from 'react';
-import './App.css';
+import './styles/App.css';
 import { Button, Form } from 'react-bootstrap';
 import logo from "./logo.svg";
 import { HashRouter, Route, Routes } from 'react-router-dom';
@@ -9,6 +9,8 @@ import Home from './pages/Home';
 import DetailedQuestions from './pages/DetailedQuestions';
 import ResponsePage from './ResponsePage'; // Import the ResponsePage component
 import React from 'react';
+import ProgressBar from './components/progressBar'; // Import the ProgressBar component
+
 
 //local storage and API Key: key should be entered in by the user and will be stored in local storage (NOT session storage)
 let keyData = "";
@@ -37,6 +39,7 @@ function App() {
     <Route path = "/" element = {<Home/>} />
     <Route path = "/DetailedQuestions" element = {<DetailedQuestions/>} />
     <Route path = "/ResponsePage" element = {<ResponsePage/>} />
+    <Route path = "progressBar" element  = {<ProgressBar totalQuestions={10} answeredQuestions={5}/>} />
   </Routes>
   
 </HashRouter>

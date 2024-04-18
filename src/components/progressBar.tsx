@@ -1,6 +1,6 @@
 // ProgressBar.tsx
 import React from 'react';
-import './ProgressBar.css'; // Import CSS for styling
+import '../styles/progressBar.css'; // Import CSS for styling
 
 interface ProgressBarProps {
   totalQuestions: number; // Total number of questions in the quiz
