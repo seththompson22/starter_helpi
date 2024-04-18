@@ -1,30 +1,11 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rap Generator</title>
+  <title>API Testing site</title>
 </head>
 <body>
-  <h1>Rap Generator</h1>
-  <button id="generateRapButton">Generate Rap</button>
-  <div id="rapOutput"></div> <!-- Add a <div> to display the generated rap --> <div>
-
-  <script>
-    document.getElementById('generateRapButton').addEventListener('click', async () => {
-      try {
-        const response = await fetch('/generate-rap');
-        if (!response.ok) {
-          throw new Error('Failed to generate rap');
-        }
-        const rap = await response.text();
-        console.log(rap); // Log the rap text to the browser console
-        document.getElementById('rapOutput').textContent = rap; // Update the <div> with the rap text
-      } catch (error) {
-        console.error('Error generating rap:', error);
-      }
-    });
-  </script>
+  <div id="root"></div> <!-- This is where your React application will be mounted -->
 </body>
 </html>
