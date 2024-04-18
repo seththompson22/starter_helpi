@@ -4,6 +4,7 @@ import "../App";
 import "../styles/BasicQuestions.css";
 import { MultipleChoiceQuestion } from "../question-format-components/MultipleChoiceQuestion";
 import NavigationBar from "../components/NavigationBar";
+import React from "react";
 //import { Button, Form } from 'react-bootstrap';
 //import { ButtonToPages } from './ButtonToPages';
 
