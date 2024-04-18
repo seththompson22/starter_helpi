@@ -9,6 +9,8 @@ import Home from './Home';
 import DetailedQuestions from './DetailedQuestions';
 import ResponsePage from './ResponsePage'; // Import the ResponsePage component
 import React from 'react';
+import ProgressBar from './progressBar'; // Import the ProgressBar component
+
 
 //local storage and API Key: key should be entered in by the user and will be stored in local storage (NOT session storage)
 let keyData = "";
@@ -68,6 +70,8 @@ function App() {
     <Route path = "/" element = {<Home/>} />
     <Route path = "/DetailedQuestions" element = {<DetailedQuestions/>} />
     <Route path = "/ResponsePage" element = {<ResponsePage/>} />
+    <Route path = "/progressBar" element = {<ProgressBar totalQuestions={0} answeredQuestions={0}/>} />
+
   </Routes>
   
 </HashRouter>
