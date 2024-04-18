@@ -6,6 +6,12 @@ interface ProgressBarProps {
   totalQuestions: number; // Total number of questions in the quiz
   answeredQuestions: number; // Number of questions answered by the user
 }
+// Define the type for ProgressBarProps
+interface ProgressBarProps {
+  totalQuestions: number;
+  answeredQuestions: number;
+}
+
 
 const ProgressBar: React.FC<ProgressBarProps> = ({ totalQuestions, answeredQuestions }) => {
   // Calculate the percentage of completion
