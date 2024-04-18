@@ -64,6 +64,3 @@ export function BasicQuestions() {
 }
 
 export default BasicQuestions;
-
-
-// <Counter></Counter>
