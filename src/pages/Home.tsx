@@ -5,7 +5,7 @@ import NavigationBar from "../components/NavigationBar";
 import OpenAI from "openai";
 import HeroSection from "../components/HeroSection";
 import ChooseYourPathSection from "../components/ChooseYourPathSection";
-import { Counter } from "./APIButton";
+import { Counter } from "../components/APIButton";
 //import { LocalLink } from './LocalLink';
 //import { HashRouter, Routes, Route } from 'react-router-dom';
 
