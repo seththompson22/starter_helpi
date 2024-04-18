@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { Button } from "react-bootstrap";
 
 import OpenAI from "openai";
+/*
 
 const openai = new OpenAI();
 
@@ -30,3 +31,4 @@ export function Counter(): JSX.Element {
       </div>
     );
 }
+*/

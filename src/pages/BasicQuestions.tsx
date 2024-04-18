@@ -4,7 +4,7 @@ import "../App";
 import "../styles/BasicQuestions.css";
 import { MultipleChoiceQuestion } from "../question-format-components/MultipleChoiceQuestion";
 import NavigationBar from "../components/NavigationBar";
-import { Counter } from "./APIButton";
+//import { Counter } from "./APIButton";
 //import { Button, Form } from 'react-bootstrap';
 //import { ButtonToPages } from './ButtonToPages';
 
@@ -46,7 +46,7 @@ export function BasicQuestions() {
       <NavigationBar></NavigationBar>
       <h1 className="basic-q-title">Basic Question Career Quiz</h1>
       <p className="basic-q-desc">Basic Question Career Quiz Description</p>
-      <Counter></Counter>
+      
       <Form>
         {/* plan is to:
         DONE  - modify MultipleChoiceQuestion to be able to enter the question name into a new field called question
@@ -64,3 +64,6 @@ export function BasicQuestions() {
 }
 
 export default BasicQuestions;
+
+
+// <Counter></Counter>
