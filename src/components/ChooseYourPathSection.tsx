@@ -9,12 +9,12 @@ function ChooseYourPathSection(): JSX.Element {
       <div className="path-options">
         <QuizPageCard
           title="Basic Questions Quiz"
-          description="description for pages"
+          description="Get quick insights into your potential career paths with our streamlined quiz. This quiz is designed to give you a broad overview of possible career directions based on your answers to a series of straightforward questions."
           link="/starter_helpi/#/BasicQuestions"
         />
         <QuizPageCard
           title="Detailed Questions Quiz"
-          description="description for pages"
+          description="Dive deep into your strengths, preferences, and interests for a comprehensive career analysis. This quiz offers in-depth questions and assessments to provide you with detailed insights into your potential career paths."
           link="/starter_helpi/#/DetailedQuestions"
         />
       </div>

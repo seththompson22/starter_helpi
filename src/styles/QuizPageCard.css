@@ -1,9 +1,6 @@
 .card {
     width: 500px;
     height: 400px;
-    align-items: center;
-    text-align: center;
-    justify-conent: center;
     background-image: radial-gradient(circle, var(--accent-color), var(--white-color));
     color: var(--black-color);
     padding: 10px;
@@ -17,9 +14,10 @@
 }
 
 .desc {
+    text-align: center;
     padding: 0px;
-    margin: 20px 0px;
-    width: 100%;
+    margin: 30px auto 10px auto;
+    width: 80%;
     height: 220px;
 }
 
