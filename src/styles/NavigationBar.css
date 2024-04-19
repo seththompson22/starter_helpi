@@ -46,6 +46,7 @@ li a {
   padding: 14px 16px;
   text-decoration: none;
   margin: 2.5px 5.5px 2.5px 5.5px;
+  color: var(--black-color);
 }
 
 
@@ -63,7 +64,6 @@ li a:hover {
   margin: 0px 3px 0px 3px;
   border-radius: 5px;
   border: 2.5px solid var(--black-color);
-
 }
 
 .inverted-btn:hover {
