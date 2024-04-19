@@ -3,7 +3,7 @@
 > react-scripts test --coverage
 
 FAIL src/App.test.tsx
-  ✕ renders learn react link (52 ms)
+  ✕ renders learn react link (56 ms)
 
   ● renders learn react link
 
@@ -27,20 +27,6 @@ FAIL src/App.test.tsx
                       [33mhref[39m=[32m"/starter_helpi"[39m
                     [36m>[39m
                       [0mJRNY[0m
-                    [36m</a>[39m
-                  [36m</li>[39m
-                  [36m<li>[39m
-                    [36m<a[39m
-                      [33mhref[39m=[32m"/starter_helpi/#/DetailedQuestions"[39m
-                    [36m>[39m
-                      [0mDetailed Career Quiz[0m
-                    [36m</a>[39m
-                  [36m</li>[39m
-                  [36m<li>[39m
-                    [36m<a[39m
-                      [33mhref[39m=[32m"/starter_helpi/#/BasicQuestions"[39m
-                    [36m>[39m
-                      [0mBasic Career Quiz[0m
                     [36m</a>[39m
                   [36m</li>[39m
                 [36m</div>[39m
@@ -106,6 +92,54 @@ FAIL src/App.test.tsx
               [36m>[39m
                 [0mCHOOSE YOUR PATH[0m
               [36m</h1>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"path-options"[39m
+              [36m>[39m
+                [36m<div[39m
+                  [33mclass[39m=[32m"card"[39m
+                [36m>[39m
+                  [36m<h2[39m
+                    [33mclass[39m=[32m"title"[39m
+                  [36m>[39m
+                    [0mBasic Questions Quiz[0m
+                  [36m</h2>[39m
+                  [36m<p[39m
+                    [33mclass[39m=[32m"desc"[39m
+                  [36m>[39m
+                    [0mGet quick insights into your potential career paths with our streamlined quiz. This quiz is designed to give you a broad overview of possible career directions based on your answers to a series of straightforward questions.[0m
+                  [36m</p>[39m
+                  [36m<button[39m
+                    [33mclass[39m=[32m"link-btn"[39m
+                    [33mtype[39m=[32m"button"[39m
+                  [36m>[39m
+                    [36m<strong>[39m
+                      [0mTake the Quiz[0m
+                    [36m</strong>[39m
+                  [36m</button>[39m
+                [36m</div>[39m
+                [36m<div[39m
+                  [33mclass[39m=[32m"card"[39m
+                [36m>[39m
+                  [36m<h2[39m
+                    [33mclass[39m=[32m"title"[39m
+                  [36m>[39m
+                    [0mDetailed Questions Quiz[0m
+                  [36m</h2>[39m
+                  [36m<p[39m
+                    [33mclass[39m=[32m"desc"[39m
+                  [36m>[39m
+                    [0mDive deep into your strengths, preferences, and interests for a comprehensive career analysis. This quiz offers in-depth questions and assessments to provide you with detailed insights into your potential career paths.[0m
+                  [36m</p>[39m
+                  [36m<button[39m
+                    [33mclass[39m=[32m"link-btn"[39m
+                    [33mtype[39m=[32m"button"[39m
+                  [36m>[39m
+                    [36m<strong>[39m
+                      [0mTake the Quiz[0m
+                    [36m</strong>[39m
+                  [36m</button>[39m
+                [36m</div>[39m
+              [36m</div>[39m
             [36m</div>[39m
           [36m</div>[39m
           [36m<form[39m
@@ -154,18 +188,19 @@ FAIL src/App.test.tsx
 --------------------------------|---------|----------|---------|---------|-------------------
 File                            | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 --------------------------------|---------|----------|---------|---------|-------------------
-All files                       |   21.81 |       10 |   23.07 |   21.81 |                   
+All files                       |    22.8 |       10 |      25 |    22.8 |                   
  src                            |    5.88 |        0 |   16.66 |    5.88 |                   
   App.tsx                       |     100 |      100 |     100 |     100 |                   
   ResponsePage.tsx              |       0 |        0 |       0 |       0 | 6-15              
   index.tsx                     |       0 |      100 |     100 |       0 | 7-19              
   reportWebVitals.ts            |       0 |        0 |       0 |       0 | 3-10              
   test.tsx                      |       0 |      100 |       0 |       0 | 13                
- src/components                 |   55.55 |        0 |   66.66 |   55.55 |                   
+ src/components                 |   54.54 |        0 |    62.5 |   54.54 |                   
   ButtonToPages.tsx             |       0 |      100 |       0 |       0 | 16                
   ChooseYourPathSection.tsx     |     100 |      100 |     100 |     100 |                   
   HeroSection.tsx               |     100 |      100 |     100 |     100 |                   
   NavigationBar.tsx             |     100 |      100 |     100 |     100 |                   
+  QuizPageCard.tsx              |      50 |      100 |      50 |      50 | 15                
   ScrollToSectionButton.tsx     |      40 |        0 |      50 |      40 | 14-16             
  src/pages                      |      24 |       50 |    9.09 |      24 |                   
   BasicQuestions.tsx            |       0 |      100 |       0 |       0 | 12-53             
@@ -179,5 +214,5 @@ All files                       |   21.81 |       10 |   23.07 |   21.81 |
 Test Suites: 1 failed, 1 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        2.906 s
+Time:        2.922 s
 Ran all test suites.
