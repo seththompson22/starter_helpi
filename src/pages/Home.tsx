@@ -73,9 +73,6 @@ export function Home() {
         <HeroSection sectionToScroll="choose-path-section" />
         <ChooseYourPathSection />
       </div>
-      <div>
-        <Counter></Counter>
-      </div>
       <Form className="API-key">
         <Form.Label>API Key:</Form.Label>
         <Form.Control
