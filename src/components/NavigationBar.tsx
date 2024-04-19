@@ -16,14 +16,6 @@ export function NavigationBar() {
                 JRNY
               </a>
             </li>
-            <li>
-              <a href="/starter_helpi/#/DetailedQuestions">
-                Detailed Career Quiz
-              </a>
-            </li>
-            <li>
-              <a href="/starter_helpi/#/BasicQuestions">Basic Career Quiz</a>
-            </li>
           </div>
           <div className="right-links">
             <li>
