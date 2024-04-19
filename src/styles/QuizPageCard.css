@@ -1,0 +1,40 @@
+.card {
+    width: 400px;
+    height: 300px;
+    align-items: center;
+    text-align: center;
+    justify-conent: center;
+    background-color: var(--white-color);
+    color: var(--black-color);
+    padding: 10px;
+    margin: 10px;
+}
+
+.title {
+    background-color: red;
+    padding: 10px;
+    margin: 0px;
+}
+
+.desc {
+    padding: 0px;
+    margin: 20px 0px;
+    width: 100%;
+}
+
+.link-btn {
+    display: block;
+    background-color: var(--white-color);
+    color: var(--black-color);
+    text-align: center;
+    padding: 20px 36px;
+    text-decoration: none;
+    margin: 0px auto;
+    border: 2.5px solid var(--black-color);
+    border-radius: 5px;
+}
+
+.link-btn:hover {
+    background-color: var(--accent-color);
+    opacity: 0.9;
+}

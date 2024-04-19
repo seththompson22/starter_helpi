@@ -6,11 +6,18 @@ function ChooseYourPathSection(): JSX.Element {
   return (
     <div className="path-section" id="choose-path-section">
       <h1 className="path-title">CHOOSE YOUR PATH</h1>
-      <QuizPageCard
-        title="basic-questions"
-        description="description for pages"
-        link="/starter_helpi/#/DetailedQuestions"
-      ></QuizPageCard>
+      <div className="path-options">
+        <QuizPageCard
+          title="Basic Questions Quiz"
+          description="description for pages"
+          link="/starter_helpi/#/BasicQuestions"
+        />
+        {/* <QuizPageCard
+          title="Detailed Questions Quiz"
+          description="description for pages"
+          link="/starter_helpi/#/DetailedQuestions"
+        /> */}
+      </div>
     </div>
   );
 }

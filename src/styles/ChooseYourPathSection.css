@@ -10,3 +10,14 @@
 .path-title {
     margin-top: 50px;
 }
+
+.path-options {
+    width: 70%;
+    display: grid;
+    margin-left: 15%;
+    column-gap: 0px;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto;
+    background-color: var(--accent-color);
+    text-align: center;
+}
