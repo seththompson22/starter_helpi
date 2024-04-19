@@ -12,11 +12,11 @@ function ChooseYourPathSection(): JSX.Element {
           description="description for pages"
           link="/starter_helpi/#/BasicQuestions"
         />
-        {/* <QuizPageCard
+        <QuizPageCard
           title="Detailed Questions Quiz"
           description="description for pages"
           link="/starter_helpi/#/DetailedQuestions"
-        /> */}
+        />
       </div>
     </div>
   );

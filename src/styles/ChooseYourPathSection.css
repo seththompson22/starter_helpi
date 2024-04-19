@@ -12,12 +12,12 @@
 }
 
 .path-options {
-    width: 70%;
+    width: 80%;
     display: grid;
-    margin-left: 15%;
+    margin: auto;
     column-gap: 0px;
     grid-template-columns: auto auto;
     grid-template-rows: auto;
-    background-color: var(--accent-color);
     text-align: center;
+    padding: 0;
 }
