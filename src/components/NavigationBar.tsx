@@ -12,19 +12,22 @@ export function NavigationBar() {
         <ul>
           <div className="left-links">
             <li>
-              <a className="icon-text" href="/starter_helpi">
+              <a className="icon-text nav-item" href="/starter_helpi">
                 JRNY
               </a>
             </li>
           </div>
           <div className="right-links">
             <li>
-              <a className="inverted-btn" href="/starter_help/#/signup">
+              <a
+                className="inverted-btn nav-item"
+                href="/starter_help/#/signup"
+              >
                 Sign Up
               </a>
             </li>
             <li>
-              <a className="normal-btn" href="/starter_help/#/login">
+              <a className="normal-btn nav-item" href="/starter_help/#/login">
                 Login
               </a>
             </li>

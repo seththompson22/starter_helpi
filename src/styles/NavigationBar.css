@@ -72,8 +72,8 @@ li a:hover {
 }
 
 
-li a:visited {
-  color: inherit;
+.nav-item:visited {
+  color: var(--black-color);
 }
 
 .active {
