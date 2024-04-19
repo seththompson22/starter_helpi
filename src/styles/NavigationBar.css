@@ -60,7 +60,7 @@ li a:hover {
 }
 
 .inverted-btn {
-  background-color: var(--whtie-color);
+  background-color: var(--white-color);
   margin: 0px 3px 0px 3px;
   border-radius: 5px;
   border: 2.5px solid var(--black-color);
