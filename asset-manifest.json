@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/starter_helpi/static/css/main.9d61a4df.css",
-    "main.js": "/starter_helpi/static/js/main.99467bce.js",
+    "main.css": "/starter_helpi/static/css/main.6fc2b224.css",
+    "main.js": "/starter_helpi/static/js/main.1fa754a0.js",
     "static/js/453.bad6c33a.chunk.js": "/starter_helpi/static/js/453.bad6c33a.chunk.js",
     "static/media/mixkit-cinematic-view-of-friends-hiking-rough-terrain-8947-medium.mp4": "/starter_helpi/static/media/mixkit-cinematic-view-of-friends-hiking-rough-terrain-8947-medium.8f7c2a6137c6c6b367be.mp4",
     "index.html": "/starter_helpi/index.html",
-    "main.9d61a4df.css.map": "/starter_helpi/static/css/main.9d61a4df.css.map",
-    "main.99467bce.js.map": "/starter_helpi/static/js/main.99467bce.js.map",
+    "main.6fc2b224.css.map": "/starter_helpi/static/css/main.6fc2b224.css.map",
+    "main.1fa754a0.js.map": "/starter_helpi/static/js/main.1fa754a0.js.map",
     "453.bad6c33a.chunk.js.map": "/starter_helpi/static/js/453.bad6c33a.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.9d61a4df.css",
-    "static/js/main.99467bce.js"
+    "static/css/main.6fc2b224.css",
+    "static/js/main.1fa754a0.js"
   ]
 }
