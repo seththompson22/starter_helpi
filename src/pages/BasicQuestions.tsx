@@ -2,7 +2,7 @@
 import { Form } from "react-bootstrap";
 import "../App";
 import "../styles/BasicQuestions.css";
-import { MultipleChoiceQuestion } from "../question-format-components/MultipleChoiceQuestion";
+import { RangedResponseQuestion } from "../question-format-components/RangedResponseQuestion";
 import NavigationBar from "../components/NavigationBar";
 import QuestionCard from "../components/QuestionCard";
 //import { Button, Form } from 'react-bootstrap';
@@ -45,18 +45,30 @@ export function BasicQuestions() {
     <div className="basic-questions-page">
       <NavigationBar></NavigationBar>
       <h1 className="basic-q-title">Basic Question Career Quiz</h1>
-      <QuestionCard></QuestionCard>
+
       <Form>
-        {/* plan is to:
-        DONE  - modify MultipleChoiceQuestion to be able to enter the question name into a new field called question
-        DONE - map questions for the basic page to create all of the questions in the form of this type*/}
-        {questionOptions.map((question, index) => (
-          <MultipleChoiceQuestion
-            question={question}
-            options={answerOptions}
-            expectedAnswer=""
-          ></MultipleChoiceQuestion>
-        ))}
+        <QuestionCard
+          questions={[
+            "Which of the following industries interests you the most: technology, healthcare, finance, or creative arts?",
+            "Do you prefer working independently or as part of a team?",
+          ]}
+          questionTypes="Multiple Choice"
+          answerOptions={[
+            [
+              "Technology",
+              "Healthcare",
+              "Finance",
+              "Creative arts",
+              "Other (please specify)",
+            ],
+            [
+              "Independantly",
+              "Part of a team",
+              "Both, depending on the situation",
+              "Other (please specify)",
+            ],
+          ]}
+        ></QuestionCard>
       </Form>
     </div>
   );

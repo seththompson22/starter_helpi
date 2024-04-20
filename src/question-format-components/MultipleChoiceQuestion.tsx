@@ -1,32 +1,41 @@
 import React, { useState } from "react";
 import { Form } from "react-bootstrap";
-import "../styles/MultipleChoiceQuestion.css";
 
-export function MultipleChoiceQuestion({
-  question,
-  options,
-  expectedAnswer,
+function MultipleChoiceQuestion({
+  answerOptions,
 }: {
-  question: string;
-  options: string[];
-  expectedAnswer: string;
-}): JSX.Element {
-  const [selected, setSelected] = useState<string>(options[0]);
+  answerOptions: string[];
+}) {
+  const [option, setOption] = useState<string>("");
 
-  function updateSelected(event: React.ChangeEvent<HTMLSelectElement>) {
-    setSelected(event.target.value);
+  function updateOption(event: React.ChangeEvent<HTMLInputElement>) {
+    setOption(event.target.value);
   }
+
   return (
-    <Form.Group className="question-group">
-      <Form.Label>{question}</Form.Label>
-      <Form.Select value={selected} onChange={updateSelected}>
-        {options.map((option: string) => (
-          <option key={option} value={option}>
-            {option}
-          </option>
-        ))}
-      </Form.Select>
-    </Form.Group>
-    //{/* store answer externally in line below */}
+    <div>
+      {answerOptions.map((answer: string, index: number) => {
+        return (
+          <Form.Check
+            key={answer}
+            type="radio"
+            id={answer}
+            label={answer}
+            value={answer}
+            checked={option === answer}
+            onChange={updateOption}
+          />
+        );
+      })}
+      {option === "Other (please specify)" ? (
+        <Form.Group>
+          <Form.Control placeholder="Please Specify Here" />
+        </Form.Group>
+      ) : (
+        <></>
+      )}
+    </div>
   );
 }
+
+export default MultipleChoiceQuestion;
