@@ -1,0 +1,224 @@
+
+> starter_helpi@0.1.0 test
+> react-scripts test --coverage
+
+FAIL src/App.test.tsx
+  ✕ renders learn react link (56 ms)
+
+  ● renders learn react link
+
+    TestingLibraryElementError: Unable to find an element with the text: /learn react/i. This could be because the text is broken up by multiple elements. In this case, you can provide a function for your text matcher to make your matcher more flexible.
+
+    Ignored nodes: comments, script, style
+    [36m<body>[39m
+      [36m<div>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"App"[39m
+        [36m>[39m
+          [36m<ul>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"left-links"[39m
+            [36m>[39m
+              [36m<li>[39m
+                [36m<a[39m
+                  [33mclass[39m=[32m"icon-text nav-item"[39m
+                  [33mhref[39m=[32m"/starter_helpi"[39m
+                [36m>[39m
+                  [0mJRNY[0m
+                [36m</a>[39m
+              [36m</li>[39m
+            [36m</div>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"right-links"[39m
+            [36m>[39m
+              [36m<li>[39m
+                [36m<a[39m
+                  [33mclass[39m=[32m"inverted-btn nav-item"[39m
+                  [33mhref[39m=[32m"/starter_help/#/signup"[39m
+                [36m>[39m
+                  [0mSign Up[0m
+                [36m</a>[39m
+              [36m</li>[39m
+              [36m<li>[39m
+                [36m<a[39m
+                  [33mclass[39m=[32m"normal-btn nav-item"[39m
+                  [33mhref[39m=[32m"/starter_help/#/login"[39m
+                [36m>[39m
+                  [0mLogin[0m
+                [36m</a>[39m
+              [36m</li>[39m
+            [36m</div>[39m
+          [36m</ul>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"content"[39m
+          [36m>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"hero-container"[39m
+            [36m>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"background-video"[39m
+              [36m>[39m
+                [36m<video[39m
+                  [33mautoplay[39m=[32m""[39m
+                  [33mloop[39m=[32m""[39m
+                [36m>[39m
+                  [0m [0m
+                  [36m<source[39m
+                    [33msrc[39m=[32m"mixkit-cinematic-view-of-friends-hiking-rough-terrain-8947-medium.mp4"[39m
+                    [33mtype[39m=[32m"video/mp4"[39m
+                  [36m/>[39m
+                [36m</video>[39m
+                [36m<div[39m
+                  [33mclass[39m=[32m"overlay"[39m
+                [36m/>[39m
+              [36m</div>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"over-text"[39m
+              [36m>[39m
+                [36m<h1>[39m
+                  [0mNAVIGATE YOUR CAREER JOURNEY[0m
+                [36m</h1>[39m
+                [36m<p>[39m
+                  [0mDiscover your path to success today. Take our interactive career quiz and unlock personalized insights tailored just for you. Let's start your journey together![0m
+                [36m</p>[39m
+                [36m<button[39m
+                  [33mclass[39m=[32m"hero-btn"[39m
+                [36m>[39m
+                  [36m<strong>[39m
+                    [0mEXPLORE PROFESSIONS[0m
+                  [36m</strong>[39m
+                [36m</button>[39m
+              [36m</div>[39m
+            [36m</div>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"path-section"[39m
+              [33mid[39m=[32m"choose-path-section"[39m
+            [36m>[39m
+              [36m<h1[39m
+                [33mclass[39m=[32m"path-title"[39m
+              [36m>[39m
+                [0mCHOOSE YOUR PATH[0m
+              [36m</h1>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"path-options"[39m
+              [36m>[39m
+                [36m<div[39m
+                  [33mclass[39m=[32m"card"[39m
+                [36m>[39m
+                  [36m<h2[39m
+                    [33mclass[39m=[32m"title"[39m
+                  [36m>[39m
+                    [0mBasic Questions Quiz[0m
+                  [36m</h2>[39m
+                  [36m<p[39m
+                    [33mclass[39m=[32m"desc"[39m
+                  [36m>[39m
+                    [0mGet quick insights into your potential career paths with our streamlined quiz. This quiz is designed to give you a broad overview of possible career directions based on your answers to a series of straightforward questions.[0m
+                  [36m</p>[39m
+                  [36m<button[39m
+                    [33mclass[39m=[32m"link-btn"[39m
+                    [33mtype[39m=[32m"button"[39m
+                  [36m>[39m
+                    [36m<strong>[39m
+                      [0mTake the Quiz[0m
+                    [36m</strong>[39m
+                  [36m</button>[39m
+                [36m</div>[39m
+                [36m<div[39m
+                  [33mclass[39m=[32m"card"[39m
+                [36m>[39m
+                  [36m<h2[39m
+                    [33mclass[39m=[32m"title"[39m
+                  [36m>[39m
+                    [0mDetailed Questions Quiz[0m
+                  [36m</h2>[39m
+                  [36m<p[39m
+                    [33mclass[39m=[32m"desc"[39m
+                  [36m>[39m
+                    [0mDive deep into your strengths, preferences, and interests for a comprehensive career analysis. This quiz offers in-depth questions and assessments to provide you with detailed insights into your potential career paths.[0m
+                  [36m</p>[39m
+                  [36m<button[39m
+                    [33mclass[39m=[32m"link-btn"[39m
+                    [33mtype[39m=[32m"button"[39m
+                  [36m>[39m
+                    [36m<strong>[39m
+                      [0mTake the Quiz[0m
+                    [36m</strong>[39m
+                  [36m</button>[39m
+                [36m</div>[39m
+              [36m</div>[39m
+            [36m</div>[39m
+          [36m</div>[39m
+          [36m<form[39m
+            [33mclass[39m=[32m"API-key"[39m
+          [36m>[39m
+            [36m<label[39m
+              [33mclass[39m=[32m"form-label"[39m
+            [36m>[39m
+              [0mAPI Key:[0m
+            [36m</label>[39m
+            [36m<input[39m
+              [33mclass[39m=[32m"form-control"[39m
+              [33mplaceholder[39m=[32m"Insert API Key Here"[39m
+              [33mtype[39m=[32m"password"[39m
+            [36m/>[39m
+            [36m<button[39m
+              [33mclass[39m=[32m"Submit-Button btn btn-primary"[39m
+              [33mtype[39m=[32m"button"[39m
+            [36m>[39m
+              [0mSubmit[0m
+            [36m</button>[39m
+          [36m</form>[39m
+        [36m</div>[39m
+      [36m</div>[39m
+    [36m</body>[39m
+
+    [0m [90m  5 |[39m test([32m'renders learn react link'[39m[33m,[39m () [33m=>[39m {
+     [90m  6 |[39m   render([33m<[39m[33mApp[39m [33m/[39m[33m>[39m)[33m;[39m
+    [31m[1m>[22m[39m[90m  7 |[39m   [36mconst[39m linkElement [33m=[39m screen[33m.[39mgetByText([35m/learn react/i[39m)[33m;[39m
+     [90m    |[39m                              [31m[1m^[22m[39m
+     [90m  8 |[39m   expect(linkElement)[33m.[39mtoBeInTheDocument()[33m;[39m
+     [90m  9 |[39m })[33m;[39m
+     [90m 10 |[39m[0m
+
+      at Object.getElementError (node_modules/@testing-library/react/node_modules/@testing-library/dom/dist/config.js:37:19)
+      at node_modules/@testing-library/react/node_modules/@testing-library/dom/dist/query-helpers.js:76:38
+      at node_modules/@testing-library/react/node_modules/@testing-library/dom/dist/query-helpers.js:52:17
+      at getByText (node_modules/@testing-library/react/node_modules/@testing-library/dom/dist/query-helpers.js:95:19)
+      at Object.<anonymous> (src/App.test.tsx:7:30)
+      at TestScheduler.scheduleTests (node_modules/@jest/core/build/TestScheduler.js:333:13)
+      at runJest (node_modules/@jest/core/build/runJest.js:404:19)
+      at _run10000 (node_modules/@jest/core/build/cli/index.js:320:7)
+      at runCLI (node_modules/@jest/core/build/cli/index.js:173:3)
+
+--------------------------------|---------|----------|---------|---------|-------------------
+File                            | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
+--------------------------------|---------|----------|---------|---------|-------------------
+All files                       |    22.8 |       10 |      25 |    22.8 |                   
+ src                            |    5.88 |        0 |   16.66 |    5.88 |                   
+  App.tsx                       |     100 |      100 |     100 |     100 |                   
+  ResponsePage.tsx              |       0 |        0 |       0 |       0 | 6-15              
+  index.tsx                     |       0 |      100 |     100 |       0 | 7-19              
+  reportWebVitals.ts            |       0 |        0 |       0 |       0 | 3-10              
+  test.tsx                      |       0 |      100 |       0 |       0 | 13                
+ src/components                 |   54.54 |        0 |    62.5 |   54.54 |                   
+  ButtonToPages.tsx             |       0 |      100 |       0 |       0 | 16                
+  ChooseYourPathSection.tsx     |     100 |      100 |     100 |     100 |                   
+  HeroSection.tsx               |     100 |      100 |     100 |     100 |                   
+  NavigationBar.tsx             |     100 |      100 |     100 |     100 |                   
+  QuizPageCard.tsx              |      50 |      100 |      50 |      50 | 15                
+  ScrollToSectionButton.tsx     |      40 |        0 |      50 |      40 | 14-16             
+ src/pages                      |      24 |       50 |    9.09 |      24 |                   
+  BasicQuestions.tsx            |       0 |      100 |       0 |       0 | 12-53             
+  DetailedQuestions.tsx         |       0 |      100 |       0 |       0 | 7-47              
+  Home.tsx                      |      60 |       50 |   33.33 |      60 | 15,23-29          
+  Login.tsx                     |       0 |      100 |       0 |       0 | 10                
+  SignUp.tsx                    |       0 |      100 |       0 |       0 | 10                
+ src/question-format-components |       0 |      100 |       0 |       0 |                   
+  MultipleChoiceQuestion.tsx    |       0 |      100 |       0 |       0 | 14-24             
+--------------------------------|---------|----------|---------|---------|-------------------
+Test Suites: 1 failed, 1 total
+Tests:       1 failed, 1 total
+Snapshots:   0 total
+Time:        2.975 s
+Ran all test suites.
