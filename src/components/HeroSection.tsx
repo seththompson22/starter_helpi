@@ -11,21 +11,26 @@ function HeroSection({
 }): JSX.Element {
   return (
     <div className="hero-container">
-      <video autoPlay loop muted>
-        {" "}
-        <source src={backgroundVideo} type="video/mp4" />
-      </video>
-      <h1>NAVIGATE YOUR CAREER JOURNEY</h1>
-      <p>
-        Discover your path to success today. Take our interactive career quiz
-        and unlock personalized insights tailored just for you. Let's start your
-        journey together!
-      </p>
-      <ScrollToSectionButton
-        className="hero-btn"
-        content="EXPLORE PROFESSIONS"
-        section={sectionToScroll}
-      />
+      <div className="background-video">
+        <video autoPlay loop muted>
+          {" "}
+          <source src={backgroundVideo} type="video/mp4" />
+        </video>
+        <div className="overlay"></div>
+      </div>
+      <div className="over-text">
+        <h1>NAVIGATE YOUR CAREER JOURNEY</h1>
+        <p>
+          Discover your path to success today. Take our interactive career quiz
+          and unlock personalized insights tailored just for you. Let's start
+          your journey together!
+        </p>
+        <ScrollToSectionButton
+          className="hero-btn"
+          content="EXPLORE PROFESSIONS"
+          section={sectionToScroll}
+        />
+      </div>
     </div>
   );
 }
