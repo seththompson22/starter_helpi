@@ -23,6 +23,8 @@ ul {
   font-family: "PT Sans";
   font-size: 30px;
   margin: auto;
+  border: 2.5px solid transparent;
+  border-radius: 5px;
 }
 
 .left-links {
@@ -47,18 +49,22 @@ li a {
   text-align: center;
   padding: 8px 12px;
   text-decoration: none;
-  margin: 2.5px 5.5px 2.5px 5.5px;
+  margin: 0px 3px;
   color: var(--black-color);
+  margin: auto;
+  border: 2.5px solid transparent;
+  border-radius: 5px;
 }
 
 
 
 /* Change the link color to #111 (black) on hover */
 li a:hover {
-  border: 2.5px solid var(--black-color);
-  background-color: var(--white-color);
-  border-radius: 5px;
-  margin: 0px 3px 0px 3px;
+  border-color: var(--black-color);
+}
+
+.icon-text:hover {
+  border-color: var(--black-color);
 }
 
 .inverted-btn {
@@ -76,8 +82,4 @@ li a:hover {
 
 .nav-item:visited {
   color: var(--black-color);
-}
-
-.active {
-  background-color: #04AA6D;
 }
