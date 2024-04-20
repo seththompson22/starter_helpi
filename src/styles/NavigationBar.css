@@ -16,6 +16,7 @@ ul {
   grid-template-rows: auto;
   z-index: 1100;
   align-items: center;
+ 
 }
 
 .icon-text {

@@ -1,5 +1,6 @@
 .path-section {
-    height: 80vh;
+    padding-top: 70px;
+    height: 90vh;
     width: 100%;
     background-color: var(--black-color);
     z-index: 1;
@@ -8,7 +9,8 @@
 }
 
 .path-title {
-    margin: 50px 0 100px 0;
+    margin: 20px auto 80px auto;
+    font-size: 80px;
 }
 
 .path-options {

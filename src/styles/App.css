@@ -21,15 +21,35 @@
 }
 
 .API-key {
-  background-color: #fff;  
-  padding: 25px;
-  margin:0;
+  display: flex;
+  background-color: var(--black-color);
+  color: var(--white-color);  
+  border: 2.5px solid var(--white-color);
+  margin: 0px;
+  padding: 0px;
   width: 100%;
+  height: 80px;
 }
 
+.API-key .form-control {
+  width: 250px;
+  height: 30px;
+  margin: auto 10px;;
+}
 
-@media only screen and (max-width: 900px) {
-  body {
-    background-color: lightblue;
-  }
+.API-key .form-label {
+  margin: auto 10px;
+  height: 30px;
+}
+
+.API-key button {
+  margin: auto 10px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media only screen and (max-width: 960px) {
+  /* here is room for responsiveness based on screen size <= 960px */
 }
