@@ -19,25 +19,25 @@ export function APIButton(): JSX.Element {
     }
     computeAPI(apiInput);
   }
-  const [apiVal, setApiVal] = useState<string>("");
+  
   const [value, setValue] = useState<string>("");
 
-  const [name, setName] = useState<string>("");
+  const [apiVal, setApiVal] = useState<string>("");
   function updateName(event: React.ChangeEvent<HTMLInputElement>) {
-     setName(event.target.value);
+     setApiVal(event.target.value);
   }
   return (
     <div>
       <Form.Group controlId="apiValue">
         <Form.Label>Correct Answer is {5}:</Form.Label>
-        <Form.Control value={name} onChange={updateName} />
+        <Form.Control value={apiVal} onChange={updateName} />
         <Form.Text className="WhatIsThis">
                     Correct Ansswer is {5}. Your answer:{" "}
                     {5? "✔️" : "❌"}
         </Form.Text>
       </Form.Group>
       <span>
-          <Button onClick={() => inputAPI(name)}>Add Two</Button>
+          <Button onClick={() => inputAPI(apiVal)}>Add Two</Button>
           to 1.
       </span>
       <span>
