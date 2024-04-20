@@ -17,12 +17,12 @@ export function NavigationBar() {
       </div>
       <div className="right-links">
         <li>
-          <a className="inverted-btn nav-item" href="/starter_help/#/signup">
+          <a className="inverted-btn nav-item" href="/starter_helpi/#/signup">
             Sign Up
           </a>
         </li>
         <li>
-          <a className="normal-btn nav-item" href="/starter_help/#/login">
+          <a className="normal-btn nav-item" href="/starter_helpi/#/login">
             Login
           </a>
         </li>
