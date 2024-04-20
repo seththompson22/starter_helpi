@@ -34,7 +34,7 @@ FAIL src/App.test.tsx
               [36m<li>[39m
                 [36m<a[39m
                   [33mclass[39m=[32m"inverted-btn nav-item"[39m
-                  [33mhref[39m=[32m"/starter_help/#/signup"[39m
+                  [33mhref[39m=[32m"/starter_helpi/#/signup"[39m
                 [36m>[39m
                   [0mSign Up[0m
                 [36m</a>[39m
@@ -42,7 +42,7 @@ FAIL src/App.test.tsx
               [36m<li>[39m
                 [36m<a[39m
                   [33mclass[39m=[32m"normal-btn nav-item"[39m
-                  [33mhref[39m=[32m"/starter_help/#/login"[39m
+                  [33mhref[39m=[32m"/starter_helpi/#/login"[39m
                 [36m>[39m
                   [0mLogin[0m
                 [36m</a>[39m
@@ -220,5 +220,5 @@ All files                       |    22.8 |       10 |      25 |    22.8 |
 Test Suites: 1 failed, 1 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        2.975 s
+Time:        2.84 s
 Ran all test suites.
