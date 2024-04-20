@@ -1,7 +1,6 @@
-import React, { useState } from "react";
 import "../styles/App.css";
 import "../App";
-import { Counter } from "../components/APIButton";
+import { APIButton } from "../components/APIButton";
 
 
 
@@ -11,7 +10,7 @@ export function CareerReport() {
         <div>
             <h1>NAVIGATE YOUR CAREER JOURNEY</h1>
                 <div>
-                    <Counter></Counter>
+                    <APIButton></APIButton>
                 </div>
                 <p>
                     Discover your path to success today. Take our interactive career quiz
