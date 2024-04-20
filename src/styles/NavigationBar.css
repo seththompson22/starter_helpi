@@ -61,10 +61,12 @@ li a {
 /* Change the link color to #111 (black) on hover */
 li a:hover {
   border-color: var(--black-color);
+  color: var(--black-color);
 }
 
 .icon-text:hover {
   border-color: var(--black-color);
+  color: var(--black-color);
 }
 
 .inverted-btn {
@@ -77,6 +79,7 @@ li a:hover {
 .inverted-btn:hover {
   margin: 0px 3px 0px 3px;
   background-color: var(--accent-color);
+  color: var(--black-color);
 }
 
 
