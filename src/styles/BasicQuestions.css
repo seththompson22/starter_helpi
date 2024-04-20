@@ -4,7 +4,7 @@ html {
 
 .basic-questions-page {
     padding-top: 50px;
-    color: white;
+    color: var(--white-color);
     text-align: center;
     justify-content: center;
     align-items: center;
