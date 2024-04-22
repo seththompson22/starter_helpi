@@ -2,9 +2,11 @@ import React, { useState } from "react";
 import { Button, Col, Container, Form, Row } from "react-bootstrap";
 import "../styles/BasicQuestions.css"; // Import CSS file
 import NavigationBar from "../components/NavigationBar";
+import ProgressBar from "../components/progressBar";
 
 function DetailedQuestions() {
   const [key, setKey] = useState<string>("");
+  const [answeredQuestions, setAnsweredQuestions] = useState<number>(0); // Define answeredQuestions state
 
   const questionOptions = [
     "Do you enjoy working with your hands and creating tangible objects or structures?",
@@ -29,13 +31,34 @@ function DetailedQuestions() {
     "Do you value autonomy and independence in your work decisions and tasks?",
   ];
 
+  const [prevAnswers, setPrevAnswers] = useState<(string | null)[]>(Array(questionOptions.length).fill(null)); // Store the previous answers
+
   const handleSubmit = () => {
     localStorage.setItem("MYKEY", JSON.stringify(key));
     window.location.reload();
   };
+  const
+   handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const id = event.target.id; // Get the ID of the input field
+    const isEmpty = event.target.value.trim() === ""; // Check if the input field is empty
 
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    // Update the state of the input field
     setKey(event.target.value);
+
+    // Extract the question number from the input field ID
+    const questionNumber = parseInt(id.split("-")[1]);
+
+    // Check if the input field was previously empty and now filled out
+    if (isEmpty && prevAnswers[questionNumber - 1] !== null) {
+      setAnsweredQuestions((prevCount) => prevCount - 1); // Decrement answeredQuestions
+    } else if (!isEmpty && prevAnswers[questionNumber - 1] === null) {
+      setAnsweredQuestions((prevCount) => prevCount + 1); // Increment answeredQuestions
+    }
+
+    // Update the previous answers array
+    const updatedPrevAnswers = [...prevAnswers];
+    updatedPrevAnswers[questionNumber - 1] = event.target.value.trim();
+    setPrevAnswers(updatedPrevAnswers);
   };
 
   return (
@@ -154,6 +177,8 @@ function DetailedQuestions() {
           </Col>
         </Row>
       </Container>
+       {/* Render the ProgressBar component */}
+       <ProgressBar totalQuestions={questionOptions.length} answeredQuestions={answeredQuestions} />
 
       <Button className="Submit-Button" onClick={handleSubmit}>
         Submit Answers
@@ -163,3 +188,7 @@ function DetailedQuestions() {
 }
 
 export default DetailedQuestions;
+function setAnsweredQuestions(arg0: (prevCount: any) => number) {
+  throw new Error("Function not implemented.");
+}
+
