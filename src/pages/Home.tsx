@@ -47,7 +47,7 @@ export function Home() {
     // The "?." is optional chaining in case the string is null.
     openai = new OpenAI({apiKey: localStorage.getItem(saveKeyData)?.replace(/"/g, '') || undefined, dangerouslyAllowBrowser: true});
     // ^^ Why does this work even with an incorrect API key when the //window.location.reload() with a wrong API key?
-
+    /*
     async function two() {
       const completion = await openai.chat.completions.create({
         messages: [{ role: "system", content: "Come up with a rap." }],
@@ -58,6 +58,7 @@ export function Home() {
     }
     
     two();
+    */
     return openai;
   }
 
@@ -84,6 +85,11 @@ export function Home() {
           Submit
         </Button>
       </Form>
+      <li>
+        <a href="/starter_helpi/#/CareerReport">
+          Detailed Career Quiz
+        </a>
+     </li>
     </div>
   );
 }
