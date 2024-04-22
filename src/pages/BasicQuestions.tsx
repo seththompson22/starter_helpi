@@ -52,6 +52,9 @@ export function BasicQuestions() {
       // Increment the number of answered questions
       setAnsweredQuestions((prevCount) => prevCount + 1);
     };
+    const handleDeselectQuestion = () => {
+      setAnsweredQuestions((prevCount) => prevCount - 1);
+    };
   
 
     return (
@@ -60,18 +63,20 @@ export function BasicQuestions() {
         <h1 className="basic-q-title">Basic Question Career Quiz</h1>
         <p className="basic-q-desc">Basic Question Career Quiz Description</p>
         <Form>
-          {/* Render the ProgressBar component */}
           <ProgressBar totalQuestions={questionOptions.length} answeredQuestions={answeredQuestions} />
   
-          {/* Render the multiple-choice questions */}
+          {/* Render all the multiple-choice questions */}
           {questionOptions.map((question, index) => (
-            <MultipleChoiceQuestion
-              key={index}
-              question={question}
-              options={answerOptions}
-              expectedAnswer=""
-              onAnswer={handleAnswerQuestion} // Call handleAnswerQuestion when a question is answered
-            ></MultipleChoiceQuestion>
+            <div key={index}>
+              <MultipleChoiceQuestion
+                question={question}
+                options={answerOptions}
+                expectedAnswer=""
+                onAnswer={handleAnswerQuestion}
+                onDeselect={handleDeselectQuestion}
+              />
+              <br />
+            </div>
           ))}
         </Form>
       </div>
