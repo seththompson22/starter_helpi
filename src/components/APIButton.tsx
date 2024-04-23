@@ -11,9 +11,10 @@ export function APIButton(): JSX.Element {
 
   // States
   // The API input
+  const [value, setValue] = useState<string>("'");
   const [apiVal, setApiVal] = useState<string>("");
   // The whole conversation
-  const [chatLog, setChatLog] = useState<ChatCompletionMessageParam[]>([{ role: "system", content: "You are a helpful assistant." }])
+  const [chatLog, setChatLog] = useState<ChatCompletionMessageParam[]>([{ role: "system", content: "You are a career advisor." }])
   
   
   async function computeAPI(apiInput: string) {
@@ -28,7 +29,7 @@ export function APIButton(): JSX.Element {
         model: "gpt-3.5-turbo",
       });
       
-      setApiVal(JSON.stringify(completion.choices[0]["message"]["content"]).replace(/\\n/g, "\n"));
+      setValue(JSON.stringify(completion.choices[0]["message"]["content"]).replace(/\\n/g, "\n"));
       console.log(completion.choices[0]);
       
       const apiResponse: ChatCompletionMessageParam[] = [...chatLog, completion.choices[0]["message"]];
@@ -38,7 +39,7 @@ export function APIButton(): JSX.Element {
     }
     catch (error) {
       console.log("Error");
-      setApiVal(JSON.stringify("Error"));
+      setValue(JSON.stringify("Error"));
 
     }
   }
@@ -64,7 +65,7 @@ export function APIButton(): JSX.Element {
           <Button onClick={() => computeAPI("Come up with a rap.")}> ??? </Button>
       </span>
       <span>
-          The API response is: {apiVal}
+          The API response is: {value}
       </span>
     </div>
   );
