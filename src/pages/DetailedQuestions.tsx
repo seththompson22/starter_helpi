@@ -37,29 +37,35 @@ function DetailedQuestions() {
     localStorage.setItem("MYKEY", JSON.stringify(key));
     window.location.reload();
   };
-  const
-   handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const id = event.target.id; // Get the ID of the input field
-    const isEmpty = event.target.value.trim() === ""; // Check if the input field is empty
 
-    // Update the state of the input field
-    setKey(event.target.value);
 
-    // Extract the question number from the input field ID
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const id = event.target.id;
     const questionNumber = parseInt(id.split("-")[1]);
-
-    // Check if the input field was previously empty and now filled out
-    if (isEmpty && prevAnswers[questionNumber - 1] !== null) {
-      setAnsweredQuestions((prevCount) => prevCount - 1); // Decrement answeredQuestions
-    } else if (!isEmpty && prevAnswers[questionNumber - 1] === null) {
+    const newValue = event.target.value.trim(); // Get the trimmed value of the input
+  
+    // Check if the input field was previously empty and is now filled out
+    if (newValue && !prevAnswers[questionNumber - 1]) {
       setAnsweredQuestions((prevCount) => prevCount + 1); // Increment answeredQuestions
     }
-
+    // Check if the input field was previously filled out and is now emptied
+    else if (!newValue && prevAnswers[questionNumber - 1]) {
+      setAnsweredQuestions((prevCount) => prevCount - 1); // Decrement answeredQuestions
+    }
+  
     // Update the previous answers array
     const updatedPrevAnswers = [...prevAnswers];
-    updatedPrevAnswers[questionNumber - 1] = event.target.value.trim();
+    updatedPrevAnswers[questionNumber - 1] = newValue;
     setPrevAnswers(updatedPrevAnswers);
+  
+    // Update the state of the input field
+    setKey(newValue);
   };
+  
+  
+  
+  
+
 
   return (
     <div className="detailed-q-page">
@@ -188,7 +194,5 @@ function DetailedQuestions() {
 }
 
 export default DetailedQuestions;
-function setAnsweredQuestions(arg0: (prevCount: any) => number) {
-  throw new Error("Function not implemented.");
-}
+
 
