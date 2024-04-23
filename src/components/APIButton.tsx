@@ -10,15 +10,18 @@ import { ChatCompletionMessageParam } from "openai/resources";
 export function APIButton(): JSX.Element {
 
   // States
+  // The API input
   const [apiVal, setApiVal] = useState<string>("");
-  const [chatLog, setChatLog] = useState<ChatCompletionMessageParam[]>([{ role: "system", content: "You are a career advisor." }])
+  // The whole conversation
+  const [chatLog, setChatLog] = useState<ChatCompletionMessageParam[]>([{ role: "system", content: "You are a helpful assistant." }])
   
   
   async function computeAPI(apiInput: string) {
 
     try {
       
-      const apiMessage: ChatCompletionMessageParam[] = [{ role: "system", content: "You are a career advisor." }, { role: "assistant", content: apiInput }]
+      //const apiMessage: ChatCompletionMessageParam[] = [{ role: "system", content: "You are a career advisor." }, { role: "assistant", content: apiInput }]
+      const apiMessage: ChatCompletionMessageParam[] = [...chatLog, {role: "user", content: apiInput }]
 
       const completion = await openai.chat.completions.create({
         messages: apiMessage,
@@ -27,7 +30,11 @@ export function APIButton(): JSX.Element {
       
       setApiVal(JSON.stringify(completion.choices[0]["message"]["content"]).replace(/\\n/g, "\n"));
       console.log(completion.choices[0]);
-    
+      
+      const apiResponse: ChatCompletionMessageParam[] = [...chatLog, completion.choices[0]["message"]];
+
+      setChatLog(apiResponse)
+
     }
     catch (error) {
       console.log("Error");
@@ -35,7 +42,7 @@ export function APIButton(): JSX.Element {
 
     }
   }
-
+  // Hook does what?
   function updateName(event: React.ChangeEvent<HTMLInputElement>) {
      setApiVal(event.target.value);
   }
