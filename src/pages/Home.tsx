@@ -19,19 +19,6 @@ if (prevKey !== null) {
 }
 
 
-/*
-export function Counter(): JSX.Element {
-  const [value, setValue] = useState<number>(0);
-  return (
-      <span>
-          <Button onClick={() => setValue(1 + value)}>Add One</Button>
-          to {value}.
-      </span>
-  );
-}
-*/
-
-
 
 
 export function Home() {
@@ -46,19 +33,7 @@ export function Home() {
     // The ".replace(/"/g, '')" takes off the extra first and last double quotation marks from the key.
     // The "?." is optional chaining in case the string is null.
     openai = new OpenAI({apiKey: localStorage.getItem(saveKeyData)?.replace(/"/g, '') || undefined, dangerouslyAllowBrowser: true});
-    // ^^ Why does this work even with an incorrect API key when the //window.location.reload() with a wrong API key?
-    /*
-    async function two() {
-      const completion = await openai.chat.completions.create({
-        messages: [{ role: "system", content: "Come up with a rap." }],
-        model: "gpt-3.5-turbo",
-      });
     
-      console.log(completion.choices[0]);
-    }
-    
-    two();
-    */
     return openai;
   }
 

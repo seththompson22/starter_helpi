@@ -3,48 +3,61 @@ import React, { useState } from "react";
 import { Button, Form } from "react-bootstrap";
 
 import {openai} from "../pages/Home"
+import { ChatCompletionMessageParam } from "openai/resources";
+
+
 
 export function APIButton(): JSX.Element {
-  function inputAPI(apiInput: string) {
-    
-    async function computeAPI(apiInput: string) {
+
+  // States
+  const [apiVal, setApiVal] = useState<string>("");
+  const [chatLog, setChatLog] = useState<ChatCompletionMessageParam[]>([{ role: "system", content: "You are a career advisor." }])
+  
+  
+  async function computeAPI(apiInput: string) {
+
+    try {
+      
+      const apiMessage: ChatCompletionMessageParam[] = [{ role: "system", content: "You are a career advisor." }, { role: "assistant", content: apiInput }]
+
       const completion = await openai.chat.completions.create({
-        messages: [{ role: "system", content: apiInput }],
+        messages: apiMessage,
         model: "gpt-3.5-turbo",
       });
       
-      setValue(JSON.stringify(completion.choices[0]["message"]["content"]).replace(/\\n/g, "\n"));
+      setApiVal(JSON.stringify(completion.choices[0]["message"]["content"]).replace(/\\n/g, "\n"));
       console.log(completion.choices[0]);
     
     }
-    computeAPI(apiInput);
-  }
-  
-  const [value, setValue] = useState<string>("");
+    catch (error) {
+      console.log("Error");
+      setApiVal(JSON.stringify("Error"));
 
-  const [apiVal, setApiVal] = useState<string>("");
+    }
+  }
+
   function updateName(event: React.ChangeEvent<HTMLInputElement>) {
      setApiVal(event.target.value);
   }
   return (
     <div>
       <Form.Group controlId="apiValue">
-        <Form.Label>Correct Answer is {5}:</Form.Label>
+        <Form.Label>Enter your career related questions: </Form.Label>
         <Form.Control value={apiVal} onChange={updateName} />
         <Form.Text className="WhatIsThis">
-                    Correct Ansswer is {5}. Your answer:{" "}
-                    {5? "✔️" : "❌"}
+                    .
         </Form.Text>
       </Form.Group>
       <span>
-          <Button onClick={() => inputAPI(apiVal)}>Add Two</Button>
+          <Button onClick={() => computeAPI(apiVal)}>Answer Your Question</Button>
           to 1.
       </span>
+
       <span>
-          <Button onClick={() => inputAPI("Come up with a rap.")}> Here is the API stuff </Button>
+          <Button onClick={() => computeAPI("Come up with a rap.")}> ??? </Button>
       </span>
       <span>
-          The current value is:{value}
+          The API response is: {apiVal}
       </span>
     </div>
   );
