@@ -3,7 +3,7 @@
 > react-scripts test --coverage
 
 FAIL src/App.test.tsx
-  ✕ renders learn react link (55 ms)
+  ✕ renders learn react link (54 ms)
 
   ● renders learn react link
 
@@ -207,22 +207,22 @@ All files                       |   13.49 |     3.33 |   14.58 |   13.93 |
   ChooseYourPathSection.tsx     |     100 |      100 |     100 |     100 |                   
   HeroSection.tsx               |     100 |      100 |     100 |     100 |                   
   NavigationBar.tsx             |     100 |      100 |     100 |     100 |                   
-  QuestionCard.tsx              |    3.57 |        0 |       0 |    3.84 | 16-76             
+  QuestionCard.tsx              |    3.57 |        0 |       0 |    3.84 | 17-77             
   QuizPageCard.tsx              |      50 |      100 |      50 |      50 | 15                
   ScrollToSectionButton.tsx     |      40 |        0 |      50 |      40 | 14-16             
   progressBar.tsx               |   33.33 |      100 |       0 |   33.33 | 18-20             
  src/pages                      |   18.91 |       10 |    8.33 |      20 |                   
-  BasicQuestions.tsx            |      50 |      100 |       0 |      50 | 49                
+  BasicQuestions.tsx            |      50 |      100 |       0 |      50 | 50                
   DetailedQuestions.tsx         |       0 |        0 |       0 |       0 | 8-76              
   Home.tsx                      |      60 |       50 |   33.33 |      60 | 15,23-29          
   Login.tsx                     |       0 |      100 |       0 |       0 | 10                
   SignUp.tsx                    |       0 |      100 |       0 |       0 | 10                
  src/question-format-components |      10 |      100 |       0 |      10 |                   
-  MultipleChoiceQuestion.tsx    |   16.66 |      100 |       0 |   16.66 | 19-33             
+  MultipleChoiceQuestion.tsx    |   16.66 |      100 |       0 |   16.66 | 21-35             
   RangedResponseQuestion.tsx    |       0 |      100 |       0 |       0 | 12-22             
 --------------------------------|---------|----------|---------|---------|-------------------
 Test Suites: 1 failed, 1 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        3.046 s
+Time:        3.042 s
 Ran all test suites.
