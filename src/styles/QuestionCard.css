@@ -5,3 +5,39 @@
     height: 60vh;
     margin: auto;
 }
+
+.prev-btn {
+
+}
+
+.next-btn {
+    
+}
+
+.submit-btn {
+    
+}
+
+.question-card {
+    width: 400px; /* Adjust width as needed */
+    margin: 0 auto; /* Center the card horizontally */
+  }
+  
+  .question-card h2 {
+    margin-bottom: 10px;
+  }
+  
+  .question-options {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .question-options label {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+  }
+  
+  .question-options input[type="radio"] {
+    margin-right: 10px;
+  }

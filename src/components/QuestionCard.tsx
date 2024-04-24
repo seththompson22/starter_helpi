@@ -1,5 +1,4 @@
 import "../styles/QuestionCard.css";
-import { Button, Form } from "react-bootstrap";
 import MultipleChoiceQuestion from "../question-format-components/MultipleChoiceQuestion";
 import { useState } from "react";
 
@@ -51,18 +50,21 @@ const QuestionCard: React.FC<QuestionCardProps> = ({ questions }) => {
       />
       <div className="navigation">
         <button
+          className="prev-btn"
           onClick={prevQuestion}
           disabled={currentQuestion === 0 || submitted}
         >
           Previous
         </button>
         <button
+          className="next-btn"
           onClick={nextQuestion}
           disabled={currentQuestion === questions.length - 1 || submitted}
         >
           Next
         </button>
         <button
+          className="submit-btn"
           onClick={handleSubmit}
           disabled={!allQuestionsAnswered || submitted}
         >

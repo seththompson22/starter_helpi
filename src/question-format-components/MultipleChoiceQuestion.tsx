@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import { Form } from "react-bootstrap";
 import "../styles/MultipleChoiceQuestion.css";
 
@@ -31,6 +30,7 @@ const MultipleChoiceQuestion: React.FC<QuestionOptionProps> = ({
           checked={selectedChoice === choice}
           onChange={() => handleChoiceChange(choice)}
           disabled={disabled}
+          id={`option-${index}`}
         />
       ))}
     </Form.Group>
