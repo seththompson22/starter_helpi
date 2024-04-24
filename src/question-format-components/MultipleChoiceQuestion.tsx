@@ -6,6 +6,7 @@ interface QuestionOptionProps {
   selectedChoice: string;
   onSelectChoice: (choice: string) => void;
   disabled?: boolean;
+  onAnswer: () => void;
 }
 
 const MultipleChoiceQuestion: React.FC<QuestionOptionProps> = ({
@@ -13,9 +14,19 @@ const MultipleChoiceQuestion: React.FC<QuestionOptionProps> = ({
   selectedChoice,
   onSelectChoice,
   disabled,
+  onAnswer,
 }) => {
   const handleChoiceChange = (choice: string) => {
     onSelectChoice(choice);
+  };
+
+  const handleAnswer = (event: React.ChangeEvent<HTMLInputElement>) => {
+    // Check if an answer is selected
+    if (event.target.value !== "") {
+      onAnswer(); // Invoke the onAnswer callback when an answer is selected
+    } else {
+      onDeselect(); // Invoke the onDeselect callback when an answer is deselected
+    }
   };
 
   return (
@@ -37,5 +48,4 @@ const MultipleChoiceQuestion: React.FC<QuestionOptionProps> = ({
     </Form.Group>
   );
 };
-
 export default MultipleChoiceQuestion;
