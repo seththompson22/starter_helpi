@@ -5,7 +5,6 @@ import NavigationBar from "../components/NavigationBar";
 import OpenAI from "openai";
 import HeroSection from "../components/HeroSection";
 import ChooseYourPathSection from "../components/ChooseYourPathSection";
-//import { LocalLink } from './LocalLink';
 //import { HashRouter, Routes, Route } from 'react-router-dom';
 
 export let openai: OpenAI;

@@ -11,10 +11,10 @@ export function APIButton(): JSX.Element {
 
   // States
   // The API input
-  const [value, setValue] = useState<string>("'");
+  const [value, setValue] = useState<string>("");
   const [apiVal, setApiVal] = useState<string>("");
   // The whole conversation
-  const [chatLog, setChatLog] = useState<ChatCompletionMessageParam[]>([{ role: "system", content: "You are a career advisor." }])
+  const [chatLog, setChatLog] = useState<ChatCompletionMessageParam[]>([{ role: "system", content: "You are a career advisor." }, { role: "user", content: "I am trying to figure out what my future career should be." }])
   
   
   async function computeAPI(apiInput: string) {
