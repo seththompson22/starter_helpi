@@ -1,10 +1,13 @@
-import "../styles/QuestionCard.css";
+import React, { useState } from "react";
 import MultipleChoiceQuestion from "../question-format-components/MultipleChoiceQuestion";
-import { useState } from "react";
 import ProgressBar from "./progressBar";
 
 interface QuestionCardProps {
-  questions: { question: string; choices: string[] }[];
+  questions: {
+    question: string;
+    choices: string[];
+    otherOptionIndex?: number;
+  }[];
 }
 
 interface ApiAnswer {
@@ -17,16 +20,12 @@ const QuestionCard: React.FC<QuestionCardProps> = ({ questions }) => {
   const [answers, setAnswers] = useState<(string | null)[]>(
     Array(questions.length).fill(null)
   );
-  const [submitted, setSubmitted] = useState(false);
+  const [submitted, setSubmitted] = useState<boolean>(false);
 
-  // State to track the number of answered questions
-  const [, setAnsweredQuestions] = useState(0);
-
-  // Function to handle answering a question
-  const handleAnswerQuestion = () => {
-    // Logic to handle answering the question
-    // Increment the number of answered questions
-    setAnsweredQuestions((prevCount) => prevCount + 1);
+  const handleAnswerQuestion = (choice: string) => {
+    const newAnswers = [...answers];
+    newAnswers[currentQuestion] = choice;
+    setAnswers(newAnswers);
   };
 
   const prevQuestion = () => {
@@ -38,28 +37,24 @@ const QuestionCard: React.FC<QuestionCardProps> = ({ questions }) => {
   const nextQuestion = () => {
     if (currentQuestion < questions.length - 1) {
       setCurrentQuestion(currentQuestion + 1);
+    } else {
+      // If it's the last question, submit the answers
+      handleSubmit();
     }
-  };
-
-  const handleChoiceChange = (choice: string) => {
-    const newAnswers = [...answers];
-    newAnswers[currentQuestion] = choice;
-    setAnswers(newAnswers);
-    handleAnswerQuestion();
   };
 
   const handleSubmit = () => {
     setSubmitted(true);
-    // You can handle the submission of answers here, for example, sending them to an API
-
-    const apiAnswers: ApiAnswer[] = questions.map((value, index) => {
-      return { question: value.question, answer: answers[index] };
-    });
-
+    // Prepare the API answers object
+    const apiAnswers: ApiAnswer[] = questions.map((value, index) => ({
+      question: value.question,
+      answer: answers[index],
+    }));
     console.log("Submitted answers:", apiAnswers);
   };
 
-  const allQuestionsAnswered = answers.every((answer) => answer !== null);
+  // Extract otherOptionIndex from questions
+  const otherOptionIndex = questions[currentQuestion].otherOptionIndex;
 
   return (
     <div className="question-card">
@@ -67,9 +62,9 @@ const QuestionCard: React.FC<QuestionCardProps> = ({ questions }) => {
       <MultipleChoiceQuestion
         choices={questions[currentQuestion].choices}
         selectedChoice={answers[currentQuestion] || ""}
-        onSelectChoice={handleChoiceChange}
-        disabled={submitted} // Disable options after submission
-        onAnswer={handleAnswerQuestion}
+        onSelectChoice={handleAnswerQuestion}
+        otherOptionIndex={otherOptionIndex}
+        disabled={submitted}
       />
       <ProgressBar
         totalQuestions={questions.length}
@@ -86,16 +81,9 @@ const QuestionCard: React.FC<QuestionCardProps> = ({ questions }) => {
         <button
           className="next-btn btn"
           onClick={nextQuestion}
-          disabled={currentQuestion === questions.length - 1 || submitted}
+          disabled={submitted}
         >
-          Next
-        </button>
-        <button
-          className="submit-btn btn"
-          onClick={handleSubmit}
-          disabled={!allQuestionsAnswered || submitted}
-        >
-          Submit
+          {currentQuestion === questions.length - 1 ? "Submit" : "Next"}
         </button>
       </div>
     </div>
