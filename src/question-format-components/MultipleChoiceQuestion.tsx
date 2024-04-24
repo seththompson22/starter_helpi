@@ -1,43 +1,42 @@
-import React from "react";
 import { Form } from "react-bootstrap";
 import "../styles/MultipleChoiceQuestion.css";
 
-interface MultipleChoiceQuestionProps {
-  question: string;
-  options: string[];
-  expectedAnswer: string;
+interface QuestionOptionProps {
+  choices: string[];
+  selectedChoice: string;
+  onSelectChoice: (choice: string) => void;
+  disabled?: boolean;
   onAnswer: () => void;
-  onDeselect: () => void; // Add the new prop for deselecting an answer
 }
 
-export const MultipleChoiceQuestion: React.FC<MultipleChoiceQuestionProps> = ({
-  question,
-  options,
-  expectedAnswer,
+const MultipleChoiceQuestion: React.FC<QuestionOptionProps> = ({
+  choices,
+  selectedChoice,
+  onSelectChoice,
+  disabled,
   onAnswer,
-  onDeselect, // Destructure the new prop
 }) => {
-  const handleAnswer = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    // Check if an answer is selected
-    if (event.target.value !== "") {
-      onAnswer(); // Invoke the onAnswer callback when an answer is selected
-    } else {
-      onDeselect(); // Invoke the onDeselect callback when an answer is deselected
-    }
+  const handleChoiceChange = (choice: string) => {
+    onSelectChoice(choice);
   };
 
   return (
-    <Form.Group className="question-group">
-      <Form.Label>{question}</Form.Label>
-      <Form.Select onChange={handleAnswer}>
-        {options.map((option: string, index: number) => (
-          <option key={index} value={option}>
-            {option}
-          </option>
-        ))}
-      </Form.Select>
+    <Form.Group controlId="questionOptions" className="question-option">
+      {choices.map((choice, index) => (
+        <Form.Check
+          key={index}
+          type="radio"
+          label={choice}
+          name="choices"
+          value={choice}
+          checked={selectedChoice === choice}
+          onChange={() => handleChoiceChange(choice)}
+          disabled={disabled}
+          id={`option-${index}`}
+          className="form-check"
+        />
+      ))}
     </Form.Group>
   );
 };
-
 export default MultipleChoiceQuestion;
