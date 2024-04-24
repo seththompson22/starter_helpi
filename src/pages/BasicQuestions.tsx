@@ -1,9 +1,13 @@
 //import React, { useState } from "react";
-import { Form } from "react-bootstrap";
+//import { Form, ProgressBar } from "react-bootstrap";
 import "../App";
 import "../styles/BasicQuestions.css";
 import { MultipleChoiceQuestion } from "../question-format-components/MultipleChoiceQuestion";
 import NavigationBar from "../components/NavigationBar";
+import React, { useState } from "react";
+import ProgressBar from "../components/progressBar";
+//import { ProgressBarProps } from "../components/progressBar";
+import { Form } from "react-bootstrap";
 //import { Button, Form } from 'react-bootstrap';
 //import { ButtonToPages } from './ButtonToPages';
 
@@ -39,26 +43,44 @@ export function BasicQuestions() {
     "Agree",
     "Strongly Agree",
   ];
+    // State to track the number of answered questions
+    const [answeredQuestions, setAnsweredQuestions] = useState(0);
 
-  return (
-    <div className="basic-questions-page">
-      <NavigationBar></NavigationBar>
-      <h1 className="basic-q-title">Basic Question Career Quiz</h1>
-      <p className="basic-q-desc">Basic Question Career Quiz Description</p>
-      <Form>
-        {/* plan is to:
-        DONE  - modify MultipleChoiceQuestion to be able to enter the question name into a new field called question
-        DONE - map questions for the basic page to create all of the questions in the form of this type*/}
-        {questionOptions.map((question, index) => (
-          <MultipleChoiceQuestion
-            question={question}
-            options={answerOptions}
-            expectedAnswer=""
-          ></MultipleChoiceQuestion>
-        ))}
-      </Form>
-    </div>
-  );
-}
+    // Function to handle answering a question
+    const handleAnswerQuestion = () => {
+      // Logic to handle answering the question
+      // Increment the number of answered questions
+      setAnsweredQuestions((prevCount) => prevCount + 1);
+    };
+    const handleDeselectQuestion = () => {
+      setAnsweredQuestions((prevCount) => prevCount - 1);
+    };
+  
+
+    return (
+      <div className="basic-questions-page">
+        <NavigationBar />
+        <h1 className="basic-q-title">Basic Question Career Quiz</h1>
+        <p className="basic-q-desc">Basic Question Career Quiz Description</p>
+        <Form>
+          <ProgressBar totalQuestions={questionOptions.length} answeredQuestions={answeredQuestions} />
+  
+          {/* Render all the multiple-choice questions */}
+          {questionOptions.map((question, index) => (
+            <div key={index}>
+              <MultipleChoiceQuestion
+                question={question}
+                options={answerOptions}
+                expectedAnswer=""
+                onAnswer={handleAnswerQuestion}
+                onDeselect={handleDeselectQuestion}
+              />
+              <br />
+            </div>
+          ))}
+        </Form>
+      </div>
+    );
+  }
 
 export default BasicQuestions;

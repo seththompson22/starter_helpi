@@ -2,9 +2,11 @@ import React, { useState } from "react";
 import { Button, Col, Container, Form, Row } from "react-bootstrap";
 import "../styles/BasicQuestions.css"; // Import CSS file
 import NavigationBar from "../components/NavigationBar";
+import ProgressBar from "../components/progressBar";
 
 function DetailedQuestions() {
   const [key, setKey] = useState<string>("");
+  const [answeredQuestions, setAnsweredQuestions] = useState<number>(0); // Define answeredQuestions state
 
   const questionOptions = [
     "Do you enjoy working with your hands and creating tangible objects or structures?",
@@ -29,14 +31,41 @@ function DetailedQuestions() {
     "Do you value autonomy and independence in your work decisions and tasks?",
   ];
 
+  const [prevAnswers, setPrevAnswers] = useState<(string | null)[]>(Array(questionOptions.length).fill(null)); // Store the previous answers
+
   const handleSubmit = () => {
     localStorage.setItem("MYKEY", JSON.stringify(key));
     window.location.reload();
   };
 
+
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setKey(event.target.value);
+    const id = event.target.id;
+    const questionNumber = parseInt(id.split("-")[1]);
+    const newValue = event.target.value.trim(); // Get the trimmed value of the input
+  
+    // Check if the input field was previously empty and is now filled out
+    if (newValue && !prevAnswers[questionNumber - 1]) {
+      setAnsweredQuestions((prevCount) => prevCount + 1); // Increment answeredQuestions
+    }
+    // Check if the input field was previously filled out and is now emptied
+    else if (!newValue && prevAnswers[questionNumber - 1]) {
+      setAnsweredQuestions((prevCount) => prevCount - 1); // Decrement answeredQuestions
+    }
+  
+    // Update the previous answers array
+    const updatedPrevAnswers = [...prevAnswers];
+    updatedPrevAnswers[questionNumber - 1] = newValue;
+    setPrevAnswers(updatedPrevAnswers);
+  
+    // Update the state of the input field
+    setKey(newValue);
   };
+  
+  
+  
+  
+
 
   return (
     <div className="detailed-q-page">
@@ -154,6 +183,8 @@ function DetailedQuestions() {
           </Col>
         </Row>
       </Container>
+       {/* Render the ProgressBar component */}
+       <ProgressBar totalQuestions={questionOptions.length} answeredQuestions={answeredQuestions} />
 
       <Button className="Submit-Button" onClick={handleSubmit}>
         Submit Answers
@@ -163,3 +194,5 @@ function DetailedQuestions() {
 }
 
 export default DetailedQuestions;
+
+

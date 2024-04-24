@@ -1,23 +1,11 @@
-//import React, { useState } from 'react';
-//import logo from './logo.svg';
-import { useState } from 'react';
-import './App.css';
-//import { Button, Form } from 'react-bootstrap';
+import "./styles/App.css";
+import DetailedQuestions from "./pages/DetailedQuestions";
+import { Home } from "./pages/Home";
+import { SignUp } from "./pages/SignUp";
+import { Login } from "./pages/Login";
 
-//import logo from "./logo.svg";
-import { HashRouter, Route, Routes } from 'react-router-dom';
-import Home from './pages/Home';
-import DetailedQuestions from './pages/DetailedQuestions';
-import ResponsePage from './ResponsePage'; // Import the ResponsePage component
-import React from 'react';
-
-//local storage and API Key: key should be entered in by the user and will be stored in local storage (NOT session storage)
-let keyData = "";
-const saveKeyData = "MYKEY";
-const prevKey = localStorage.getItem(saveKeyData); //so it'll look like: MYKEY: <api_key_value here> in the local storage when you inspect
-if (prevKey !== null) {
-  keyData = JSON.parse(prevKey);
-}
+import { HashRouter, Routes, Route } from "react-router-dom";
+import BasicQuestions from "./pages/BasicQuestions";
 
 function App() {
   const [key, setKey] = useState<string>(keyData); //for api key input
@@ -33,14 +21,16 @@ function App() {
     setKey(event.target.value);
   }
   return (
-<HashRouter>
-  <Routes>
-    <Route path = "/" element = {<Home/>} />
-    <Route path = "/DetailedQuestions" element = {<DetailedQuestions/>} />
-    <Route path = "/ResponsePage" element = {<ResponsePage/>} />
-  </Routes>
-  
-</HashRouter>
+    <HashRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/starter_helpi" element={<Home />} />
+        <Route path="/DetailedQuestions" element={<DetailedQuestions />} />
+        <Route path="/BasicQuestions" element={<BasicQuestions />} />
+        <Route path="/signup" element={<SignUp />} />
+        <Route path="/login" element={<Login />} />
+      </Routes>
+    </HashRouter>
   );
 }
 
