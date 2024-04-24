@@ -6,6 +6,12 @@ import { Login } from "./pages/Login";
 
 import { HashRouter, Routes, Route } from "react-router-dom";
 import BasicQuestions from "./pages/BasicQuestions";
+import { useState } from "react";
+import React from "react";
+
+
+let keyData = "";
+const saveKeyData = "MYKEY";
 
 function App() {
   const [key, setKey] = useState<string>(keyData); //for api key input
