@@ -1,6 +1,7 @@
 //import React, { useState } from 'react';
 import "../styles/BasicQuestions.css";
 import NavigationBar from "../components/NavigationBar";
+import React from "react";
 //import { Button, Form } from 'react-bootstrap';
 //import { ButtonToPages } from './ButtonToPages';
 
