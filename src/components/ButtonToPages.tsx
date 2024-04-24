@@ -1,6 +1,8 @@
 //import React, { useState } from "react";
 //import { Button } from "react-bootstrap";
 
+import React from "react";
+
 
 // 3 functions are components because they return JSX components
 

@@ -2,7 +2,7 @@ import "../App";
 import "../styles/BasicQuestions.css";
 import NavigationBar from "../components/NavigationBar";
 import QuestionCard from "../components/QuestionCard";
-import React from "react";
+import React, { useState } from "react";
 
 // Define an array of question objects
 const questions = [
@@ -46,12 +46,22 @@ const questions = [
 
 
 export function BasicQuestions() {
-  //whenever there's a change it'll store the api key in a local state called key but it won't be set in the local storage until the user clicks the submit button
+  // State to track completion status
+  const [completed, setCompleted] = useState(false);
+
+  // Callback function to handle completion
+  const handleCompletion = () => {
+    setCompleted(true);
+  };
+
   return (
     <div className="basic-questions-page">
-      <NavigationBar></NavigationBar>
+      <NavigationBar />
       <h1 className="basic-q-title">Basic Question Career Quiz</h1>
-      <QuestionCard questions={questions}></QuestionCard>
+      {/* Render QuestionCard only if not completed */}
+      {!completed && <QuestionCard questions={questions} onCompletion={handleCompletion} />}
+      {/* Render completion message if completed */}
+      {completed && <p style={{ fontSize: '24px' }}>You have completed the quiz!</p>}
     </div>
   );
 }
