@@ -1,7 +1,8 @@
 .navigation {
-    margin-top: 290px;
+    margin-top: 0px;
     margin-left: auto;
     width: auto;
+    height: 10vh;
 }
 
 .btn {
@@ -52,10 +53,10 @@
     border-radius: 8px;
 }
 
-h2 {
-    height: 65px;
+.question-card h2 {
+    height: 10vh;
     font-size: 27px;
     text-align: start;
     margin-left: 20px;
-    margin-bottom: 30px;
+    margin-bottom: 15px;
 }
