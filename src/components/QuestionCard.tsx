@@ -2,6 +2,7 @@ import "../styles/QuestionCard.css";
 import MultipleChoiceQuestion from "../question-format-components/MultipleChoiceQuestion";
 import { useState } from "react";
 import ProgressBar from "./progressBar";
+import React from "react";
 
 interface QuestionCardProps {
   questions: { question: string; choices: string[] }[];
