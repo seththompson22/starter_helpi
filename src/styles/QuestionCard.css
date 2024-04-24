@@ -1,5 +1,6 @@
 .question-card {
     background-color: var(--white-color);
+    color: var(--black-color);
     width: 70%;
     height: 60vh;
     margin: auto;

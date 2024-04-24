@@ -1,41 +1,40 @@
 import React, { useState } from "react";
 import { Form } from "react-bootstrap";
+import "../styles/MultipleChoiceQuestion.css";
 
-function MultipleChoiceQuestion({
-  answerOptions,
-}: {
-  answerOptions: string[];
-}) {
-  const [option, setOption] = useState<string>("");
+interface QuestionOptionProps {
+  choices: string[];
+  selectedChoice: string;
+  onSelectChoice: (choice: string) => void;
+  disabled?: boolean;
+}
 
-  function updateOption(event: React.ChangeEvent<HTMLInputElement>) {
-    setOption(event.target.value);
-  }
+const MultipleChoiceQuestion: React.FC<QuestionOptionProps> = ({
+  choices,
+  selectedChoice,
+  onSelectChoice,
+  disabled,
+}) => {
+  const handleChoiceChange = (choice: string) => {
+    onSelectChoice(choice);
+  };
 
   return (
-    <div>
-      {answerOptions.map((answer: string, index: number) => {
-        return (
-          <Form.Check
-            key={answer}
-            type="radio"
-            id={answer}
-            label={answer}
-            value={answer}
-            checked={option === answer}
-            onChange={updateOption}
-          />
-        );
-      })}
-      {option === "Other (please specify)" ? (
-        <Form.Group>
-          <Form.Control placeholder="Please Specify Here" />
-        </Form.Group>
-      ) : (
-        <></>
-      )}
-    </div>
+    <Form.Group controlId="questionOptions">
+      {choices.map((choice, index) => (
+        <Form.Check
+          key={index}
+          type="radio"
+          label={choice}
+          name="choices"
+          value={choice}
+          checked={selectedChoice === choice}
+          onChange={() => handleChoiceChange(choice)}
+          disabled={disabled}
+        />
+      ))}
+    </Form.Group>
   );
-}
+};
 
 export default MultipleChoiceQuestion;
