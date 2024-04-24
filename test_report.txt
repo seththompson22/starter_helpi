@@ -3,7 +3,7 @@
 > react-scripts test --coverage
 
 FAIL src/App.test.tsx
-  ✕ renders learn react link (54 ms)
+  ✕ renders learn react link (57 ms)
 
   ● renders learn react link
 
@@ -203,7 +203,7 @@ All files                       |   13.49 |     3.33 |   14.58 |   13.93 |
   server.js                     |       0 |      100 |       0 |       0 | 2-44              
   test.tsx                      |       0 |      100 |       0 |       0 | 13                
  src/components                 |   19.04 |        0 |   26.31 |      20 |                   
-  ButtonToPages.tsx             |       0 |      100 |       0 |       0 | 16                
+  ButtonToPages.tsx             |       0 |      100 |       0 |       0 | 18                
   ChooseYourPathSection.tsx     |     100 |      100 |     100 |     100 |                   
   HeroSection.tsx               |     100 |      100 |     100 |     100 |                   
   NavigationBar.tsx             |     100 |      100 |     100 |     100 |                   
@@ -224,5 +224,5 @@ All files                       |   13.49 |     3.33 |   14.58 |   13.93 |
 Test Suites: 1 failed, 1 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        3.042 s
+Time:        3.205 s
 Ran all test suites.
