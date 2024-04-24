@@ -2,8 +2,8 @@
 ul {
   list-style-type: none;
   font-size: 20px;
-  margin: 0;
-  padding: 10px;
+  margin: 0px;
+  padding: 0px;
   overflow: hidden;
   background-color: var(--white-color);
   color: var(--black-color);
@@ -16,11 +16,15 @@ ul {
   grid-template-rows: auto;
   z-index: 1100;
   align-items: center;
+ 
 }
 
 .icon-text {
   font-family: "PT Sans";
   font-size: 30px;
+  margin: auto;
+  border: 2.5px solid transparent;
+  border-radius: 5px;
 }
 
 .left-links {
@@ -32,7 +36,7 @@ ul {
 
 .right-links {
  justify-self: end;
- padding-right: 20px;
+ padding-right: 10px;
 }
 
 li {
@@ -43,39 +47,42 @@ li {
 li a {
   display: block;
   text-align: center;
-  padding: 14px 16px;
+  padding: 8px 12px;
   text-decoration: none;
-  margin: 2.5px 5.5px 2.5px 5.5px;
+  margin: 0px 3px;
+  color: var(--black-color);
+  margin: auto;
+  border: 2.5px solid transparent;
+  border-radius: 5px;
 }
 
 
 
 /* Change the link color to #111 (black) on hover */
 li a:hover {
-  border: 2.5px solid var(--black-color);
-  background-color: var(--white-color);
-  border-radius: 5px;
-  margin: 0px 3px 0px 3px;
+  border-color: var(--black-color);
+  color: var(--black-color);
+}
+
+.icon-text:hover {
+  border-color: var(--black-color);
+  color: var(--black-color);
 }
 
 .inverted-btn {
-  background-color: var(--whtie-color);
+  background-color: var(--white-color);
   margin: 0px 3px 0px 3px;
   border-radius: 5px;
   border: 2.5px solid var(--black-color);
-
 }
 
 .inverted-btn:hover {
   margin: 0px 3px 0px 3px;
   background-color: var(--accent-color);
+  color: var(--black-color);
 }
 
 
-li a:visited {
-  color: inherit;
-}
-
-.active {
-  background-color: #04AA6D;
+.nav-item:visited {
+  color: var(--black-color);
 }
