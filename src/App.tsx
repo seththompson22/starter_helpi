@@ -8,6 +8,7 @@ import { HashRouter, Routes, Route } from "react-router-dom";
 import BasicQuestions from "./pages/BasicQuestions";
 import React from "react";
 
+
 function App() {
   return (
     <HashRouter>
