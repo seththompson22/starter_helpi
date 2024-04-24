@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { Button, Form } from "react-bootstrap";
 
 import {openai} from "../pages/Home"
-import { ChatCompletionMessageParam } from "openai/resources";
+import { ChatCompletionMessageParam } from "openai/resources/index.mjs";
 
 
 

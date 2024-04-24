@@ -6,6 +6,7 @@ import { Login } from "./pages/Login";
 import { HashRouter, Routes, Route } from "react-router-dom";
 import BasicQuestions from "./pages/BasicQuestions";
 import CareerReport from "./pages/CareerReport";
+import React from "react";
 
 function App() {
   return (
