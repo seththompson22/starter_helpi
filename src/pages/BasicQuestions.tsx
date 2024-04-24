@@ -2,6 +2,7 @@ import "../App";
 import "../styles/BasicQuestions.css";
 import NavigationBar from "../components/NavigationBar";
 import QuestionCard from "../components/QuestionCard";
+import React from "react";
 
 // Define an array of question objects
 const questions = [
