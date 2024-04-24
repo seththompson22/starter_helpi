@@ -54,34 +54,5 @@ export function BasicQuestions() {
     </div>
   );
 }
-  
-    
-  
-
-  //   return (
-  //     <div className="basic-questions-page">
-  //       <NavigationBar />
-  //       <h1 className="basic-q-title">Basic Question Career Quiz</h1>
-  //       <p className="basic-q-desc">Basic Question Career Quiz Description</p>
-  //       <Form>
-  //         <ProgressBar totalQuestions={questionOptions.length} answeredQuestions={answeredQuestions} />
-  
-  //         {/* Render all the multiple-choice questions */}
-  //         {questionOptions.map((question, index) => (
-  //           <div key={index}>
-  //             <MultipleChoiceQuestion
-  //               question={question}
-  //               options={answerOptions}
-  //               expectedAnswer=""
-  //               onAnswer={handleAnswerQuestion}
-  //               onDeselect={handleDeselectQuestion}
-  //             />
-  //             <br />
-  //           </div>
-  //         ))}
-  //       </Form>
-  //     </div>
-  //   );
-  // }
 
 export default BasicQuestions;

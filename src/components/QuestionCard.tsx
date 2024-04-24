@@ -1,6 +1,7 @@
 import "../styles/QuestionCard.css";
 import MultipleChoiceQuestion from "../question-format-components/MultipleChoiceQuestion";
 import { useState } from "react";
+import ProgressBar from "./progressBar";
 
 interface QuestionCardProps {
   questions: { question: string; choices: string[] }[];
@@ -12,6 +13,19 @@ const QuestionCard: React.FC<QuestionCardProps> = ({ questions }) => {
     Array(questions.length).fill(null)
   );
   const [submitted, setSubmitted] = useState(false);
+
+  // State to track the number of answered questions
+  const [answeredQuestions, setAnsweredQuestions] = useState(0);
+
+  // Function to handle answering a question
+  const handleAnswerQuestion = () => {
+    // Logic to handle answering the question
+    // Increment the number of answered questions
+    setAnsweredQuestions((prevCount) => prevCount + 1);
+  };
+  const handleDeselectQuestion = () => {
+    setAnsweredQuestions((prevCount) => prevCount - 1);
+  };
 
   const prevQuestion = () => {
     if (currentQuestion > 0) {
@@ -47,6 +61,12 @@ const QuestionCard: React.FC<QuestionCardProps> = ({ questions }) => {
         selectedChoice={answers[currentQuestion] || ""}
         onSelectChoice={handleChoiceChange}
         disabled={submitted} // Disable options after submission
+        onAnswer={handleAnswerQuestion}
+        onDeselect={handleDeselectQuestion}
+      />
+      <ProgressBar
+        totalQuestions={questions.length}
+        answeredQuestions={answeredQuestions}
       />
       <div className="navigation">
         <button
