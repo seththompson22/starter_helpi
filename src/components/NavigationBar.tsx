@@ -1,4 +1,5 @@
 //import React, { useState } from 'react';
+import React from "react";
 import "../styles/NavigationBar.css";
 //import { Button, Form } from 'react-bootstrap';
 //import { ButtonToPages } from './ButtonToPages';
