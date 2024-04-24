@@ -50,21 +50,21 @@ const QuestionCard: React.FC<QuestionCardProps> = ({ questions }) => {
       />
       <div className="navigation">
         <button
-          className="prev-btn"
+          className="prev-btn btn"
           onClick={prevQuestion}
           disabled={currentQuestion === 0 || submitted}
         >
           Previous
         </button>
         <button
-          className="next-btn"
+          className="next-btn btn"
           onClick={nextQuestion}
           disabled={currentQuestion === questions.length - 1 || submitted}
         >
           Next
         </button>
         <button
-          className="submit-btn"
+          className="submit-btn btn"
           onClick={handleSubmit}
           disabled={!allQuestionsAnswered || submitted}
         >

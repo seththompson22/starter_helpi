@@ -10,15 +10,5 @@
 }
 
 .basic-q-title {
-    font-size: 80px;
-}
-
-form {
-    padding: 100px 15%;
-    margin: 20px;
-    font-size: 20px;
-    color: black;
-    background-color: #062D60;
-    color: var(--white-color);
-    text-align: left;
+    font-size: 70px;
 }

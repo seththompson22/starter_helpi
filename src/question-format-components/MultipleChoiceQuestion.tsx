@@ -19,7 +19,7 @@ const MultipleChoiceQuestion: React.FC<QuestionOptionProps> = ({
   };
 
   return (
-    <Form.Group controlId="questionOptions">
+    <Form.Group controlId="questionOptions" className="question-option">
       {choices.map((choice, index) => (
         <Form.Check
           key={index}
@@ -31,6 +31,7 @@ const MultipleChoiceQuestion: React.FC<QuestionOptionProps> = ({
           onChange={() => handleChoiceChange(choice)}
           disabled={disabled}
           id={`option-${index}`}
+          className="form-check"
         />
       ))}
     </Form.Group>
