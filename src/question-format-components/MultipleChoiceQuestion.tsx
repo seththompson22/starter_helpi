@@ -20,15 +20,6 @@ const MultipleChoiceQuestion: React.FC<QuestionOptionProps> = ({
     onSelectChoice(choice);
   };
 
-  const handleAnswer = (event: React.ChangeEvent<HTMLInputElement>) => {
-    // Check if an answer is selected
-    if (event.target.value !== "") {
-      onAnswer(); // Invoke the onAnswer callback when an answer is selected
-    } else {
-      onDeselect(); // Invoke the onDeselect callback when an answer is deselected
-    }
-  };
-
   return (
     <Form.Group controlId="questionOptions" className="question-option">
       {choices.map((choice, index) => (

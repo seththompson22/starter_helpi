@@ -7,6 +7,11 @@ interface QuestionCardProps {
   questions: { question: string; choices: string[] }[];
 }
 
+interface ApiAnswer {
+  question: string;
+  answer: string | null;
+}
+
 const QuestionCard: React.FC<QuestionCardProps> = ({ questions }) => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [answers, setAnswers] = useState<(string | null)[]>(
@@ -15,16 +20,13 @@ const QuestionCard: React.FC<QuestionCardProps> = ({ questions }) => {
   const [submitted, setSubmitted] = useState(false);
 
   // State to track the number of answered questions
-  const [answeredQuestions, setAnsweredQuestions] = useState(0);
+  const [, setAnsweredQuestions] = useState(0);
 
   // Function to handle answering a question
   const handleAnswerQuestion = () => {
     // Logic to handle answering the question
     // Increment the number of answered questions
     setAnsweredQuestions((prevCount) => prevCount + 1);
-  };
-  const handleDeselectQuestion = () => {
-    setAnsweredQuestions((prevCount) => prevCount - 1);
   };
 
   const prevQuestion = () => {
@@ -43,12 +45,18 @@ const QuestionCard: React.FC<QuestionCardProps> = ({ questions }) => {
     const newAnswers = [...answers];
     newAnswers[currentQuestion] = choice;
     setAnswers(newAnswers);
+    handleAnswerQuestion();
   };
 
   const handleSubmit = () => {
     setSubmitted(true);
     // You can handle the submission of answers here, for example, sending them to an API
-    console.log("Submitted answers:", answers);
+
+    const apiAnswers: ApiAnswer[] = questions.map((value, index) => {
+      return { question: value.question, answer: answers[index] };
+    });
+
+    console.log("Submitted answers:", apiAnswers);
   };
 
   const allQuestionsAnswered = answers.every((answer) => answer !== null);
@@ -62,11 +70,10 @@ const QuestionCard: React.FC<QuestionCardProps> = ({ questions }) => {
         onSelectChoice={handleChoiceChange}
         disabled={submitted} // Disable options after submission
         onAnswer={handleAnswerQuestion}
-        onDeselect={handleDeselectQuestion}
       />
       <ProgressBar
         totalQuestions={questions.length}
-        answeredQuestions={answeredQuestions}
+        answeredQuestions={answers.filter((value) => value !== null).length}
       />
       <div className="navigation">
         <button
