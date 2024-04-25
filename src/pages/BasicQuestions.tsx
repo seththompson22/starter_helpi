@@ -2,10 +2,10 @@
 import { Form } from "react-bootstrap";
 import "../App";
 import "../styles/BasicQuestions.css";
-import { MultipleChoiceQuestion } from "../question-format-components/MultipleChoiceQuestion";
 import NavigationBar from "../components/NavigationBar";
 import { useState } from "react";
 import React from "react";
+import { MultipleChoiceQuestion } from "../question-format-components/MultipleChoiceQuestion"
 //import { Counter } from "./APIButton";
 //import { Button, Form } from 'react-bootstrap';
 //import { ButtonToPages } from './ButtonToPages';
