@@ -6,6 +6,7 @@ import React from "react";
 
 interface QuestionCardProps {
   questions: { question: string; choices: string[] }[];
+  onCompletion: () => void; // Add the onCompletion prop
 }
 
 interface ApiAnswer {
@@ -13,7 +14,7 @@ interface ApiAnswer {
   answer: string | null;
 }
 
-const QuestionCard: React.FC<QuestionCardProps> = ({ questions }) => {
+const QuestionCard: React.FC<QuestionCardProps> = ({ questions, onCompletion }) => { // Add onCompletion to props
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [answers, setAnswers] = useState<(string | null)[]>(
     Array(questions.length).fill(null)
@@ -58,6 +59,11 @@ const QuestionCard: React.FC<QuestionCardProps> = ({ questions }) => {
     });
 
     console.log("Submitted answers:", apiAnswers);
+    
+    // Check if all questions are answered
+    if (answers.every((answer) => answer !== null)) {
+      onCompletion(); // Call the onCompletion function
+    }
   };
 
   const allQuestionsAnswered = answers.every((answer) => answer !== null);
