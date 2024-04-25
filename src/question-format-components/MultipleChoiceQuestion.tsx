@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Form, Row, Col } from "react-bootstrap";
+import "../styles/MultipleChoiceQuestion.css";
 
 interface MultipleChoiceQuestionProps {
   choices: string[];

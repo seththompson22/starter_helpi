@@ -6,6 +6,7 @@ import QuestionCard from "../components/QuestionCard";
 // Define an array of question objects
 const questions = [
   {
+    questionType: "Multiple Choice",
     question:
       "Which of the following industries interests you the most: technology, healthcare, finance, or creative arts?",
     choices: [
@@ -18,6 +19,7 @@ const questions = [
     otherOptionIndex: 4,
   },
   {
+    questionType: "Multiple Choice",
     question: "Do you prefer working independently or as part of a team?",
     choices: [
       "Independently",
@@ -28,6 +30,7 @@ const questions = [
     otherOptionIndex: 3,
   },
   {
+    questionType: "Multiple Choice",
     question:
       "Are you more interested in technical roles, creative roles, or leadership positions?",
     choices: [
@@ -39,6 +42,7 @@ const questions = [
     otherOptionIndex: 3,
   },
   {
+    questionType: "Multiple Choice",
     question:
       "Would you rather work in a fast-paced, dynamic environment or a stable, predictable one?",
     choices: [
@@ -50,6 +54,7 @@ const questions = [
     otherOptionIndex: 3,
   },
   {
+    questionType: "Multiple Choice",
     question:
       "Do you enjoy solving complex problems, working with people, or managing projects?",
     choices: [
@@ -61,6 +66,7 @@ const questions = [
     otherOptionIndex: 3,
   },
   {
+    questionType: "Multiple Choice",
     question:
       "Which of the following work settings appeals to you: office, remote, or hybrid?",
     choices: [
@@ -72,6 +78,7 @@ const questions = [
     otherOptionIndex: 3,
   },
   {
+    questionType: "Multiple Choice",
     question:
       "Are you interested in pursuing further education or training in your career field?",
     choices: [
@@ -83,6 +90,7 @@ const questions = [
     otherOptionIndex: 3,
   },
   {
+    questionType: "Multiple Choice",
     question:
       "Do you value job security and stability over potential for growth and advancement?",
     choices: [
@@ -94,6 +102,7 @@ const questions = [
     otherOptionIndex: 3,
   },
   {
+    questionType: "Multiple Choice",
     question:
       "What level of responsibility are you comfortable with in a professional role?",
     choices: [

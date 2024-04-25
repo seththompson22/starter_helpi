@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import MultipleChoiceQuestion from "../question-format-components/MultipleChoiceQuestion";
 import ProgressBar from "./progressBar";
+import "../styles/QuestionCard.css";
 
 interface QuestionCardProps {
   questions: {
