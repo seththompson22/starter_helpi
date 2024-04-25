@@ -5,6 +5,7 @@ import "../styles/QuestionCard.css";
 
 interface QuestionCardProps {
   questions: {
+    questionType: "Multiple Choice" | "Open Response";
     question: string;
     choices: string[];
     otherOptionIndex?: number;
