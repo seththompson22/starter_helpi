@@ -2,7 +2,8 @@ import "../App";
 import "../styles/BasicQuestions.css";
 import NavigationBar from "../components/NavigationBar";
 import QuestionCard from "../components/QuestionCard";
-import React, { useState } from "react";
+import React from "react";
+import { useState } from "react";
 
 // Define an array of question objects
 const questions = [
