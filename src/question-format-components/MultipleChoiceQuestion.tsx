@@ -1,32 +1,43 @@
-import React, { useState } from "react";
+import React from "react";
 import { Form } from "react-bootstrap";
 import "../styles/MultipleChoiceQuestion.css";
 
-export function MultipleChoiceQuestion({
-  question,
-  options,
-  expectedAnswer,
-}: {
-  question: string;
-  options: string[];
-  expectedAnswer: string;
-}): JSX.Element {
-  const [selected, setSelected] = useState<string>(options[0]);
-
-  function updateSelected(event: React.ChangeEvent<HTMLSelectElement>) {
-    setSelected(event.target.value);
-  }
-  return (
-    <Form.Group className="question-group">
-      <Form.Label>{question}</Form.Label>
-      <Form.Select value={selected} onChange={updateSelected}>
-        {options.map((option: string) => (
-          <option key={option} value={option}>
-            {option}
-          </option>
-        ))}
-      </Form.Select>
-    </Form.Group>
-    //{/* store answer externally in line below */}
-  );
+interface QuestionOptionProps {
+  choices: string[];
+  selectedChoice: string;
+  onSelectChoice: (choice: string) => void;
+  disabled?: boolean;
+  onAnswer: () => void;
 }
+
+const MultipleChoiceQuestion: React.FC<QuestionOptionProps> = ({
+  choices,
+  selectedChoice,
+  onSelectChoice,
+  disabled,
+  onAnswer,
+}) => {
+  const handleChoiceChange = (choice: string) => {
+    onSelectChoice(choice);
+  };
+
+  return (
+    <Form.Group controlId="questionOptions" className="question-option">
+      {choices.map((choice, index) => (
+        <Form.Check
+          key={index}
+          type="radio"
+          label={choice}
+          name="choices"
+          value={choice}
+          checked={selectedChoice === choice}
+          onChange={() => handleChoiceChange(choice)}
+          disabled={disabled}
+          id={`option-${index}`}
+          className="form-check"
+        />
+      ))}
+    </Form.Group>
+  );
+};
+export default MultipleChoiceQuestion;

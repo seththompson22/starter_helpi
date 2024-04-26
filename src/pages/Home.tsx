@@ -54,7 +54,6 @@ export function Home() {
           placeholder="Insert API Key Here"
           onChange={changeKey}
         ></Form.Control>
-        <br></br>
         <Button className="Submit-Button" onClick={handleSubmit}>
           Submit
         </Button>
