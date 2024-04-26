@@ -3,7 +3,7 @@
 > react-scripts test --coverage
 
 FAIL src/App.test.tsx
-  ✕ renders learn react link (56 ms)
+  ✕ renders learn react link (55 ms)
 
   ● renders learn react link
 
@@ -169,6 +169,13 @@ FAIL src/App.test.tsx
               [0mSubmit[0m
             [36m</button>[39m
           [36m</form>[39m
+          [36m<li>[39m
+            [36m<a[39m
+              [33mhref[39m=[32m"/starter_helpi/#/CareerReport"[39m
+            [36m>[39m
+              [0mDetailed Career Quiz[0m
+            [36m</a>[39m
+          [36m</li>[39m
         [36m</div>[39m
       [36m</div>[39m
     [36m</body>[39m
@@ -194,7 +201,7 @@ FAIL src/App.test.tsx
 --------------------------------|---------|----------|---------|---------|-------------------
 File                            | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 --------------------------------|---------|----------|---------|---------|-------------------
-All files                       |   12.87 |     2.77 |      14 |   13.38 |                   
+All files                       |   11.33 |     2.63 |    12.5 |   11.72 |                   
  src                            |     2.7 |        0 |      10 |     2.7 |                   
   App.tsx                       |     100 |      100 |     100 |     100 |                   
   ResponsePage.tsx              |       0 |        0 |       0 |       0 | 6-15              
@@ -202,7 +209,8 @@ All files                       |   12.87 |     2.77 |      14 |   13.38 |
   reportWebVitals.ts            |       0 |        0 |       0 |       0 | 3-10              
   server.js                     |       0 |      100 |       0 |       0 | 2-44              
   test.tsx                      |       0 |      100 |       0 |       0 | 13                
- src/components                 |   17.77 |        0 |      25 |   19.04 |                   
+ src/components                 |   13.11 |        0 |      20 |   13.79 |                   
+  APIButton.tsx                 |       0 |      100 |       0 |       0 | 16-67             
   ButtonToPages.tsx             |       0 |      100 |       0 |       0 | 18                
   ChooseYourPathSection.tsx     |     100 |      100 |     100 |     100 |                   
   HeroSection.tsx               |     100 |      100 |     100 |     100 |                   
@@ -211,12 +219,13 @@ All files                       |   12.87 |     2.77 |      14 |   13.38 |
   QuizPageCard.tsx              |      50 |      100 |      50 |      50 | 15                
   ScrollToSectionButton.tsx     |      40 |        0 |      50 |      40 | 14-16             
   progressBar.tsx               |   33.33 |      100 |       0 |   33.33 | 18-20             
- src/pages                      |    17.5 |     7.14 |    7.69 |   18.42 |                   
+ src/pages                      |   16.66 |     6.25 |    7.14 |    17.5 |                   
   BasicQuestions.tsx            |      20 |        0 |       0 |      20 | 51-58             
+  CareerReport.tsx              |       0 |      100 |       0 |       0 | 11                
   DetailedQuestions.tsx         |       0 |        0 |       0 |       0 | 8-76              
-  Home.tsx                      |      60 |       50 |   33.33 |      60 | 15,23-29          
-  Login.tsx                     |       0 |      100 |       0 |       0 | 10                
-  SignUp.tsx                    |       0 |      100 |       0 |       0 | 10                
+  Home.tsx                      |   54.54 |       25 |   33.33 |   54.54 | 17,28-41          
+  Login.tsx                     |       0 |      100 |       0 |       0 | 11                
+  SignUp.tsx                    |       0 |      100 |       0 |       0 | 11                
  src/question-format-components |      10 |      100 |       0 |      10 |                   
   MultipleChoiceQuestion.tsx    |   16.66 |      100 |       0 |   16.66 | 20-34             
   RangedResponseQuestion.tsx    |       0 |      100 |       0 |       0 | 12-22             
@@ -224,5 +233,5 @@ All files                       |   12.87 |     2.77 |      14 |   13.38 |
 Test Suites: 1 failed, 1 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        3.221 s
+Time:        3.111 s
 Ran all test suites.
