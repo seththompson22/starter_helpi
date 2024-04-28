@@ -31,6 +31,8 @@ function DetailedQuestions() {
     "Do you value autonomy and independence in your work decisions and tasks?",
   ];
 
+  const [answerList, setAnswerList] = useState<string[]>(["","","","","",""]);
+
   const [prevAnswers, setPrevAnswers] = useState<(string | null)[]>(Array(questionOptions.length).fill(null)); // Store the previous answers
 
   const handleSubmit = () => {

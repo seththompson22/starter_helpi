@@ -5,6 +5,8 @@ import QuestionCard from "../components/QuestionCard";
 import React, { useState } from "react";
 
 // Define an array of question objects
+
+
 const questions = [
   {
     question: "Which of the following industries interests you the most: technology, healthcare, finance, or creative arts?",
@@ -48,6 +50,12 @@ const questions = [
 export function BasicQuestions() {
   // State to track completion status
   const [completed, setCompleted] = useState(false);
+
+  // Question List
+  const [questionList, setQuestionList] = useState<string[]>(["Which of the following industries interests you the most: technology, healthcare, finance, or creative arts?", "Do you prefer working independently or as part of a team?", "Are you more interested in technical roles, creative roles, or leadership positions?", "Would you rather work in a fast-paced, dynamic environment or a stable, predictable one?", "Do you enjoy solving complex problems, working with people, or managing projects?", "Which of the following work settings appeals to you: office, remote, or hybrid?", "Are you interested in pursuing further education or training in your career field?", "Do you value job security and stability over potential for growth and advancement?", "What level of responsibility are you comfortable with in a professional role?"]);
+  // Answer List
+  const [answerList, setAnswerList] = useState<string[]>(["Technology","Independently","Technical roles","Fast-paced, dynamic environment","Solving complex problems","Office", "Yes, definitely", "Job security and stability", "Entry-level tasks and responsibilities"]);
+
 
   // Callback function to handle completion
   const handleCompletion = () => {
