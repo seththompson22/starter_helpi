@@ -1,5 +1,5 @@
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Button, Form } from "react-bootstrap";
 
 import {openai, apiQuestions, userAnswers} from "../components/QuestionCard"
@@ -45,8 +45,13 @@ export function APIButton(): JSX.Element {
   function updateName(event: React.ChangeEvent<HTMLInputElement>) {
      setApiVal(event.target.value);
   }
-
-  computeAPI("");
+  // Runs the API on loading the page.
+  // Is it ok to remove the eslint warning?
+  useEffect(() => {
+    // Run computeAPI() when the component mounts (i.e., when the page loads)
+    computeAPI(""); // You can provide an initial question or input here
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <div>
