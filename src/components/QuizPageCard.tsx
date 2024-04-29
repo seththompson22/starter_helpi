@@ -1,6 +1,5 @@
 import React from "react";
 import "../styles/QuizPageCard.css";
-import OpenAI from "openai";
 
 // The API object needed to do API calls which requires a working API key
 //export let openai: OpenAI;

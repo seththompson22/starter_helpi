@@ -5,12 +5,14 @@ import ProgressBar from "./progressBar";
 import React from "react";
 import OpenAI from "openai";
 import { saveKeyData } from "../pages/Home";
+import { ChatCompletionMessageParam } from "openai/resources/chat/completions";
+
 
 
 // The API object needed to do API calls which requires a working API key
 export let openai: OpenAI;
-export let questionVals: string[];
-export let answerVals: string[];
+export let apiQuestions: ChatCompletionMessageParam[];
+export let userAnswers: ChatCompletionMessageParam[];
 
 interface QuestionCardProps {
   questions: { question: string; choices: string[] }[];
@@ -79,16 +81,22 @@ const QuestionCard: React.FC<QuestionCardProps> = ({ questions, onCompletion }) 
     // The "?." is optional chaining in case the string is null.
     openai = new OpenAI({apiKey: localStorage.getItem(saveKeyData)?.replace(/"/g, '') || undefined, dangerouslyAllowBrowser: true});
     
+    // Creates the arrays needed for the api calls
     const questionArray = questions.map((val: {
       question: string;
       choices: string[];
       }): string => val.question);
+    const answerArray = answers.map((val: 
+      string | null
+      ): string => val || "");
 
-    console.log(questionArray);
-    console.log(answers);
+    // The api calls
+    apiQuestions = questionArray.map((val: string): ChatCompletionMessageParam => ({ role: "system", content: val }));
+    userAnswers = answerArray.map((val: string): ChatCompletionMessageParam => ({ role: "user", content: val }));
 
-    
-
+    // Testing these variables are correct.
+    console.log(apiQuestions);
+    console.log(userAnswers);
 
     window.location.href = "/starter_helpi/#/CareerReport";
 

@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import "../styles/App.css";
 import { Button, Form } from "react-bootstrap";
 import NavigationBar from "../components/NavigationBar";
-import OpenAI from "openai";
 import HeroSection from "../components/HeroSection";
 import ChooseYourPathSection from "../components/ChooseYourPathSection";
 
