@@ -1,5 +1,9 @@
 import React from "react";
 import "../styles/QuizPageCard.css";
+import { saveKeyData } from "../pages/Home";
+import OpenAI from "openai";
+
+export let openai: OpenAI;
 
 function QuizPageCard({
   title,
@@ -12,6 +16,7 @@ function QuizPageCard({
 }): JSX.Element {
 
   function handleClick() {
+    openai = new OpenAI({apiKey: localStorage.getItem(saveKeyData)?.replace(/"/g, '') || undefined, dangerouslyAllowBrowser: true});
     window.location.href = link;
   }
 

@@ -59,6 +59,7 @@ export function BasicQuestions() {
 
   // Callback function to handle completion
   const handleCompletion = () => {
+    window.location.href = "/starter_helpi/#/CareerReport";
     setCompleted(true);
   };
 

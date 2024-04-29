@@ -2,17 +2,14 @@
 import React, { useState } from "react";
 import { Button, Form } from "react-bootstrap";
 
-import {openai} from "../pages/Home"
+import {openai} from "../components/QuizPageCard"
 import { ChatCompletionMessageParam } from "openai/resources/chat/completions";
-//import { ChatCompletionMessageParam } from "openai/resources/index.mjs";
-//import { ChatCompletionMessageParam } from "openai/resources/index.mjs";
 
 
-
+// This file mainly handles the API stuff that is on the Career Report page.
 export function APIButton(): JSX.Element {
-
   // States
-  // The API input
+  // The API input. Both are used for the API output.
   const [value, setValue] = useState<string>("");
   const [apiVal, setApiVal] = useState<string>("");
   // The whole conversation
@@ -20,9 +17,8 @@ export function APIButton(): JSX.Element {
   
   
   async function computeAPI(apiInput: string) {
-
+    // Tries to call the API
     try {
-      
       //const apiMessage: ChatCompletionMessageParam[] = [{ role: "system", content: "You are a career advisor." }, { role: "assistant", content: apiInput }]
       const apiMessage: ChatCompletionMessageParam[] = [...chatLog, {role: "user", content: apiInput }]
 
@@ -30,15 +26,14 @@ export function APIButton(): JSX.Element {
         messages: apiMessage,
         model: "gpt-3.5-turbo",
       });
-      
+      // Extracts the message out of API response
       setValue(JSON.stringify(completion.choices[0]["message"]["content"]).replace(/\\n/g, "\n"));
-      console.log(completion.choices[0]);
+      //console.log(completion.choices[0]);
       
       const apiResponse: ChatCompletionMessageParam[] = [...chatLog, completion.choices[0]["message"]];
-
       setChatLog(apiResponse)
-
     }
+    // Website outputs an error message
     catch (error) {
       console.log("Error");
       setValue(JSON.stringify("Error"));
@@ -51,6 +46,7 @@ export function APIButton(): JSX.Element {
   }
   return (
     <div>
+      {/* Textbox that makes you input your career preferences or whatever */}
       <Form.Group controlId="apiValue">
         <Form.Label>Enter your career related questions: </Form.Label>
         <Form.Control value={apiVal} onChange={updateName} />
@@ -59,14 +55,17 @@ export function APIButton(): JSX.Element {
         </Form.Text>
       </Form.Group>
       <span>
+          {/* Button that calls the API on whatever is in the textbox */}
           <Button onClick={() => computeAPI(apiVal)}>Answer Your Question</Button>
           to 1.
       </span>
 
       <span>
+          {/* Button that calls the API to generate a rap */}
           <Button onClick={() => computeAPI("Come up with a rap.")}> ??? </Button>
       </span>
       <span>
+          {/* Outputs whatever the API last said */}
           The API response is: {value}
       </span>
     </div>
