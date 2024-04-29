@@ -7,7 +7,7 @@ import HeroSection from "../components/HeroSection";
 import ChooseYourPathSection from "../components/ChooseYourPathSection";
 
 // The API object needed to do API calls which requires a working API key
-export let openai: OpenAI;
+// export let openai: OpenAI;
 
 //local storage and API Key: key should be entered in by the user and will be stored in local storage (NOT session storage)
 let keyData = "";
@@ -28,10 +28,6 @@ export function Home() {
   }
   // Initializes the API
   function initAPI() {
-    //{} is an object of all of the parameter types.
-    // apiKey lets you manually input the API key.
-    // The ".replace(/"/g, '')" takes off the extra first and last double quotation marks from the key.
-    // The "?." is optional chaining in case the string is null.
     //openai = new OpenAI({apiKey: localStorage.getItem(saveKeyData)?.replace(/"/g, '') || undefined, dangerouslyAllowBrowser: true});
     //window.location.href = link;
   }

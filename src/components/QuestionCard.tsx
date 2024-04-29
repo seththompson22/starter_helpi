@@ -3,6 +3,14 @@ import MultipleChoiceQuestion from "../question-format-components/MultipleChoice
 import { useState } from "react";
 import ProgressBar from "./progressBar";
 import React from "react";
+import OpenAI from "openai";
+import { saveKeyData } from "../pages/Home";
+
+
+// The API object needed to do API calls which requires a working API key
+export let openai: OpenAI;
+export let questionVals: string[];
+export let answerVals: string[];
 
 interface QuestionCardProps {
   questions: { question: string; choices: string[] }[];
@@ -64,6 +72,26 @@ const QuestionCard: React.FC<QuestionCardProps> = ({ questions, onCompletion }) 
     if (answers.every((answer) => answer !== null)) {
       onCompletion(); // Call the onCompletion function
     }
+
+    //{} is an object of all of the parameter types.
+    // apiKey lets you manually input the API key.
+    // The ".replace(/"/g, '')" takes off the extra first and last double quotation marks from the key.
+    // The "?." is optional chaining in case the string is null.
+    openai = new OpenAI({apiKey: localStorage.getItem(saveKeyData)?.replace(/"/g, '') || undefined, dangerouslyAllowBrowser: true});
+    
+    const questionArray = questions.map((val: {
+      question: string;
+      choices: string[];
+      }): string => val.question);
+
+    console.log(questionArray);
+    console.log(answers);
+
+    
+
+
+    window.location.href = "/starter_helpi/#/CareerReport";
+
   };
 
   const allQuestionsAnswered = answers.every((answer) => answer !== null);

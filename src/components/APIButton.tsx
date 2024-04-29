@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import { Button, Form } from "react-bootstrap";
 
-import {openai} from "../components/QuizPageCard"
+import {openai} from "../components/QuestionCard"
 import { ChatCompletionMessageParam } from "openai/resources/chat/completions";
 
 
@@ -13,7 +13,8 @@ export function APIButton(): JSX.Element {
   const [value, setValue] = useState<string>("");
   const [apiVal, setApiVal] = useState<string>("");
   // The whole conversation
-  const [chatLog, setChatLog] = useState<ChatCompletionMessageParam[]>([{ role: "system", content: "You are a career advisor." }, { role: "user", content: "I am trying to figure out what my future career should be." }])
+
+  const [chatLog, setChatLog] = useState<ChatCompletionMessageParam[]>([{ role: "system", content: "You are a career advisor." }, { role: "user", content: "I am trying to figure out what my future career should be. Ask me a list of questions that I can answer." }])
   
   
   async function computeAPI(apiInput: string) {
