@@ -56,13 +56,13 @@ export function APIButton(): JSX.Element {
   return (
     <div>
       {/* Textbox that makes you input your career preferences or whatever */}
-      <Form.Group controlId="apiValue">
+      {value !== "" && <Form.Group controlId="apiValue">
         <Form.Label>Enter your career related questions: </Form.Label>
         <Form.Control value={apiVal} onChange={updateName} />
         <Form.Text className="WhatIsThis">
                     .
         </Form.Text>
-      </Form.Group>
+      </Form.Group>}
       <span>
           {/* Button that calls the API on whatever is in the textbox */}
           <Button onClick={() => computeAPI(apiVal)}>Answer Your Question</Button>
@@ -75,7 +75,7 @@ export function APIButton(): JSX.Element {
       </span>
       <span>
           {/* Outputs whatever the API last said */}
-          The API response is: {value}
+          {value !== "" && <p style={{ fontSize: '24px' }}>The API response is: {value}</p>}
       </span>
     </div>
   );
