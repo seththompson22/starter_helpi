@@ -3,13 +3,15 @@ import "../App";
 import { APIButton } from "../components/APIButton";
 import "../styles/CareerReport.css"
 import React from "react";
+import NavigationBar from "../components/NavigationBar";
 
 
 
 
 export function CareerReport() {
     return (
-        <div>
+        <div className="career-report-page">
+            <NavigationBar />
             <h1>NAVIGATE YOUR CAREER JOURNEY</h1>
                 <div>
                     <APIButton></APIButton>

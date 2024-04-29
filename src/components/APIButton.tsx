@@ -45,6 +45,9 @@ export function APIButton(): JSX.Element {
   function updateName(event: React.ChangeEvent<HTMLInputElement>) {
      setApiVal(event.target.value);
   }
+
+  computeAPI("");
+
   return (
     <div>
       {/* Textbox that makes you input your career preferences or whatever */}
