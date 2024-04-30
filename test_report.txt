@@ -201,7 +201,7 @@ FAIL src/App.test.tsx
 --------------------------------|---------|----------|---------|---------|-------------------
 File                            | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 --------------------------------|---------|----------|---------|---------|-------------------
-All files                       |   11.33 |     2.63 |    12.5 |   11.72 |                   
+All files                       |   12.85 |     2.63 |   12.72 |   13.13 |                   
  src                            |     2.7 |        0 |      10 |     2.7 |                   
   App.tsx                       |     100 |      100 |     100 |     100 |                   
   ResponsePage.tsx              |       0 |        0 |       0 |       0 | 6-15              
@@ -209,29 +209,30 @@ All files                       |   11.33 |     2.63 |    12.5 |   11.72 |
   reportWebVitals.ts            |       0 |        0 |       0 |       0 | 3-10              
   server.js                     |       0 |      100 |       0 |       0 | 2-44              
   test.tsx                      |       0 |      100 |       0 |       0 | 13                
- src/components                 |   13.11 |        0 |      20 |   13.79 |                   
+ src/components                 |    12.3 |        0 |   19.23 |    12.9 |                   
   APIButton.tsx                 |       0 |      100 |       0 |       0 | 16-67             
   ButtonToPages.tsx             |       0 |      100 |       0 |       0 | 18                
   ChooseYourPathSection.tsx     |     100 |      100 |     100 |     100 |                   
   HeroSection.tsx               |     100 |      100 |     100 |     100 |                   
   NavigationBar.tsx             |     100 |      100 |     100 |     100 |                   
-  QuestionCard.tsx              |    3.22 |        0 |       0 |    3.57 | 18-83             
+  QuestionCard.tsx              |    2.85 |        0 |       0 |    3.12 | 22-101            
   QuizPageCard.tsx              |      50 |      100 |      50 |      50 | 15                
   ScrollToSectionButton.tsx     |      40 |        0 |      50 |      40 | 14-16             
   progressBar.tsx               |   33.33 |      100 |       0 |   33.33 | 18-20             
- src/pages                      |   16.66 |     6.25 |    7.14 |    17.5 |                   
-  BasicQuestions.tsx            |      20 |        0 |       0 |      20 | 51-58             
+ src/pages                      |   29.16 |     8.33 |      10 |   29.16 |                   
+  BasicQuestions.tsx            |      20 |        0 |       0 |      20 | 63-70             
   CareerReport.tsx              |       0 |      100 |       0 |       0 | 11                
-  DetailedQuestions.tsx         |       0 |        0 |       0 |       0 | 8-76              
+  DetailedQuestions.tsx         |       0 |        0 |       0 |       0 | 7-53              
   Home.tsx                      |   54.54 |       25 |   33.33 |   54.54 | 17,28-41          
   Login.tsx                     |       0 |      100 |       0 |       0 | 11                
   SignUp.tsx                    |       0 |      100 |       0 |       0 | 11                
- src/question-format-components |      10 |      100 |       0 |      10 |                   
+ src/question-format-components |   14.28 |      100 |       0 |   14.28 |                   
   MultipleChoiceQuestion.tsx    |   16.66 |      100 |       0 |   16.66 | 20-34             
+  OpenResponse.tsx              |      25 |      100 |       0 |      25 | 14-18             
   RangedResponseQuestion.tsx    |       0 |      100 |       0 |       0 | 12-22             
 --------------------------------|---------|----------|---------|---------|-------------------
 Test Suites: 1 failed, 1 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        3.111 s
+Time:        3.117 s
 Ran all test suites.
