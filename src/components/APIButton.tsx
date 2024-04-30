@@ -22,19 +22,19 @@ export function APIButton(): JSX.Element {
     try {
       //const apiMessage: ChatCompletionMessageParam[] = [{ role: "system", content: "You are a career advisor." }, { role: "assistant", content: apiInput }]
       const apiMessage: ChatCompletionMessageParam[] = [...chatLog, {role: "user", content: apiInput }];
-      
+      setValue(value + "You: " + apiInput);
 
       const completion = await openai.chat.completions.create({
         messages: apiMessage,
-        model: "gpt-3.5-turbo",
+        model: "gpt-4-turbo-preview",
       });
       // Extracts the message out of API response
-      setValue(JSON.stringify(completion.choices[0]["message"]["content"]).replace(/\\n/g, "\n"));
+      setValue(value + "AI Career Assistant: " + JSON.stringify(completion.choices[0]["message"]["content"]).replace(/\\n/g, "\n"));
       //console.log(completion.choices[0]);
       
       const apiResponse: ChatCompletionMessageParam[] = [...apiMessage, completion.choices[0]["message"]];
       setChatLog(apiResponse);
-      
+      // make system
     }
     // Website outputs an error message
     catch (error) {
@@ -65,29 +65,36 @@ export function APIButton(): JSX.Element {
           {/* Generates the career advice summary */}
           <Button onClick={() => computeAPI("")}>Generate your Career Advice</Button>
       </span>}
+      <br></br>
+      <br></br>
       <span>
       {value !== "" && 
       <><span>
-            {/* Button that calls the API on whatever is in the textbox */}
-            <Button onClick={() => computeAPI(apiVal)}>Answer Your Question</Button>
-          </span><span>
-              {/* Button that calls the API to generate a rap */}
-              <Button onClick={() => computeAPI("Come up with a rap.")}> ??? </Button>
-            </span><span>
-              {/* Outputs whatever the API last said */}
-              The API response is: {value}
-            
+      {/* Outputs whatever the API last said */}
+      AI Career Assistant: {value}
+
+      <br></br>
+      <br></br>
+
       {/* Textbox that makes you input your career preferences or whatever */}
-      {/*value !== "" && */<Form.Group controlId="apiValue">
-        <Form.Label>Enter your career related questions: </Form.Label>
+      {<Form.Group controlId="apiValue">
+        <Form.Label>Enter any followup career related questions: </Form.Label>
         <Form.Control value={apiVal} onChange={updateName} />
         <Form.Text className="WhatIsThis">
                     .
         </Form.Text>
       </Form.Group>}
+      {/* Button that calls the API on whatever is in the textbox */}
+      <Button onClick={() => computeAPI(apiVal)}>Answer Your Question</Button>
+          </span><span>
+              {/* Button that calls the API to generate a rap */}
+              <Button onClick={() => computeAPI("Come up with a rap.")}> ??? </Button>
+            </span><span>
       </span></>
         }
       </span>
+      <br></br>
+      <br></br>
     </div>
   );
 }
