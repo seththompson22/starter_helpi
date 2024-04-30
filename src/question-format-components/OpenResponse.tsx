@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import { Form, Col } from "react-bootstrap";
+import { Form } from "react-bootstrap";
 
 interface OpenResponseProps {
   value: string;

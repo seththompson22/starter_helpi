@@ -42,10 +42,6 @@ function DetailedQuestions() {
     },
   ];
 
-  const [prevAnswers, setPrevAnswers] = useState<(string | null)[]>(
-    Array(followUpQuestions.length).fill(null)
-  ); // Store the previous answers
-
   // State to track completion status
   const [completed, setCompleted] = useState(false);
 
