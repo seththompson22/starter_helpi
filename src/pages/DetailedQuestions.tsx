@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import "../styles/BasicQuestions.css"; // Import CSS file
+import "../styles/DetailedQuestions.css"; // Import CSS file
 import NavigationBar from "../components/NavigationBar";
 import QuestionCard from "../components/QuestionCard";
+import CustomFooter from "../components/CustomFooter";
 
 function DetailedQuestions() {
   const followUpQuestions = [
@@ -65,6 +67,7 @@ function DetailedQuestions() {
       {completed && (
         <p style={{ fontSize: "24px" }}>You have completed the quiz!</p>
       )}
+      <CustomFooter />
     </div>
   );
 }
