@@ -45,28 +45,24 @@ export function APIButton(): JSX.Element {
   function updateName(event: React.ChangeEvent<HTMLInputElement>) {
      setApiVal(event.target.value);
   }
+
   // Runs the API on loading the page.
-  // Is it ok to remove the eslint warning?
+  /*
   useEffect(() => {
     // Run computeAPI() when the component mounts (i.e., when the page loads)
     computeAPI(""); // You can provide an initial question or input here
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+  */
 
   return (
     <div>
-      {/* Textbox that makes you input your career preferences or whatever */}
-      {value !== "" && <Form.Group controlId="apiValue">
-        <Form.Label>Enter your career related questions: </Form.Label>
-        <Form.Control value={apiVal} onChange={updateName} />
-        <Form.Text className="WhatIsThis">
-                    .
-        </Form.Text>
-      </Form.Group>}
+      <span>
+          {/* Generates the career advice summary */}
+          <Button onClick={() => computeAPI("")}>Generate your Career Advice</Button>
+      </span>
       <span>
           {/* Button that calls the API on whatever is in the textbox */}
           <Button onClick={() => computeAPI(apiVal)}>Answer Your Question</Button>
-          to 1.
       </span>
 
       <span>
@@ -75,8 +71,16 @@ export function APIButton(): JSX.Element {
       </span>
       <span>
           {/* Outputs whatever the API last said */}
-          {value !== "" && <p style={{ fontSize: '24px' }}>The API response is: {value}</p>}
+          The API response is: {value}
       </span>
+      {/* Textbox that makes you input your career preferences or whatever */}
+      {/*value !== "" && */<Form.Group controlId="apiValue">
+        <Form.Label>Enter your career related questions: </Form.Label>
+        <Form.Control value={apiVal} onChange={updateName} />
+        <Form.Text className="WhatIsThis">
+                    .
+        </Form.Text>
+      </Form.Group>}
     </div>
   );
 }

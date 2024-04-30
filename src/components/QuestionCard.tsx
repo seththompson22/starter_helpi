@@ -18,11 +18,12 @@ interface QuestionCardProps {
   questions: { question: string; choices: string[] }[];
   onCompletion: () => void; // Add the onCompletion prop
 }
-
+/*
 interface ApiAnswer {
   question: string;
   answer: string | null;
 }
+*/
 
 const QuestionCard: React.FC<QuestionCardProps> = ({ questions, onCompletion }) => { // Add onCompletion to props
   const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -63,13 +64,13 @@ const QuestionCard: React.FC<QuestionCardProps> = ({ questions, onCompletion }) 
   const handleSubmit = () => {
     setSubmitted(true);
     // You can handle the submission of answers here, for example, sending them to an API
-
+    /*
     const apiAnswers: ApiAnswer[] = questions.map((value, index) => {
       return { question: value.question, answer: answers[index] };
     });
-
     console.log("Submitted answers:", apiAnswers);
-    
+    */
+
     // Check if all questions are answered
     if (answers.every((answer) => answer !== null)) {
       onCompletion(); // Call the onCompletion function
@@ -91,13 +92,8 @@ const QuestionCard: React.FC<QuestionCardProps> = ({ questions, onCompletion }) 
       ): string => val || "");
 
     // The api calls
-    apiQuestions = questionArray.map((val: string): ChatCompletionMessageParam => ({ role: "system", content: val }));
+    apiQuestions = questionArray.map((val: string): ChatCompletionMessageParam => ({ role: "assistant", content: val }));
     userAnswers = answerArray.map((val: string): ChatCompletionMessageParam => ({ role: "user", content: val }));
-
-    // Testing these variables are correct.
-    console.log(apiQuestions);
-    console.log(userAnswers);
-
     window.location.href = "/starter_helpi/#/CareerReport";
 
   };
