@@ -26,7 +26,7 @@ export function APIButton(): JSX.Element {
 
       const completion = await openai.chat.completions.create({
         messages: apiMessage,
-        model: "gpt-4-turbo-preview",
+        model: "gpt-3.5-turbo",
       });
       // Extracts the message out of API response
       setValue(value + "AI Career Assistant: " + JSON.stringify(completion.choices[0]["message"]["content"]).replace(/\\n/g, "\n"));
