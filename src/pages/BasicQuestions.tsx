@@ -3,7 +3,7 @@ import "../styles/BasicQuestions.css";
 import NavigationBar from "../components/NavigationBar";
 import QuestionCard from "../components/QuestionCard";
 import { useState } from "react";
-import React from "react";
+import CustomFooter from "../components/CustomFooter";
 
 // Define an array of question objects
 const questions = [
@@ -72,9 +72,14 @@ export function BasicQuestions() {
       <NavigationBar />
       <h1 className="basic-q-title">Basic Question Career Quiz</h1>
       {/* Render QuestionCard only if not completed */}
-      {!completed && <QuestionCard questions={questions} onCompletion={handleCompletion} />}
+      {!completed && (
+        <QuestionCard questions={questions} onCompletion={handleCompletion} />
+      )}
       {/* Render completion message if completed */}
-      {completed && <p style={{ fontSize: '24px' }}>You have completed the quiz!</p>}
+      {completed && (
+        <p style={{ fontSize: "24px" }}>You have completed the quiz!</p>
+      )}
+      <CustomFooter />
     </div>
   );
 }
