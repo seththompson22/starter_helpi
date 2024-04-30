@@ -60,10 +60,11 @@ export function APIButton(): JSX.Element {
 
   return (
     <div>
+      {value === "" &&
       <span>
           {/* Generates the career advice summary */}
           <Button onClick={() => computeAPI("")}>Generate your Career Advice</Button>
-      </span>
+      </span>}
       <span>
       {value !== "" && 
       <><span>
