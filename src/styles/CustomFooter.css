@@ -9,12 +9,3 @@
     background-color: var(--white-color);
 }
 
-.basic-questions-page .footer {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    color: white;
-    text-align: center;
-    padding: 10px;
-  }
