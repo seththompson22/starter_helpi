@@ -17,12 +17,13 @@ export function APIButton(): JSX.Element {
   const [chatLog, setChatLog] = useState<ChatCompletionMessageParam[]>([{ role: "system", content: "You are a career advisor." }, { role: "user", content: "I am trying to figure out what my future career should be. Ask me a list of questions that I can answer." },  ...apiQuestions, ...userAnswers])
   
 
-  async function computeAPI(apiInput: string) {
+
+  async function careerRecommendation() {
     // Tries to call the API
     try {
       //const apiMessage: ChatCompletionMessageParam[] = [{ role: "system", content: "You are a career advisor." }, { role: "assistant", content: apiInput }]
-      const apiMessage: ChatCompletionMessageParam[] = [...chatLog, {role: "user", content: apiInput }];
-      setValue(value + "You: " + apiInput);
+      const apiMessage: ChatCompletionMessageParam[] = [...chatLog];
+      //setValue(value + "You: " + apiInput);
 
       const completion = await openai.chat.completions.create({
         messages: apiMessage,
@@ -30,6 +31,35 @@ export function APIButton(): JSX.Element {
       });
       // Extracts the message out of API response
       setValue(value + "AI Career Assistant: " + JSON.stringify(completion.choices[0]["message"]["content"]).replace(/\\n/g, "\n"));
+      //console.log(completion.choices[0]);
+      
+      const apiResponse: ChatCompletionMessageParam[] = [...apiMessage, completion.choices[0]["message"]];
+      setChatLog(apiResponse);
+      // make system
+    }
+    // Website outputs an error message
+    catch (error) {
+      console.log("Error");
+      setValue(JSON.stringify("Error"));
+
+    }
+    
+    console.log(chatLog);
+  }
+
+
+  async function computeAPI(apiInput: string) {
+    // Tries to call the API
+    try {
+      const apiMessage: ChatCompletionMessageParam[] = [...chatLog, {role: "user", content: apiInput }];
+      setValue(value + "\n\nYou: " + apiInput);
+
+      const completion = await openai.chat.completions.create({
+        messages: apiMessage,
+        model: "gpt-3.5-turbo",
+      });
+      // The inititial setValue does not save in the state, so everything has to be copied over again.
+      setValue(value + "You: " + apiInput + "AI Career Assistant: " + JSON.stringify(completion.choices[0]["message"]["content"]).replace(/\\n/g, "\n"));
       //console.log(completion.choices[0]);
       
       const apiResponse: ChatCompletionMessageParam[] = [...apiMessage, completion.choices[0]["message"]];
@@ -63,7 +93,7 @@ export function APIButton(): JSX.Element {
       {value === "" &&
       <span>
           {/* Generates the career advice summary */}
-          <Button onClick={() => computeAPI("")}>Generate your Career Advice</Button>
+          <Button onClick={() => careerRecommendation()}>Generate your Career Advice</Button>
       </span>}
       <br></br>
       <br></br>
