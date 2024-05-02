@@ -59,7 +59,7 @@ export function APIButton(): JSX.Element {
         model: "gpt-3.5-turbo",
       });
       // The inititial setValue does not save in the state, so everything has to be copied over again.
-      setValue(value + "You: " + apiInput + "AI Career Assistant: " + JSON.stringify(completion.choices[0]["message"]["content"]).replace(/\\n/g, "\n"));
+      setValue(value + "\n\nYou: " + apiInput + "\n\nAI Career Assistant: " + JSON.stringify(completion.choices[0]["message"]["content"]).replace(/\\n/g, "\n"));
       //console.log(completion.choices[0]);
       
       const apiResponse: ChatCompletionMessageParam[] = [...apiMessage, completion.choices[0]["message"]];

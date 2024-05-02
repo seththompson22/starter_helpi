@@ -7,6 +7,7 @@ div {
 }
 */
 
+
 .career-report-page {
     padding-top: 61px;
     color: var(--white-color);
@@ -15,6 +16,8 @@ div {
     justify-content: center;
     align-items: center;
     height: 90vh;
+    /* VVV Allows \n to actually create a newline */
+    white-space: pre-line;
 }
 
 /*
