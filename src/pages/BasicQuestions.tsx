@@ -74,7 +74,9 @@ export function BasicQuestions() {
       <h1 className="basic-q-title">Basic Question Career Quiz</h1>
       {/* Render QuestionCard only if not completed */}
       {!completed && (
-        <QuestionCard questions={questions} onCompletion={handleCompletion} />
+        <QuestionCard questions={questions} onCompletion={handleCompletion} handleChange={function (event: React.ChangeEvent<HTMLInputElement>): void {
+          throw new Error("Function not implemented.");
+        } } />
       )}
       {/* Render completion message if completed */}
       {completed && (

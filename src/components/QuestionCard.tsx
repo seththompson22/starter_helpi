@@ -8,6 +8,7 @@ import React from "react";
 interface QuestionCardProps {
   questions: { question: string; choices: string[] }[];
   onCompletion: () => void; // Add the onCompletion prop
+  handleChange: (event: React.ChangeEvent<HTMLInputElement>) => void; // Add handleChange prop
 }
 
 interface ApiAnswer {
@@ -18,6 +19,8 @@ interface ApiAnswer {
 const QuestionCard: React.FC<QuestionCardProps> = ({
   questions,
   onCompletion,
+  handleChange,
+  
 }) => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [answers, setAnswers] = useState<(string | null)[]>(
@@ -85,16 +88,23 @@ const QuestionCard: React.FC<QuestionCardProps> = ({
           onAnswer={handleAnswerQuestion}
         />
       ) : (
-        <OpenResponse
-          value={answers[currentQuestion] || ""} // Pass value as required
-          onChange={(text) => {
-            const newAnswers = [...answers];
-            newAnswers[currentQuestion] = text;
-            setAnswers(newAnswers);
-            handleAnswerQuestion();
-          }}
-          disabled={submitted} // Disable input after submission
-        />
+<OpenResponse
+  value={answers[currentQuestion] || ""}
+  onChange={(text: string) => {
+    const newAnswers = [...answers];
+    newAnswers[currentQuestion] = text;
+    setAnswers(newAnswers);
+    handleAnswerQuestion();
+    const syntheticEvent = {
+      target: {
+        id: `question-${currentQuestion + 1}`,
+        value: text,
+      },
+    };
+    handleChange(syntheticEvent as React.ChangeEvent<HTMLInputElement>); // Invoke handleChange with a synthetic event
+  }}
+  disabled={submitted}
+/>
       )}
       <ProgressBar
         totalQuestions={questions.length}
