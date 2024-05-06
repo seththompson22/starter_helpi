@@ -2,9 +2,7 @@ import "../App";
 import "../styles/BasicQuestions.css";
 import NavigationBar from "../components/NavigationBar";
 import QuestionCard from "../components/QuestionCard";
-import { useState } from "react";
 import CustomFooter from "../components/CustomFooter";
-import React from "react";
 
 // Define an array of question objects
 const questions = [
@@ -60,12 +58,9 @@ const questions = [
 ];
 
 export function BasicQuestions() {
-  // State to track completion status
-  const [completed, setCompleted] = useState(false);
-
   // Callback function to handle completion
   const handleCompletion = () => {
-    setCompleted(true);
+    window.location.href = "/#/CareerReport";
   };
 
   return (
@@ -73,13 +68,7 @@ export function BasicQuestions() {
       <NavigationBar />
       <h1 className="basic-q-title">Basic Question Career Quiz</h1>
       {/* Render QuestionCard only if not completed */}
-      {!completed && (
-        <QuestionCard questions={questions} onCompletion={handleCompletion} />
-      )}
-      {/* Render completion message if completed */}
-      {completed && (
-        <p style={{ fontSize: "24px" }}>You have completed the quiz!</p>
-      )}
+      <QuestionCard questions={questions} onCompletion={handleCompletion} />
       <CustomFooter />
     </div>
   );
