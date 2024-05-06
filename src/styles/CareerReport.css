@@ -1,27 +1,22 @@
-/*
-div {
-    color: black;
 
-
-
+.report-page {
+padding-top: 61px;
+  color: var(--white-color);
+  background-color: var(--black-color);
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  /* VVV Allows \n to actually create a newline */
+  white-space: pre-line;
 }
-*/
 
-
-.career-report-page {
-    padding-top: 61px;
-    color: var(--white-color);
-    background-color: var(--black-color);
+.report-page .footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    color: white;
     text-align: center;
-    justify-content: center;
-    align-items: center;
-    height: 90vh;
-    /* VVV Allows \n to actually create a newline */
-    white-space: pre-line;
+    padding: 10px;
 }
-
-/*
-.basic-q-title {
-    font-size: 70px;
-}
-*/

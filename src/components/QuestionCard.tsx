@@ -1,10 +1,10 @@
 import "../styles/QuestionCard.css";
 import MultipleChoiceQuestion from "../question-format-components/MultipleChoiceQuestion";
+import OpenResponse from "../question-format-components/OpenResponse"; // Import the OpenResponse component
 import { useState } from "react";
 import ProgressBar from "./progressBar";
 import React from "react";
 import OpenAI from "openai";
-import { saveKeyData } from "../pages/Home";
 import { ChatCompletionMessageParam } from "openai/resources/chat/completions";
 
 
@@ -25,7 +25,10 @@ interface ApiAnswer {
 }
 */
 
-const QuestionCard: React.FC<QuestionCardProps> = ({ questions, onCompletion }) => { // Add onCompletion to props
+const QuestionCard: React.FC<QuestionCardProps> = ({
+  questions,
+  onCompletion,
+}) => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [answers, setAnswers] = useState<(string | null)[]>(
     Array(questions.length).fill(null)
@@ -69,7 +72,6 @@ const QuestionCard: React.FC<QuestionCardProps> = ({ questions, onCompletion }) 
       return { question: value.question, answer: answers[index] };
     });
     console.log("Submitted answers:", apiAnswers);
-    */
 
     // Check if all questions are answered
     if (answers.every((answer) => answer !== null)) {
@@ -95,7 +97,7 @@ const QuestionCard: React.FC<QuestionCardProps> = ({ questions, onCompletion }) 
     apiQuestions = questionArray.map((val: string): ChatCompletionMessageParam => ({ role: "assistant", content: val }));
     userAnswers = answerArray.map((val: string): ChatCompletionMessageParam => ({ role: "user", content: val }));
     window.location.href = "/starter_helpi/#/CareerReport";
-
+    */
   };
 
   const allQuestionsAnswered = answers.every((answer) => answer !== null);
@@ -103,13 +105,27 @@ const QuestionCard: React.FC<QuestionCardProps> = ({ questions, onCompletion }) 
   return (
     <div className="question-card">
       <h2>{questions[currentQuestion].question}</h2>
-      <MultipleChoiceQuestion
-        choices={questions[currentQuestion].choices}
-        selectedChoice={answers[currentQuestion] || ""}
-        onSelectChoice={handleChoiceChange}
-        disabled={submitted} // Disable options after submission
-        onAnswer={handleAnswerQuestion}
-      />
+      {/* Conditional rendering based on the type of question */}
+      {questions[currentQuestion].choices.length > 0 ? (
+        <MultipleChoiceQuestion
+          choices={questions[currentQuestion].choices}
+          selectedChoice={answers[currentQuestion] || ""}
+          onSelectChoice={handleChoiceChange}
+          disabled={submitted} // Disable options after submission
+          onAnswer={handleAnswerQuestion}
+        />
+      ) : (
+        <OpenResponse
+          value={answers[currentQuestion] || ""} // Pass value as required
+          onChange={(text) => {
+            const newAnswers = [...answers];
+            newAnswers[currentQuestion] = text;
+            setAnswers(newAnswers);
+            handleAnswerQuestion();
+          }}
+          disabled={submitted} // Disable input after submission
+        />
+      )}
       <ProgressBar
         totalQuestions={questions.length}
         answeredQuestions={answers.filter((value) => value !== null).length}

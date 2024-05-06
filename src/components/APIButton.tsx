@@ -2,11 +2,12 @@
 import React, { useState } from "react";
 import { Button, Form } from "react-bootstrap";
 
-import {openai, apiQuestions, userAnswers} from "../components/QuestionCard"
+import { openai } from "../components/CustomFooter";
 import { ChatCompletionMessageParam } from "openai/resources/chat/completions";
+import { apiQuestions, userAnswers } from "./QuestionCard";
+//import { ChatCompletionMessageParam } from "openai/resources/index.mjs";
+//import { ChatCompletionMessageParam } from "openai/resources/index.mjs";
 
-
-// This file mainly handles the API stuff that is on the Career Report page.
 export function APIButton(): JSX.Element {
   // States
   // The API input. Both are used for the API output.
