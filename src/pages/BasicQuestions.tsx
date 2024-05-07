@@ -5,6 +5,8 @@ import QuestionCard from "../components/QuestionCard";
 import CustomFooter from "../components/CustomFooter";
 
 // Define an array of question objects
+
+
 const questions = [
   {
     question: "Which industry interests you the most?",
@@ -60,7 +62,7 @@ const questions = [
 export function BasicQuestions() {
   // Callback function to handle completion
   const handleCompletion = () => {
-    window.location.href = "/#/CareerReport";
+    //window.location.href = "/#/CareerReport";
   };
 
   return (

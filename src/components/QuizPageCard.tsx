@@ -1,6 +1,9 @@
 import React from "react";
 import "../styles/QuizPageCard.css";
 
+// The API object needed to do API calls which requires a working API key
+//export let openai: OpenAI;
+
 function QuizPageCard({
   title,
   description,
@@ -11,7 +14,9 @@ function QuizPageCard({
   link: string;
 }): JSX.Element {
 
+  // Generates the AI and sends you to the quiz.
   function handleClick() {
+    //openai = new OpenAI({apiKey: localStorage.getItem(saveKeyData)?.replace(/"/g, '') || undefined, dangerouslyAllowBrowser: true});
     window.location.href = link;
   }
 
