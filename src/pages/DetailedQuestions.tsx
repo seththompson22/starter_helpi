@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import "../styles/BasicQuestions.css"; // Import CSS file
 import "../styles/DetailedQuestions.css"; // Import CSS file
 import NavigationBar from "../components/NavigationBar";
@@ -44,29 +43,21 @@ function DetailedQuestions() {
     },
   ];
 
-  // State to track completion status
-  const [completed, setCompleted] = useState(false);
-
   // Callback function to handle completion
   const handleCompletion = () => {
-    setCompleted(true);
+    window.location.href = "/#/CareerReport";
   };
 
   return (
     <div className="detailed-q-page">
       <NavigationBar></NavigationBar>
       <h1 style={{ fontSize: "3rem" }}>Detailed Questions Page</h1>
-      {/* Render QuestionCard only if not completed */}
-      {!completed && (
-        <QuestionCard
-          questions={followUpQuestions}
-          onCompletion={handleCompletion}
-        />
-      )}
-      {/* Render completion message if completed */}
-      {completed && (
-        <p style={{ fontSize: "24px" }}>You have completed the quiz!</p>
-      )}
+
+      <QuestionCard
+        questions={followUpQuestions}
+        onCompletion={handleCompletion}
+      />
+
       <CustomFooter />
     </div>
   );
