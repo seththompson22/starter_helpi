@@ -18,12 +18,12 @@ interface QuestionCardProps {
   questions: { question: string; choices: string[] }[];
   onCompletion: () => void; // Add the onCompletion prop
 }
-/*
+
 interface ApiAnswer {
   question: string;
   answer: string | null;
 }
-*/
+
 
 const QuestionCard: React.FC<QuestionCardProps> = ({
   questions,
@@ -67,7 +67,7 @@ const QuestionCard: React.FC<QuestionCardProps> = ({
   const handleSubmit = () => {
     setSubmitted(true);
     // You can handle the submission of answers here, for example, sending them to an API
-    /*
+    
     const apiAnswers: ApiAnswer[] = questions.map((value, index) => {
       return { question: value.question, answer: answers[index] };
     });
@@ -82,7 +82,7 @@ const QuestionCard: React.FC<QuestionCardProps> = ({
     // apiKey lets you manually input the API key.
     // The ".replace(/"/g, '')" takes off the extra first and last double quotation marks from the key.
     // The "?." is optional chaining in case the string is null.
-    openai = new OpenAI({apiKey: localStorage.getItem(saveKeyData)?.replace(/"/g, '') || undefined, dangerouslyAllowBrowser: true});
+    //openai = new OpenAI({apiKey: localStorage.getItem(saveKeyData)?.replace(/"/g, '') || undefined, dangerouslyAllowBrowser: true});
     
     // Creates the arrays needed for the api calls
     const questionArray = questions.map((val: {
@@ -97,7 +97,7 @@ const QuestionCard: React.FC<QuestionCardProps> = ({
     apiQuestions = questionArray.map((val: string): ChatCompletionMessageParam => ({ role: "assistant", content: val }));
     userAnswers = answerArray.map((val: string): ChatCompletionMessageParam => ({ role: "user", content: val }));
     window.location.href = "/starter_helpi/#/CareerReport";
-    */
+    
   };
 
   const allQuestionsAnswered = answers.every((answer) => answer !== null);
