@@ -102,7 +102,7 @@ export function APIButton(): JSX.Element {
       <br></br>
       <br></br>
       <span>
-      {value !== "" && 
+      {dispFinal === true && 
       <><span>
       {/* Outputs whatever the API last said */}
       AI Career Assistant: {value}
