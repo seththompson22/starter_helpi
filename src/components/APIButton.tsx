@@ -13,6 +13,8 @@ export function APIButton(): JSX.Element {
   // The API input. Both are used for the API output.
   const [value, setValue] = useState<string>("");
   const [apiVal, setApiVal] = useState<string>("");
+  const [dispInit, setDispInit] = useState<boolean>(true);
+  const [dispFinal, setDispFinal] = useState<boolean>(false);
   // The whole conversation
 
   const [chatLog, setChatLog] = useState<ChatCompletionMessageParam[]>([{ role: "system", content: "You are a career advisor." }, { role: "user", content: "I am trying to figure out what my future career should be. Ask me a list of questions that I can answer." },  ...apiQuestions, ...userAnswers])
@@ -24,12 +26,14 @@ export function APIButton(): JSX.Element {
     try {
       //const apiMessage: ChatCompletionMessageParam[] = [{ role: "system", content: "You are a career advisor." }, { role: "assistant", content: apiInput }]
       const apiMessage: ChatCompletionMessageParam[] = [...chatLog];
-      //setValue(value + "You: " + apiInput);
-
+      // Removes the initial button      
+      setDispInit(false);
       const completion = await openai.chat.completions.create({
         messages: apiMessage,
         model: "gpt-3.5-turbo",
       });
+      // Adds the chat and the other buttons
+      setDispFinal(true)
       // Extracts the message out of API response
       setValue(value + "AI Career Assistant: " + JSON.stringify(completion.choices[0]["message"]["content"]).replace(/\\n/g, "\n"));
       //console.log(completion.choices[0]);
@@ -44,7 +48,6 @@ export function APIButton(): JSX.Element {
       setValue(JSON.stringify("Error"));
 
     }
-    
     console.log(chatLog);
   }
 
@@ -91,7 +94,7 @@ export function APIButton(): JSX.Element {
 
   return (
     <div>
-      {value === "" &&
+      {dispInit === true &&
       <span>
           {/* Generates the career advice summary */}
           <Button onClick={() => careerRecommendation()}>Generate your Career Advice</Button>
