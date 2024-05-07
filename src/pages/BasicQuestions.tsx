@@ -62,7 +62,7 @@ const questions = [
 export function BasicQuestions() {
   // Callback function to handle completion
   const handleCompletion = () => {
-    window.location.href = "/#/CareerReport";
+    //window.location.href = "/#/CareerReport";
   };
 
   return (
