@@ -4,8 +4,16 @@ import NavigationBar from "../components/NavigationBar";
 import QuestionCard from "../components/QuestionCard";
 import CustomFooter from "../components/CustomFooter";
 import industryPicture from "/Users/matthewholinger/ciscc275/starter_helpi/src/images/industrypicture.jpg"; // Update the path as needed
+import aloneVsTeam from "/Users/matthewholinger/ciscc275/starter_helpi/src/images/teamwork-vs-working-alone.jpg";
+import roles from "/Users/matthewholinger/ciscc275/starter_helpi/src/images/roles.jpg";
 import "/Users/matthewholinger/ciscc275/starter_helpi/src/styles/images.css";
 import { ChangeEvent } from "react";
+import pace from "/Users/matthewholinger/ciscc275/starter_helpi/src/images/pace.jpg";
+import problemSolving from "/Users/matthewholinger/ciscc275/starter_helpi/src/images/problemSolving.jpg";
+import environment from "/Users/matthewholinger/ciscc275/starter_helpi/src/images/environment.jpg";
+import grad from "/Users/matthewholinger/ciscc275/starter_helpi/src/images/grad.jpg";
+import growth from "/Users/matthewholinger/ciscc275/starter_helpi/src/images/growth.jpg";
+import levels from "/Users/matthewholinger/ciscc275/starter_helpi/src/images/levels.jpg";
 
 
 
@@ -27,22 +35,22 @@ const questions = [
   },
   {
     question: "Do you prefer working independently or as part of a team?",
-    photo: "",
+    photo: aloneVsTeam,
     choices: ["Independently", "Part of a team", "Both equally"],
   },
   {
     question: "Which type of role are you most interested in?",
-    photo: "",
+    photo: roles,
     choices: ["Technical", "Creative", "Leadership"],
   },
   {
     question: "What work environment do you prefer?",
-    photo: "",
+    photo: pace,
     choices: ["Fast-paced and dynamic", "Stable and predictable"],
   },
   {
     question: "What aspect of work do you enjoy the most?",
-    photo: "",
+    photo: problemSolving,
     choices: [
       "Problem-solving",
       "Collaborating with others",
@@ -51,24 +59,24 @@ const questions = [
   },
   {
     question: "Which work setting appeals to you?",
-    photo: "",
+    photo: environment,
     choices: ["Office", "Remote", "Hybrid"],
   },
   {
     question: "Are you interested in further education or training?",
-    photo: "",
+    photo: grad,
 
     choices: ["Yes", "Maybe", "No"],
   },
   {
     question: "What do you prioritize in a career?",
-    photo: "",
+    photo: growth,
 
     choices: ["Job security", "Potential for growth", "Both equally"],
   },
   {
     question: "What level of responsibility are you comfortable with?",
-    photo: "",
+    photo: levels,
     choices: ["Entry-level", "Mid-level", "Senior-level"],
   },
 ];

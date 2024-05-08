@@ -7,10 +7,13 @@ import React from "react";
 import { Col, Container, Row } from "react-bootstrap";
 
 interface QuestionCardProps {
+  
   questions: {
     photo: any; question: string; choices: string[] 
+
 }[];
   onCompletion: () => void; // Add the onCompletion prop
+  //imageSize: string; // Add imageSize prop
   handleChange: (event: React.ChangeEvent<HTMLInputElement>) => void; // Add handleChange prop
 }
 
@@ -116,7 +119,8 @@ const QuestionCard: React.FC<QuestionCardProps> = ({
         <Col>
           {/* Render the image in the second column */}
           {questions[currentQuestion].photo && (
-            <img src={questions[currentQuestion].photo} alt="Question" className="question-photo" />
+            <img src={questions[currentQuestion].photo} alt="Question" className="question-photo"
+            style = {{width: 375, height: 'auto'}} />
           )}
         </Col>
       </Row>
