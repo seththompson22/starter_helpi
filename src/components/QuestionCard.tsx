@@ -62,10 +62,10 @@ const QuestionCard: React.FC<QuestionCardProps> = ({
       return { question: value.question, answer: answers[index] };
     });
 
-    console.log("Submitted answers:", apiAnswers);
-
     // Check if all questions are answered
     if (answers.every((answer) => answer !== null)) {
+      localStorage.setItem("BQ Answers", JSON.stringify(apiAnswers));
+      console.log("Submitted answers:", localStorage.getItem("BQ Page"));
       onCompletion(); // Call the onCompletion function
     }
   };
