@@ -5,12 +5,13 @@ function QuizPageCard({
   title,
   description,
   link,
+  btnText,
 }: {
   title: string;
   description: string;
   link: string;
+  btnText: string;
 }): JSX.Element {
-
   function handleClick() {
     window.location.href = link;
   }
@@ -20,7 +21,7 @@ function QuizPageCard({
       <h2 className="title">{title}</h2>
       <p className="desc">{description}</p>
       <button className="link-btn" type="button" onClick={handleClick}>
-        <strong>Take the Quiz</strong>
+        <strong>{btnText}</strong>
       </button>
     </div>
   );
