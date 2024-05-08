@@ -18,6 +18,8 @@ import levels from "/Users/matthewholinger/ciscc275/starter_helpi/src/images/lev
 
 
 // Define an array of question objects
+
+
 const questions = [
   {
     question: "Which industry interests you the most?",
@@ -84,7 +86,7 @@ const questions = [
 export function BasicQuestions() {
   // Callback function to handle completion
   const handleCompletion = () => {
-    window.location.href = "/#/CareerReport";
+    //window.location.href = "/#/CareerReport";
   };
 
   return (

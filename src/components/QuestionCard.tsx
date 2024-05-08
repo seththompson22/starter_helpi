@@ -4,7 +4,6 @@ import OpenResponse from "../question-format-components/OpenResponse"; // Import
 import { useState } from "react";
 import ProgressBar from "./progressBar";
 import React from "react";
-import { Col, Container, Row } from "react-bootstrap";
 
 interface QuestionCardProps {
   
@@ -21,6 +20,7 @@ interface ApiAnswer {
   question: string;
   answer: string | null;
 }
+
 
 const QuestionCard: React.FC<QuestionCardProps> = ({
   questions,
@@ -66,17 +66,37 @@ const QuestionCard: React.FC<QuestionCardProps> = ({
   const handleSubmit = () => {
     setSubmitted(true);
     // You can handle the submission of answers here, for example, sending them to an API
-
+    
     const apiAnswers: ApiAnswer[] = questions.map((value, index) => {
       return { question: value.question, answer: answers[index] };
     });
-
     console.log("Submitted answers:", apiAnswers);
 
     // Check if all questions are answered
     if (answers.every((answer) => answer !== null)) {
       onCompletion(); // Call the onCompletion function
     }
+
+    //{} is an object of all of the parameter types.
+    // apiKey lets you manually input the API key.
+    // The ".replace(/"/g, '')" takes off the extra first and last double quotation marks from the key.
+    // The "?." is optional chaining in case the string is null.
+    //openai = new OpenAI({apiKey: localStorage.getItem(saveKeyData)?.replace(/"/g, '') || undefined, dangerouslyAllowBrowser: true});
+    
+    // Creates the arrays needed for the api calls
+    const questionArray = questions.map((val: {
+      question: string;
+      choices: string[];
+      }): string => val.question);
+    const answerArray = answers.map((val: 
+      string | null
+      ): string => val || "");
+
+    // The api calls
+    apiQuestions = questionArray.map((val: string): ChatCompletionMessageParam => ({ role: "assistant", content: val }));
+    userAnswers = answerArray.map((val: string): ChatCompletionMessageParam => ({ role: "user", content: val }));
+    window.location.href = "/starter_helpi/#/CareerReport";
+    
   };
 
   const allQuestionsAnswered = answers.every((answer) => answer !== null);
