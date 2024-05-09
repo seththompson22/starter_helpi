@@ -10,7 +10,7 @@ interface QuestionCardProps {
   onCompletion: () => void; // Add the onCompletion prop
 }
 
-interface ApiAnswer {
+export interface ApiAnswer {
   question: string;
   answer: string | null;
 }
@@ -69,16 +69,6 @@ const QuestionCard: React.FC<QuestionCardProps> = ({
 
     // If the data doesn't exist, `getItem` returns null
     if (previousData !== null) {
-      //   const previousDataNotAsString = JSON.parse(previousData);
-      //   if (previousDataNotAsString.length !== loadedData.length) {
-      //     loadedData = [...previousDataNotAsString, ...loadedData];
-      //   } else {
-      //     loadedData = [...previousDataNotAsString];
-      //   }
-      // } else {
-      //   console.log(
-      //     "Data returns null, go to QuestionCard lines 57-80 to troubleshoot"
-      //   );
       loadedData = JSON.parse(previousData);
     }
 

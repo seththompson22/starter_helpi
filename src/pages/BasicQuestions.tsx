@@ -62,12 +62,9 @@ const questions = [
 export function BasicQuestions() {
   const [completed, setCompleted] = useState<boolean>(false);
 
-  const continueOrNot = () => {};
-
   // Callback function to handle completion
   const handleCompletion = () => {
     setCompleted(true);
-    continueOrNot();
   };
 
   return (
