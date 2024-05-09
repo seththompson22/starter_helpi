@@ -5,7 +5,7 @@ import QuizPageCard from "./QuizPageCard";
 function ChooseYourPathSection(): JSX.Element {
   return (
     <div className="path-section" id="choose-path-section">
-      <h1 className="path-title">CHOOSE YOUR PATH</h1>
+      <h1 className="path-title">BEGIN NOW</h1>
       <div className="path-options">
         <QuizPageCard
           title="Basic Questions Quiz"

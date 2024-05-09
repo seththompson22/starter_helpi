@@ -78,8 +78,13 @@ const QuestionCard: React.FC<QuestionCardProps> = ({
       // Store answers for the first quiz
       loadedData = apiAnswers;
     } else {
-      // Store answers for the second quiz
-      loadedData = [...loadedData, ...apiAnswers];
+      // reset localStorage and then load data
+      if (apiAnswers.length === 9) {
+        loadedData = apiAnswers;
+      } else {
+        // Store answers for the second quiz
+        loadedData = [...loadedData, ...apiAnswers];
+      }
     }
 
     // Limit the total length to 16 elements
