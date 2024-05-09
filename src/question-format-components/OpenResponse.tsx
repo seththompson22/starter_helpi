@@ -17,7 +17,6 @@ const OpenResponse: React.FC<OpenResponseProps> = ({
 
   return (
     <Form.Group controlId="openResponse">
-      <Form.Label>Answer:</Form.Label>
       <Form.Control
         as="textarea"
         rows={3}
