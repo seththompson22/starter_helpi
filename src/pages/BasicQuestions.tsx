@@ -3,17 +3,17 @@ import "../styles/BasicQuestions.css";
 import NavigationBar from "../components/NavigationBar";
 import QuestionCard from "../components/QuestionCard";
 import CustomFooter from "../components/CustomFooter";
-import industryPicture from "/Users/matthewholinger/ciscc275/starter_helpi/src/images/industrypicture.jpg"; // Update the path as needed
-import aloneVsTeam from "/Users/matthewholinger/ciscc275/starter_helpi/src/images/teamwork-vs-working-alone.jpg";
-import roles from "/Users/matthewholinger/ciscc275/starter_helpi/src/images/roles.jpg";
-import "/Users/matthewholinger/ciscc275/starter_helpi/src/styles/images.css";
+import industryPicture from "../images/industrypicture.jpg"; // Update the path as needed
+import aloneVsTeam from "../images/teamwork-vs-working-alone.jpg";
+import roles from "../images/roles.jpg";
+//import "../images.css";
 import { ChangeEvent } from "react";
-import pace from "/Users/matthewholinger/ciscc275/starter_helpi/src/images/pace.jpg";
-import problemSolving from "/Users/matthewholinger/ciscc275/starter_helpi/src/images/problemSolving.jpg";
-import environment from "/Users/matthewholinger/ciscc275/starter_helpi/src/images/environment.jpg";
-import grad from "/Users/matthewholinger/ciscc275/starter_helpi/src/images/grad.jpg";
-import growth from "/Users/matthewholinger/ciscc275/starter_helpi/src/images/growth.jpg";
-import levels from "/Users/matthewholinger/ciscc275/starter_helpi/src/images/levels.jpg";
+import pace from "../images/pace.jpg";
+import problemSolving from "../images/problemSolving.jpg";
+import environment from "../images/environment.jpg";
+import grad from "../images/grad.jpg";
+import growth from "../images/growth.jpg";
+import levels from "../images/levels.jpg";
 
 
 
