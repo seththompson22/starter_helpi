@@ -13,12 +13,6 @@ function ChooseYourPathSection(): JSX.Element {
           link="/starter_helpi/#/BasicQuestions"
           btnText="Take the Quiz"
         />
-        <QuizPageCard
-          title="Detailed Questions Quiz"
-          description="Dive deep into your strengths, preferences, and interests for a comprehensive career analysis. This quiz offers in-depth questions and assessments to provide you with detailed insights into your potential career paths."
-          link="/starter_helpi/#/DetailedQuestions"
-          btnText="Take the Quiz"
-        />
       </div>
     </div>
   );
