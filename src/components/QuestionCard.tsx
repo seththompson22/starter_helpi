@@ -7,17 +7,17 @@ import React from "react";
 import { Col, Container, Row } from "react-bootstrap";
 
 interface QuestionCardProps {
-  
   questions: {
-    photo: any; question: string; choices: string[] 
-
-}[];
+    photo: string;
+    question: string;
+    choices: string[];
+  }[];
   onCompletion: () => void; // Add the onCompletion prop
   //imageSize: string; // Add imageSize prop
-  handleChange: (event: React.ChangeEvent<HTMLInputElement>) => void; // Add handleChange prop
+  // handleChange: (event: React.ChangeEvent<HTMLInputElement>) => void; // Add handleChange prop
 }
 
-interface ApiAnswer {
+export interface ApiAnswer {
   question: string;
   answer: string | null;
 }
@@ -25,8 +25,7 @@ interface ApiAnswer {
 const QuestionCard: React.FC<QuestionCardProps> = ({
   questions,
   onCompletion,
-  handleChange,
-  
+  // handleChange,
 }) => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [answers, setAnswers] = useState<(string | null)[]>(
@@ -65,13 +64,43 @@ const QuestionCard: React.FC<QuestionCardProps> = ({
 
   const handleSubmit = () => {
     setSubmitted(true);
-    // You can handle the submission of answers here, for example, sending them to an API
 
-    const apiAnswers: ApiAnswer[] = questions.map((value, index) => {
+    // You can handle the submission of answers here, for example, sending them to an API
+    const saveAnswersKey = "apiAnswers";
+    const previousData = localStorage.getItem(saveAnswersKey);
+    localStorage.removeItem(saveAnswersKey);
+    let apiAnswers: ApiAnswer[] = questions.map((value, index) => {
       return { question: value.question, answer: answers[index] };
     });
 
-    console.log("Submitted answers:", apiAnswers);
+    let loadedData: ApiAnswer[] = previousData ? JSON.parse(previousData) : [];
+
+    // If the data doesn't exist, `getItem` returns null
+    if (previousData !== null) {
+      loadedData = JSON.parse(previousData);
+    }
+
+    const isFirstQuizCompleted = loadedData.length === 9;
+
+    if (!isFirstQuizCompleted) {
+      // Store answers for the first quiz
+      loadedData = apiAnswers;
+    } else {
+      // reset localStorage and then load data
+      if (apiAnswers.length === 9) {
+        loadedData = apiAnswers;
+      } else {
+        // Store answers for the second quiz
+        loadedData = [...loadedData, ...apiAnswers];
+      }
+    }
+
+    // Limit the total length to 16 elements
+    if (loadedData.length > 16) {
+      loadedData = loadedData.slice(0, 16);
+    }
+
+    localStorage.setItem(saveAnswersKey, JSON.stringify(loadedData));
 
     // Check if all questions are answered
     if (answers.every((answer) => answer !== null)) {
@@ -83,48 +112,54 @@ const QuestionCard: React.FC<QuestionCardProps> = ({
 
   return (
     <div className="question-card">
-    <h2>{questions[currentQuestion].question}</h2>
-    <Container>
-      <Row>
-        <Col>
-          {/* Render answer choices in the first column */}
-          {questions[currentQuestion].choices.length > 0 ? (
-            <MultipleChoiceQuestion
-              choices={questions[currentQuestion].choices}
-              selectedChoice={answers[currentQuestion] || ""}
-              onSelectChoice={handleChoiceChange}
-              disabled={submitted}
-              onAnswer={handleAnswerQuestion}
-            />
-          ) : (
-            <OpenResponse
-              value={answers[currentQuestion] || ""}
-              onChange={(text) => {
-                const newAnswers = [...answers];
-                newAnswers[currentQuestion] = text;
-                setAnswers(newAnswers);
-                handleAnswerQuestion();
-                const syntheticEvent = {
-                  target: {
-                    id: `question-${currentQuestion + 1}`,
-                    value: text,
-                  },
-                };
-                handleChange(syntheticEvent as React.ChangeEvent<HTMLInputElement>);
-              }}
-              disabled={submitted}
-            />
-          )}
-        </Col>
-        <Col>
-          {/* Render the image in the second column */}
-          {questions[currentQuestion].photo && (
-            <img src={questions[currentQuestion].photo} alt="Question" className="question-photo"
-            style = {{width: 375, height: 'auto'}} />
-          )}
-        </Col>
-      </Row>
-    </Container>
+      <h2>{questions[currentQuestion].question}</h2>
+      <Container>
+        <Row>
+          <Col>
+            {/* Render answer choices in the first column */}
+            {questions[currentQuestion].choices.length > 0 ? (
+              <MultipleChoiceQuestion
+                choices={questions[currentQuestion].choices}
+                selectedChoice={answers[currentQuestion] || ""}
+                onSelectChoice={handleChoiceChange}
+                disabled={submitted}
+                onAnswer={handleAnswerQuestion}
+              />
+            ) : (
+              <OpenResponse
+                value={answers[currentQuestion] || ""}
+                onChange={(text) => {
+                  const newAnswers = [...answers];
+                  newAnswers[currentQuestion] = text;
+                  setAnswers(newAnswers);
+                  handleAnswerQuestion();
+                  // const syntheticEvent = {
+                  //   target: {
+                  //     id: `question-${currentQuestion + 1}`,
+                  //     value: text,
+                  //   },
+                  // };
+                  // handleChange(
+                  //   syntheticEvent as React.ChangeEvent<HTMLInputElement>
+                  // );
+                }}
+                disabled={submitted}
+              />
+            )}
+          </Col>
+          <Col>
+            {/* Render the image in the second column */}
+            {questions[currentQuestion].photo && (
+              <img
+                src={questions[currentQuestion].photo}
+                alt="Question"
+                className="question-photo"
+                style={{ width: 375, height: "auto" }}
+              />
+            )}
+          </Col>
+        </Row>
+      </Container>
       <ProgressBar
         totalQuestions={questions.length}
         answeredQuestions={answers.filter((value) => value !== null).length}
@@ -140,7 +175,15 @@ const QuestionCard: React.FC<QuestionCardProps> = ({
         <button
           className="next-btn btn"
           onClick={nextQuestion}
-          disabled={currentQuestion === questions.length - 1 || submitted}
+          disabled={
+            currentQuestion === questions.length - 1 ||
+            submitted || // Disable if it's the last question or already submitted
+            (questions[currentQuestion].choices.length > 0 &&
+              answers[currentQuestion] === null) || // Disable if no radio option is selected
+            (questions[currentQuestion].choices.length === 0 &&
+              (answers[currentQuestion] === null ||
+                answers[currentQuestion] === "")) // Disable if no text is entered
+          }
         >
           Next
         </button>
