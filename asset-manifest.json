@@ -1,16 +1,25 @@
 {
   "files": {
     "main.css": "/starter_helpi/static/css/main.c11b6ca3.css",
-    "main.js": "/starter_helpi/static/js/main.9739c960.js",
+    "main.js": "/starter_helpi/static/js/main.c386abf8.js",
     "static/js/453.bad6c33a.chunk.js": "/starter_helpi/static/js/453.bad6c33a.chunk.js",
     "static/media/mixkit-cinematic-view-of-friends-hiking-rough-terrain-8947-medium.mp4": "/starter_helpi/static/media/mixkit-cinematic-view-of-friends-hiking-rough-terrain-8947-medium.8f7c2a6137c6c6b367be.mp4",
+    "static/media/teamwork-vs-working-alone.jpg": "/starter_helpi/static/media/teamwork-vs-working-alone.b4a9c30b1ef934e3ad4f.jpg",
+    "static/media/pace.jpg": "/starter_helpi/static/media/pace.309b646ff4ebbf8d504f.jpg",
+    "static/media/industrypicture.jpg": "/starter_helpi/static/media/industrypicture.a5ff51097e2c0dbfa46b.jpg",
+    "static/media/environment.jpg": "/starter_helpi/static/media/environment.3f3d86e7a77d32013e40.jpg",
+    "static/media/levels.jpg": "/starter_helpi/static/media/levels.ebc08e95425fabe3e96e.jpg",
+    "static/media/growth.jpg": "/starter_helpi/static/media/growth.4438447b0b98e94cc1af.jpg",
+    "static/media/roles.jpg": "/starter_helpi/static/media/roles.f2d7a9e00f0d62b2f537.jpg",
+    "static/media/problemSolving.jpg": "/starter_helpi/static/media/problemSolving.7a0268495fbce9001bdd.jpg",
+    "static/media/grad.jpg": "/starter_helpi/static/media/grad.5c7f9d651903a046c9b3.jpg",
     "index.html": "/starter_helpi/index.html",
     "main.c11b6ca3.css.map": "/starter_helpi/static/css/main.c11b6ca3.css.map",
-    "main.9739c960.js.map": "/starter_helpi/static/js/main.9739c960.js.map",
+    "main.c386abf8.js.map": "/starter_helpi/static/js/main.c386abf8.js.map",
     "453.bad6c33a.chunk.js.map": "/starter_helpi/static/js/453.bad6c33a.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.c11b6ca3.css",
-    "static/js/main.9739c960.js"
+    "static/js/main.c386abf8.js"
   ]
 }
