@@ -94,7 +94,7 @@ const QuestionCard: React.FC<QuestionCardProps> = ({
       ): string => val || "");
 
     // The api calls
-    apiQuestions = questionArray.map((val: string): ChatCompletionMessageParam => ({ role: "assistant", content: val }));
+    apiQuestions = questionArray.map((val: string): ChatCompletionMessageParam => ({ role: "user", content: val }));
     userAnswers = answerArray.map((val: string): ChatCompletionMessageParam => ({ role: "user", content: val }));
     window.location.href = "/starter_helpi/#/CareerReport";
     
