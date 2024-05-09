@@ -56,16 +56,51 @@ const QuestionCard: React.FC<QuestionCardProps> = ({
 
   const handleSubmit = () => {
     setSubmitted(true);
-    // You can handle the submission of answers here, for example, sending them to an API
 
-    const apiAnswers: ApiAnswer[] = questions.map((value, index) => {
+    // You can handle the submission of answers here, for example, sending them to an API
+    const saveAnswersKey = "apiAnswers";
+    const previousData = localStorage.getItem(saveAnswersKey);
+    localStorage.removeItem(saveAnswersKey);
+    let apiAnswers: ApiAnswer[] = questions.map((value, index) => {
       return { question: value.question, answer: answers[index] };
     });
 
+    let loadedData: ApiAnswer[] = previousData ? JSON.parse(previousData) : [];
+
+    // If the data doesn't exist, `getItem` returns null
+    if (previousData !== null) {
+      //   const previousDataNotAsString = JSON.parse(previousData);
+      //   if (previousDataNotAsString.length !== loadedData.length) {
+      //     loadedData = [...previousDataNotAsString, ...loadedData];
+      //   } else {
+      //     loadedData = [...previousDataNotAsString];
+      //   }
+      // } else {
+      //   console.log(
+      //     "Data returns null, go to QuestionCard lines 57-80 to troubleshoot"
+      //   );
+      loadedData = JSON.parse(previousData);
+    }
+
+    const isFirstQuizCompleted = loadedData.length === 9;
+
+    if (!isFirstQuizCompleted) {
+      // Store answers for the first quiz
+      loadedData = apiAnswers;
+    } else {
+      // Store answers for the second quiz
+      loadedData = [...loadedData, ...apiAnswers];
+    }
+
+    // Limit the total length to 16 elements
+    if (loadedData.length > 16) {
+      loadedData = loadedData.slice(0, 16);
+    }
+
+    localStorage.setItem(saveAnswersKey, JSON.stringify(loadedData));
+
     // Check if all questions are answered
     if (answers.every((answer) => answer !== null)) {
-      localStorage.setItem("BQ Answers", JSON.stringify(apiAnswers));
-      console.log("Submitted answers:", localStorage.getItem("BQ Page"));
       onCompletion(); // Call the onCompletion function
     }
   };
