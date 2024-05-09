@@ -3,42 +3,57 @@ import "../styles/DetailedQuestions.css"; // Import CSS file
 import NavigationBar from "../components/NavigationBar";
 import QuestionCard from "../components/QuestionCard";
 import CustomFooter from "../components/CustomFooter";
+import { ChangeEvent } from "react";
 
 function DetailedQuestions() {
   const followUpQuestions = [
     {
       question:
         "What specific skills or experiences do you have that could contribute to [Industry from previous question]?",
+        photo: "path_to_photo_or_URL",
+
       choices: [],
     },
     {
       question:
         "How do you see yourself making an impact in [Industry from previous question]? Can you provide an example of a problem or challenge you'd like to address within this industry?",
+        photo: "path_to_photo_or_URL",
+
       choices: [],
     },
     {
       question:
         "In your ideal [Work Environment from previous question], what types of tasks or projects would you be most excited to work on?",
+        photo: "path_to_photo_or_URL",
+
       choices: [],
     },
     {
       question:
         "Can you share a personal or professional experience that highlights your strengths in [Aspect of Work from previous question]?",
+        photo: "path_to_photo_or_URL",
+
       choices: [],
     },
     {
       question:
         "Considering your prioritized aspect in a career ([Prioritized Aspect in Career from previous question]), what specific goals do you hope to achieve in your professional journey?",
+        photo: "path_to_photo_or_URL",
+
       choices: [],
     },
     {
       question:
         "For someone comfortable with [Level of Responsibility from previous question], what types of challenges or opportunities do you seek in your next career move?",
+        photo: "path_to_photo_or_URL",
+
       choices: [],
     },
     {
       question:
         "How do you envision your career progressing in the next 5-10 years, given your interests and aspirations in [Industry from previous question]?",
+        photo: "path_to_photo_or_URL",
+
       choices: [],
     },
   ];
@@ -55,8 +70,9 @@ function DetailedQuestions() {
 
       <QuestionCard
         questions={followUpQuestions}
-        onCompletion={handleCompletion}
-      />
+        onCompletion={handleCompletion} handleChange={function (event: ChangeEvent<HTMLInputElement>): void {
+          throw new Error("Function not implemented.");
+        } }      />
 
       <CustomFooter />
     </div>
