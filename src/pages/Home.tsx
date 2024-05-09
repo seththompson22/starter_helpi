@@ -4,6 +4,7 @@ import NavigationBar from "../components/NavigationBar";
 import HeroSection from "../components/HeroSection";
 import ChooseYourPathSection from "../components/ChooseYourPathSection";
 import CustomFooter from "../components/CustomFooter";
+import React from "react";
 //import { HashRouter, Routes, Route } from 'react-router-dom';
 
 export function Home() {
