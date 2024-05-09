@@ -10,6 +10,7 @@ import { ApiAnswer } from "../components/QuestionCard";
 
 type FollowUpQuestion = {
   question: string;
+  photo: string;
   choices: string[];
 };
 
@@ -36,30 +37,37 @@ function DetailedQuestions() {
     return [
       {
         question: `What specific skills or experiences do you have that could contribute to ${previousAnswers[0]}?`,
+        photo: "",
         choices: [],
       },
       {
         question: `How do you see yourself making an impact in ${previousAnswers[0]}? Can you provide an example of a problem or challenge you'd like to address within this industry?`,
+        photo: "",
         choices: [],
       },
       {
         question: `In your ideal ${previousAnswers[1]}, what types of tasks or projects would you be most excited to work on?`,
+        photo: "",
         choices: [],
       },
       {
         question: `Can you share a personal or professional experience that highlights your strengths in ${previousAnswers[2]}?`,
+        photo: "",
         choices: [],
       },
       {
         question: `Considering your prioritized aspect in a career (${previousAnswers[3]}), what specific goals do you hope to achieve in your professional journey?`,
+        photo: "",
         choices: [],
       },
       {
         question: `For someone comfortable with ${previousAnswers[4]}, what types of challenges or opportunities do you seek in your next career move?`,
+        photo: "",
         choices: [],
       },
       {
         question: `How do you envision your career progressing in the next 5-10 years, given your interests and aspirations in ${previousAnswers[0]}?`,
+        photo: "",
         choices: [],
       },
     ];
@@ -87,6 +95,11 @@ function DetailedQuestions() {
             <QuestionCard
               questions={followUpQuestions}
               onCompletion={handleCompletion}
+              // handleChange={function (
+              //   event: ChangeEvent<HTMLInputElement>
+              // ): void {
+              //   throw new Error("Function not implemented.");
+              // }}
             />
           )}
         </>

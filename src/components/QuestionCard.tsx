@@ -4,10 +4,17 @@ import OpenResponse from "../question-format-components/OpenResponse"; // Import
 import { useState } from "react";
 import ProgressBar from "./progressBar";
 import React from "react";
+import { Col, Container, Row } from "react-bootstrap";
 
 interface QuestionCardProps {
-  questions: { question: string; choices: string[] }[];
+  questions: {
+    photo: string;
+    question: string;
+    choices: string[];
+  }[];
   onCompletion: () => void; // Add the onCompletion prop
+  //imageSize: string; // Add imageSize prop
+  // handleChange: (event: React.ChangeEvent<HTMLInputElement>) => void; // Add handleChange prop
 }
 
 export interface ApiAnswer {
@@ -18,6 +25,7 @@ export interface ApiAnswer {
 const QuestionCard: React.FC<QuestionCardProps> = ({
   questions,
   onCompletion,
+  // handleChange,
 }) => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [answers, setAnswers] = useState<(string | null)[]>(
@@ -105,27 +113,53 @@ const QuestionCard: React.FC<QuestionCardProps> = ({
   return (
     <div className="question-card">
       <h2>{questions[currentQuestion].question}</h2>
-      {/* Conditional rendering based on the type of question */}
-      {questions[currentQuestion].choices.length > 0 ? (
-        <MultipleChoiceQuestion
-          choices={questions[currentQuestion].choices}
-          selectedChoice={answers[currentQuestion] || ""}
-          onSelectChoice={handleChoiceChange}
-          disabled={submitted} // Disable options after submission
-          onAnswer={handleAnswerQuestion}
-        />
-      ) : (
-        <OpenResponse
-          value={answers[currentQuestion] || ""} // Pass value as required
-          onChange={(text) => {
-            const newAnswers = [...answers];
-            newAnswers[currentQuestion] = text;
-            setAnswers(newAnswers);
-            handleAnswerQuestion();
-          }}
-          disabled={submitted} // Disable input after submission
-        />
-      )}
+      <Container>
+        <Row>
+          <Col>
+            {/* Render answer choices in the first column */}
+            {questions[currentQuestion].choices.length > 0 ? (
+              <MultipleChoiceQuestion
+                choices={questions[currentQuestion].choices}
+                selectedChoice={answers[currentQuestion] || ""}
+                onSelectChoice={handleChoiceChange}
+                disabled={submitted}
+                onAnswer={handleAnswerQuestion}
+              />
+            ) : (
+              <OpenResponse
+                value={answers[currentQuestion] || ""}
+                onChange={(text) => {
+                  const newAnswers = [...answers];
+                  newAnswers[currentQuestion] = text;
+                  setAnswers(newAnswers);
+                  handleAnswerQuestion();
+                  // const syntheticEvent = {
+                  //   target: {
+                  //     id: `question-${currentQuestion + 1}`,
+                  //     value: text,
+                  //   },
+                  // };
+                  // handleChange(
+                  //   syntheticEvent as React.ChangeEvent<HTMLInputElement>
+                  // );
+                }}
+                disabled={submitted}
+              />
+            )}
+          </Col>
+          <Col>
+            {/* Render the image in the second column */}
+            {questions[currentQuestion].photo && (
+              <img
+                src={questions[currentQuestion].photo}
+                alt="Question"
+                className="question-photo"
+                style={{ width: 375, height: "auto" }}
+              />
+            )}
+          </Col>
+        </Row>
+      </Container>
       <ProgressBar
         totalQuestions={questions.length}
         answeredQuestions={answers.filter((value) => value !== null).length}
@@ -141,7 +175,15 @@ const QuestionCard: React.FC<QuestionCardProps> = ({
         <button
           className="next-btn btn"
           onClick={nextQuestion}
-          disabled={currentQuestion === questions.length - 1 || submitted}
+          disabled={
+            currentQuestion === questions.length - 1 ||
+            submitted || // Disable if it's the last question or already submitted
+            (questions[currentQuestion].choices.length > 0 &&
+              answers[currentQuestion] === null) || // Disable if no radio option is selected
+            (questions[currentQuestion].choices.length === 0 &&
+              (answers[currentQuestion] === null ||
+                answers[currentQuestion] === "")) // Disable if no text is entered
+          }
         >
           Next
         </button>
