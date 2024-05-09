@@ -147,17 +147,17 @@ const QuestionCard: React.FC<QuestionCardProps> = ({
               />
             )}
           </Col>
-          <Col>
-            {/* Render the image in the second column */}
-            {questions[currentQuestion].photo && (
+          {/* Render the image in the second column */}
+          {questions[currentQuestion].photo && (
+            <Col>
               <img
                 src={questions[currentQuestion].photo}
                 alt="Question"
                 className="question-photo"
                 style={{ width: 375, height: "auto" }}
               />
-            )}
-          </Col>
+            </Col>
+          )}
         </Row>
       </Container>
       <ProgressBar
