@@ -1,4 +1,5 @@
 import { Form } from "react-bootstrap";
+import "../styles/OpenResponse.css";
 
 interface OpenResponseProps {
   value: string;
@@ -16,7 +17,7 @@ const OpenResponse: React.FC<OpenResponseProps> = ({
   };
 
   return (
-    <Form.Group controlId="openResponse">
+    <Form.Group controlId="openResponse" className="question-option">
       <Form.Control
         as="textarea"
         rows={3}

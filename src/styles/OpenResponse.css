@@ -1,0 +1,10 @@
+.form-check {
+    display: flex;
+    align-items: center;
+    margin: 2.5px auto;
+  }
+  
+
+.question-option {
+    height: 40vh;
+}
