@@ -17,8 +17,8 @@
 .desc {
     text-align: center;
     padding: 0px;
-    margin: 30px auto 10px auto;
-    width: 80%;
+    margin: 10px auto;
+    width: 90%;
     height: 220px;
     font-size: 22px;
 }
@@ -72,10 +72,12 @@
 @media only screen and (max-width: 480px) {
     /* CSS rules for mobile devices */
     .title {
-        font-size: 35px;
+        font-size: 30px;
+        padding: 0;
     }
     .desc {
         font-size: 15px;
+        margin: 33px auto;
     }
     .card {
         width: 100%;
@@ -91,5 +93,7 @@
 /* Small Mobile devices (<= 350px) */
 @media only screen and (max-width: 350px) {
     /* CSS rules for mobile devices */
-    
+    .link-btn: {
+        margin-bottom: 10px;
+    }
 }
