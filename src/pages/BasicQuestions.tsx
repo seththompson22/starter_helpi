@@ -100,7 +100,7 @@ export function BasicQuestions() {
       {/* Render QuestionCard only if not completed */}
       {!completed && (
         <>
-          <h1 className="basic-q-title">Basic Question Career Quiz</h1>
+          <h1 className="basic-q-title">Basic Questionnaire</h1>
           <QuestionCard questions={questions} onCompletion={handleCompletion} />
         </>
       )}

@@ -1,8 +1,7 @@
 .navigation {
-    margin-top: 0px;
-    margin-left: auto;
+    margin: 0px auto 0px auto;
     width: auto;
-    height: 10vh;
+    height: 40px;
 }
 
 .btn {
@@ -57,4 +56,12 @@
     text-align: start;
     margin-left: 20px;
     margin-bottom: 15px;
+}
+
+.col {
+    height: 330px;
+}
+
+.progress-bar-container {
+    margin-bottom: 10px;
 }

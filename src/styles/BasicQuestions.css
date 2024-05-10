@@ -1,6 +1,6 @@
 
 .basic-questions-page {
-    padding-top: 61px;
+    margin-top: 81px;
     color: var(--white-color);
     background-color: var(--black-color);
     text-align: center;
@@ -9,39 +9,51 @@
     height: 100vh;
 }
 
-.basic-q-title {
-    font-size: 70px;
-}
+.basic-questions-page .basic-q-title {
+    font-size: 60px;
 
-.basic-questions-page .footer {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    color: white;
-    text-align: center;
-    padding: 10px;
 }
 
 .basic-questions-page .path-section {
-    padding-top: 61px;
-    height: 80vh;
-    width: 100%;
+    height: calc(100vh - 81px);
     color: var(--white-color);
     text-align: center;
-}
-
-.basic-questions-page.basic-q-title {
-    margin: 20px auto 80px auto;
+    margin: 0px auto;
+    width: 100%;
 }
 
 .basic-questions-page .path-options {
-    width: 80%;
+    width: 60%;
     display: grid;
-    margin: auto;
-    column-gap: 0px;
+    column-gap: 60px;
     grid-template-columns: auto auto;
     grid-template-rows: auto;
     text-align: center;
-    padding: 0;
+    margin: 0px auto;
+}
+
+/* Small screens, laptops (769px — 1024px) */
+@media only screen and (max-width: 1024px) {
+    /* CSS rules for small screens and laptops */
+    
+}
+
+/* iPads, Tablets (481px — 768px) */
+@media only screen and (max-width: 768px) {
+    /* CSS rules for iPads and tablets */
+    
+    
+}
+
+/* Mobile devices (350px — 480px) */
+@media only screen and (max-width: 480px) {
+    /* CSS rules for mobile devices */
+    
+}
+
+
+/* Small Mobile devices (<= 350px) */
+@media only screen and (max-width: 350px) {
+    /* CSS rules for mobile devices */
+    
 }
