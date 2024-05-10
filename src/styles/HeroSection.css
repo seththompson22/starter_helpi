@@ -5,7 +5,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.8);
     object-fit: contain;
     font-size: 20px;
     margin: 0px;
@@ -30,7 +29,8 @@
     left: 0;
     width: 100%;
     height: calc(100vh - 81px);
-    background-color: rgba(0, 0, 0, 0.7); /* Adjust opacity as needed */
+    background-color: rgba(0, 0, 0);
+    opacity: 0.7;
 }
 
 .over-text {
@@ -46,13 +46,13 @@
 
 .over-text h1 {
     margin: 80px auto 40px auto;
-    font-size: 80px;
+    font-size: 60px;
 }
 
 .over-text p {
     margin: 0px auto;
-    font-size: 30px;
-    width: 60%;
+    font-size: 22px;
+    width: 75%;
 }
 
 .over-text .hero-btn {
@@ -63,19 +63,6 @@
 /* Small screens, laptops (769px — 1024px) */
 @media only screen and (max-width: 1024px) {
     /* CSS rules for small screens and laptops */
-
-}
-
-/* iPads, Tablets (481px — 768px) */
-@media only screen and (max-width: 768px) {
-    /* CSS rules for iPads and tablets */
-
-}
-
-/* Mobile devices (350px — 480px) */
-@media only screen and (max-width: 480px) {
-    /* CSS rules for mobile devices */
-    
     .background-video {
         display: flex;
         justify-content: center;
@@ -84,16 +71,12 @@
     
     .background-video video {
         width: auto;
-        height: calc(100vh - 65px);
+        height: calc(100vh - 81px);
         object-fit: cover;
-    }
-
-    .overlay {
-        background-color: rgba(0, 0, 0, 0.3); /* Adjust opacity as needed */
     }
     
     .over-text h1 {
-        font-size: 35px;
+        font-size: 50px;
         margin: 140px 10px 70px 10px;
     }
     
@@ -104,10 +87,35 @@
     }
     
     .over-text .hero-btn {
-        margin: 70px auto 0px auto;
-        padding: 10px;
-        width: 200px;
-        height: auto;
+        font-size: 18px;
+    }
+}
+
+/* iPads, Tablets (481px — 768px) */
+@media only screen and (max-width: 768px) {
+    /* CSS rules for iPads and tablets */
+    
+    .over-text h1 {
+        font-size: 45px;
+        margin: 140px 10px 70px 10px;
+    }
+    
+}
+
+/* Mobile devices (350px — 480px) */
+@media only screen and (max-width: 480px) {
+    /* CSS rules for mobile devices */
+    
+    .over-text h1 {
+        font-size: 35px;
+        margin-top: 120px;
+    }
+    
+    .over-text p {
+        font-size: 15px;
+    }
+    
+    .over-text .hero-btn {
         font-size: 15px;
     }
 }
@@ -116,23 +124,14 @@
 /* Small Mobile devices (<= 350px) */
 @media only screen and (max-width: 350px) {
     /* CSS rules for mobile devices */
+
     .over-text h1 {
         font-size: 30px;
         margin: 140px 10px 70px 10px;
     }
     
-    .over-text p {
-        margin: 0px auto;
-        font-size: 15px;
-        width: 75%;
-    }
-    
     .over-text .hero-btn {
         margin: 70px auto 0px auto;
-        padding: 10px;
-        width: 200px;
-        height: auto;
-        font-size: 15px;
     }
 }
   
