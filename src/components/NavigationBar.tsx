@@ -15,7 +15,7 @@ export function NavigationBar() {
 
   return (
     <nav>
-      <ul className="navbar">
+      <ul className="navbar" id="navbar">
         <div className="left-links">
           <li>
             <a className="icon-text nav-item" href="/starter_helpi">

@@ -12,8 +12,16 @@ function ScrollToSectionButton({
 }): JSX.Element {
   const scrollToSection = () => {
     const targetSection = document.getElementById(section);
-    if (targetSection) {
-      targetSection.scrollIntoView({ behavior: "smooth" });
+    const navbar = document.getElementById("navbar"); // Get navbar element
+    if (targetSection && navbar) {
+      // Check if targetSection and navbar exist
+      const navbarHeight = navbar.offsetHeight; // Get navbar height
+      const targetSectionTop =
+        targetSection.getBoundingClientRect().top + window.scrollY;
+      window.scrollTo({
+        top: targetSectionTop - navbarHeight,
+        behavior: "smooth",
+      });
     }
   };
 
