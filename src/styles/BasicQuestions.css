@@ -32,6 +32,16 @@
     margin: 0px auto;
 }
 
+.basic-questions-page .footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    color: white;
+    text-align: center;
+    height: 81px;
+}
+
 /* Small screens, laptops (769px — 1024px) */
 @media only screen and (max-width: 1024px) {
     /* CSS rules for small screens and laptops */
