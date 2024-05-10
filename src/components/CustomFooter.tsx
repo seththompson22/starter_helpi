@@ -37,8 +37,8 @@ function CustomFooter() {
     setKey(event.target.value);
   }
   return (
-    <footer>
-      <Form className="API-key footer">
+    <footer className="footer">
+      <Form className="API-key" id="footer">
         <Form.Label>API Key:</Form.Label>
         <Form.Control
           type="password"
@@ -50,7 +50,7 @@ function CustomFooter() {
         </Button>
         <li className="removed-li">
           <a href="/starter_helpi/#/CareerReport" className="temp-btn">
-            Temporary Button to Results Page
+            Temp
           </a>
         </li>
       </Form>
