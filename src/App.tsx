@@ -18,7 +18,7 @@ function App() {
         <Route path="/BasicQuestions" element={<BasicQuestions />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/CareerReport" element={<CareerReport />} />
+        <Route path="/CareerReport" element={<CareerReport/>} />
       </Routes>
     </HashRouter>
   );
