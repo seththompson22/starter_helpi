@@ -115,8 +115,19 @@ const QuestionCard: React.FC<QuestionCardProps> = ({
       <h2>{questions[currentQuestion].question}</h2>
       <Container>
         <Row>
+          {/* Render the image in the first column */}
+          {questions[currentQuestion].photo && (
+            <Col>
+              <img
+                src={questions[currentQuestion].photo}
+                alt="Question"
+                className="question-photo"
+                style={{ width: 375, height: "auto" }}
+              />
+            </Col>
+          )}
           <Col>
-            {/* Render answer choices in the first column */}
+            {/* Render answer choices in the second column */}
             {questions[currentQuestion].choices.length > 0 ? (
               <MultipleChoiceQuestion
                 choices={questions[currentQuestion].choices}
@@ -133,31 +144,11 @@ const QuestionCard: React.FC<QuestionCardProps> = ({
                   newAnswers[currentQuestion] = text;
                   setAnswers(newAnswers);
                   handleAnswerQuestion();
-                  // const syntheticEvent = {
-                  //   target: {
-                  //     id: `question-${currentQuestion + 1}`,
-                  //     value: text,
-                  //   },
-                  // };
-                  // handleChange(
-                  //   syntheticEvent as React.ChangeEvent<HTMLInputElement>
-                  // );
                 }}
                 disabled={submitted}
               />
             )}
           </Col>
-          {/* Render the image in the second column */}
-          {questions[currentQuestion].photo && (
-            <Col>
-              <img
-                src={questions[currentQuestion].photo}
-                alt="Question"
-                className="question-photo"
-                style={{ width: 375, height: "auto" }}
-              />
-            </Col>
-          )}
         </Row>
       </Container>
       <ProgressBar
@@ -177,12 +168,12 @@ const QuestionCard: React.FC<QuestionCardProps> = ({
           onClick={nextQuestion}
           disabled={
             currentQuestion === questions.length - 1 ||
-            submitted || // Disable if it's the last question or already submitted
+            submitted ||
             (questions[currentQuestion].choices.length > 0 &&
-              answers[currentQuestion] === null) || // Disable if no radio option is selected
+              answers[currentQuestion] === null) ||
             (questions[currentQuestion].choices.length === 0 &&
               (answers[currentQuestion] === null ||
-                answers[currentQuestion] === "")) // Disable if no text is entered
+                answers[currentQuestion] === ""))
           }
         >
           Next

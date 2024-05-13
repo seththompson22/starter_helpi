@@ -78,7 +78,22 @@
 /* iPads, Tablets (481px — 768px) */
 @media only screen and (max-width: 768px) {
     /* CSS rules for iPads and tablets */
+    .question-card {
+        display: flex;
+        flex-direction: row;
+      }
     
+      .question-photo {
+        order: 2; /* Set the order of the image column */
+        width: 375px; /* Set a fixed width for the image column */
+        height: auto;
+        margin-left: 20px; /* Add margin between the image and the question */
+      }
+    
+      .question-options {
+        order: 1; /* Set the order of the question options column */
+        width: calc(100% - 395px); /* Calculate the width of the question options column */
+      }
     
 }
 
