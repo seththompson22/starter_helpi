@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/starter_helpi/static/css/main.52a53d74.css",
-    "main.js": "/starter_helpi/static/js/main.a219d39d.js",
+    "main.css": "/starter_helpi/static/css/main.72cfab2d.css",
+    "main.js": "/starter_helpi/static/js/main.23b8782b.js",
     "static/js/453.bad6c33a.chunk.js": "/starter_helpi/static/js/453.bad6c33a.chunk.js",
     "static/media/mixkit-cinematic-view-of-friends-hiking-rough-terrain-8947-medium.mp4": "/starter_helpi/static/media/mixkit-cinematic-view-of-friends-hiking-rough-terrain-8947-medium.8f7c2a6137c6c6b367be.mp4",
     "static/media/teamwork-vs-working-alone.jpg": "/starter_helpi/static/media/teamwork-vs-working-alone.b4a9c30b1ef934e3ad4f.jpg",
@@ -14,12 +14,12 @@
     "static/media/problemSolving.jpg": "/starter_helpi/static/media/problemSolving.7a0268495fbce9001bdd.jpg",
     "static/media/grad.jpg": "/starter_helpi/static/media/grad.5c7f9d651903a046c9b3.jpg",
     "index.html": "/starter_helpi/index.html",
-    "main.52a53d74.css.map": "/starter_helpi/static/css/main.52a53d74.css.map",
-    "main.a219d39d.js.map": "/starter_helpi/static/js/main.a219d39d.js.map",
+    "main.72cfab2d.css.map": "/starter_helpi/static/css/main.72cfab2d.css.map",
+    "main.23b8782b.js.map": "/starter_helpi/static/js/main.23b8782b.js.map",
     "453.bad6c33a.chunk.js.map": "/starter_helpi/static/js/453.bad6c33a.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.52a53d74.css",
-    "static/js/main.a219d39d.js"
+    "static/css/main.72cfab2d.css",
+    "static/js/main.23b8782b.js"
   ]
 }
