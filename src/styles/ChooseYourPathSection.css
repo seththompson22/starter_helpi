@@ -1,6 +1,5 @@
 .path-section {
-    padding-top: 70px;
-    height: 90vh;
+    height: calc(100vh - 161px);
     width: 100%;
     background-color: var(--black-color);
     z-index: 1;
@@ -9,14 +8,51 @@
 }
 
 .path-title {
-    margin: 20px auto 80px auto;
-    font-size: 80px;
+    margin: 50px auto;
+    font-size: 60px;
 }
 
 .path-options {
-    width: 80%;
+    width: 100%;
     display: grid;
     margin: auto;
     text-align: center;
     padding: 0;
+}
+
+/* Small screens, laptops (769px — 1024px) */
+@media only screen and (max-width: 1024px) {
+    /* CSS rules for small screens and laptops */
+    .path-title {
+        font-size: 50px;
+    }
+}
+
+/* iPads, Tablets (481px — 768px) */
+@media only screen and (max-width: 768px) {
+    /* CSS rules for iPads and tablets */
+    .path-title {
+        font-size: 45px;
+    }
+    
+}
+
+/* Mobile devices (350px — 480px) */
+@media only screen and (max-width: 480px) {
+    /* CSS rules for mobile devices */
+    .path-title {
+        font-size: 35px;
+    }
+    .path-options {
+        width: 90%;
+    }
+}
+
+
+/* Small Mobile devices (<= 350px) */
+@media only screen and (max-width: 350px) {
+    /* CSS rules for mobile devices */
+    .path-title {
+        font-size: 30px;
+    }
 }

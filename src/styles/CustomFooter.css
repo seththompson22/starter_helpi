@@ -9,3 +9,11 @@
     background-color: var(--white-color);
 }
 
+.footer {
+    width: 100%;
+    color: white;
+    text-align: center;
+    height: 81px;
+    z-index: 1100;
+}
+
