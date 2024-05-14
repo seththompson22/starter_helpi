@@ -15,6 +15,7 @@ export function APIButton(): JSX.Element {
   const [apiVal, setApiVal] = useState<string>("");
   const [dispInit, setDispInit] = useState<boolean>(true);
   const [dispFinal, setDispFinal] = useState<boolean>(false);
+  const [error, setError] = useState<boolean>(false);
   // The whole conversation
 
   const [chatLog, setChatLog] = useState<ChatCompletionMessageParam[]>([{ role: "system", content: "You are a career advisor." }, { role: "user", content: "I am trying to figure out what my future career should be. Ask me a list of questions that I can answer." },  ...apiQuestions, ...userAnswers, { role: "user", content: "That was all of the answers. Now give me your top three career recommendations. For each company, include your reasoning, the average salary, and what experience I need for this career."}])
@@ -22,12 +23,13 @@ export function APIButton(): JSX.Element {
 
 
   async function careerRecommendation() {
+    setError(false);
+    // Removes the initial button  
+    setDispInit(false);
     // Tries to call the API
     try {
       //const apiMessage: ChatCompletionMessageParam[] = [{ role: "system", content: "You are a career advisor." }, { role: "assistant", content: apiInput }]
       const apiMessage: ChatCompletionMessageParam[] = [...chatLog];
-      // Removes the initial button      
-      setDispInit(false);
       const completion = await openai.chat.completions.create({
         messages: apiMessage,
         model: "gpt-3.5-turbo",
@@ -45,8 +47,9 @@ export function APIButton(): JSX.Element {
     // Website outputs an error message
     catch (error) {
       console.log("Error");
-      setValue(JSON.stringify("Error"));
-
+      setValue(JSON.stringify("Error. Try resubmitting your API key."));
+      setDispInit(true);
+      setError(true);
     }
     console.log(chatLog);
   }
@@ -73,7 +76,7 @@ export function APIButton(): JSX.Element {
     // Website outputs an error message
     catch (error) {
       console.log("Error");
-      setValue(JSON.stringify("Error"));
+      setValue(JSON.stringify("Error. Try resubmitting your API key."));
 
     }
     
@@ -99,6 +102,12 @@ export function APIButton(): JSX.Element {
           {/* Generates the career advice summary */}
           <Button onClick={() => careerRecommendation()}>Generate your Career Advice</Button>
       </span>}
+      <br></br>
+      {error === true &&
+        <span>
+          "Error. Try resubmitting your API key."
+      </span>}
+      
       <br></br>
       <br></br>
       <span>
