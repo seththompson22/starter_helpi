@@ -47,7 +47,7 @@ export function APIButton(): JSX.Element {
     // Website outputs an error message
     catch (error) {
       console.log("Error");
-      setValue(JSON.stringify("Error. Try resubmitting your API key."));
+      setValue(JSON.stringify("API: Error. Try resubmitting your API key."));
       setDispInit(true);
       setError(true);
     }
@@ -105,7 +105,7 @@ export function APIButton(): JSX.Element {
       <br></br>
       {error === true &&
         <span>
-          "Error. Try resubmitting your API key."
+          "API: Error. Try resubmitting your API key."
       </span>}
       
       <br></br>
