@@ -109,7 +109,11 @@
     }
 
     .question-card h2 { 
-        font-size: 22px;
+        width: 100%;
+        text-align: center;
+        margin: 0px;
+        margin-bottom: 25px;
+        font-size: 20px;
     }
 
     .progress-bar-container {

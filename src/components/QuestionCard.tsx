@@ -145,6 +145,7 @@ const QuestionCard: React.FC<QuestionCardProps> = ({
                   setAnswers(newAnswers);
                   handleAnswerQuestion();
                 }}
+                className="textbox"
                 disabled={submitted}
               />
             )}
