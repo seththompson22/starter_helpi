@@ -93,7 +93,7 @@
 /* Small Mobile devices (<= 350px) */
 @media only screen and (max-width: 350px) {
     /* CSS rules for mobile devices */
-    .link-btn: {
+    .link-btn {
         margin-bottom: 10px;
     }
 }
