@@ -117,7 +117,7 @@ const QuestionCard: React.FC<QuestionCardProps> = ({
         <Row>
           {/* Render the image in the first column */}
           {questions[currentQuestion].photo && (
-            <Col>
+            <Col className="image-column">
               <img
                 src={questions[currentQuestion].photo}
                 alt="Question"
@@ -126,7 +126,7 @@ const QuestionCard: React.FC<QuestionCardProps> = ({
               />
             </Col>
           )}
-          <Col>
+          <Col className="options-column">
             {/* Render answer choices in the second column */}
             {questions[currentQuestion].choices.length > 0 ? (
               <MultipleChoiceQuestion
