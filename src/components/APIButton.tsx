@@ -63,7 +63,7 @@ export function APIButton(): JSX.Element {
 
       const completion = await openai.chat.completions.create({
         messages: apiMessage,
-        model: "gpt-3.5-turbo",
+        model: "gpt-4o",
       });
       // The inititial setValue does not save in the state, so everything has to be copied over again.
       setValue(value + "\n\nYou: " + apiInput + "\n\nAI Career Assistant: " + JSON.stringify(completion.choices[0]["message"]["content"]).replace(/\\n/g, "\n"));
