@@ -4,7 +4,7 @@ import { Button, Form } from "react-bootstrap";
 
 import { openai } from "../components/CustomFooter";
 import { ChatCompletionMessageParam } from "openai/resources/chat/completions";
-import OpenAI from "openai";
+//import OpenAI from "openai";
 import { ApiAnswer } from "./QuestionCard";
 //import { apiQuestions, userAnswers } from "./QuestionCard";
 //import { ChatCompletionMessageParam } from "openai/resources/index.mjs";
@@ -20,7 +20,6 @@ export function APIButton(): JSX.Element {
   const [error, setError] = useState<boolean>(false);
   // The whole conversation
 
-  let openai: OpenAI;
   let apiQuestions: ChatCompletionMessageParam[];
   let userAnswers: ChatCompletionMessageParam[];
   
