@@ -5,7 +5,13 @@ import { useState } from "react";
 import ProgressBar from "./progressBar";
 import React from "react";
 import { Col, Container, Row } from "react-bootstrap";
+import OpenAI from "openai";
+import { ChatCompletionMessageParam } from "openai/resources";
 
+// The API object needed to do API calls which requires a working API key
+export let openai: OpenAI;
+export let apiQuestions: ChatCompletionMessageParam[];
+export let userAnswers: ChatCompletionMessageParam[];
 
 interface QuestionCardProps {
   questions: {

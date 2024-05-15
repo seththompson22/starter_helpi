@@ -3,9 +3,7 @@ import "../styles/BasicQuestions.css";
 import NavigationBar from "../components/NavigationBar";
 import QuestionCard from "../components/QuestionCard";
 import CustomFooter from "../components/CustomFooter";
-<<<<<<< HEAD
 import React from "react";
-=======
 // import "../images.css";
 // import { ChangeEvent } from "react";
 import industryPicture from "../images/industrypicture.jpg"; // Update the path as needed
@@ -20,7 +18,6 @@ import levels from "../images/levels.jpg";
 
 import { useState } from "react";
 import QuizPageCard from "../components/QuizPageCard";
->>>>>>> 1263f580fc9d3e7c266a206d404d97d8aa3dd735
 
 // Define an array of question objects
 const photos: string[] = [
