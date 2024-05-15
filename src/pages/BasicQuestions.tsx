@@ -3,6 +3,7 @@ import "../styles/BasicQuestions.css";
 import NavigationBar from "../components/NavigationBar";
 import QuestionCard from "../components/QuestionCard";
 import CustomFooter from "../components/CustomFooter";
+import React from "react";
 // import "../images.css";
 // import { ChangeEvent } from "react";
 import industryPicture from "../images/industrypicture.jpg"; // Update the path as needed

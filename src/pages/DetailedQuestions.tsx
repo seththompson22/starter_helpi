@@ -3,6 +3,7 @@ import "../styles/DetailedQuestions.css"; // Import CSS file
 import NavigationBar from "../components/NavigationBar";
 import QuestionCard from "../components/QuestionCard";
 import CustomFooter from "../components/CustomFooter";
+import React from "react";
 import { useEffect, useMemo, useState } from "react";
 import QuizPageCard from "../components/QuizPageCard";
 
