@@ -8,12 +8,13 @@ function QuizPageCard({
   title,
   description,
   link,
+  btnText,
 }: {
   title: string;
   description: string;
   link: string;
+  btnText: string;
 }): JSX.Element {
-
   // Generates the AI and sends you to the quiz.
   function handleClick() {
     //openai = new OpenAI({apiKey: localStorage.getItem(saveKeyData)?.replace(/"/g, '') || undefined, dangerouslyAllowBrowser: true});
@@ -25,7 +26,7 @@ function QuizPageCard({
       <h2 className="title">{title}</h2>
       <p className="desc">{description}</p>
       <button className="link-btn" type="button" onClick={handleClick}>
-        <strong>Take the Quiz</strong>
+        <strong>{btnText}</strong>
       </button>
     </div>
   );
