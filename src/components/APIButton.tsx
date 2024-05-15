@@ -5,6 +5,7 @@ import { Button, Form } from "react-bootstrap";
 import { openai } from "../components/CustomFooter";
 import { ChatCompletionMessageParam } from "openai/resources/chat/completions";
 import OpenAI from "openai";
+import { ApiAnswer } from "./QuestionCard";
 //import { apiQuestions, userAnswers } from "./QuestionCard";
 //import { ChatCompletionMessageParam } from "openai/resources/index.mjs";
 //import { ChatCompletionMessageParam } from "openai/resources/index.mjs";
@@ -24,6 +25,30 @@ export function APIButton(): JSX.Element {
   let userAnswers: ChatCompletionMessageParam[];
   
 
+
+
+
+  // Creates the arrays needed for the api calls
+  const saveAnswersKey = "apiAnswers";
+  const previousData = localStorage.getItem(saveAnswersKey);
+
+  let loadedData: ApiAnswer[] = previousData ? JSON.parse(previousData) : [];
+  if (previousData !== null) {
+    loadedData = JSON.parse(previousData);
+  }
+
+  
+
+  const questionArray = loadedData.map((val: {
+    question: string;
+    answer: string | null;
+    }): string => val.question);
+  const answerArray = loadedData.map((val: {
+    question: string;
+    answer: string | null;
+    }): string => val.answer || "");
+
+
   apiQuestions = questionArray.map((val: string): ChatCompletionMessageParam => ({ role: "assistant", content: val }));
   userAnswers = answerArray.map((val: string): ChatCompletionMessageParam => ({ role: "user", content: val }));
   const [chatLog, setChatLog] = useState<ChatCompletionMessageParam[]>([{ role: "system", content: "You are a career advisor." }, { role: "user", content: "I am trying to figure out what my future career should be. Ask me a list of questions that I can answer." },  ...apiQuestions, ...userAnswers, { role: "user", content: "That was all of the answers. Now give me your top three career recommendations. For each company, include your reasoning, the average salary, and what experience I need for this career."}])
@@ -35,7 +60,7 @@ export function APIButton(): JSX.Element {
     // Removes the initial button  
     setDispInit(false);
     // Tries to call the API
-    try {
+    //try {
       //const apiMessage: ChatCompletionMessageParam[] = [{ role: "system", content: "You are a career advisor." }, { role: "assistant", content: apiInput }]
       const apiMessage: ChatCompletionMessageParam[] = [...chatLog];
       const completion = await openai.chat.completions.create({
@@ -51,14 +76,16 @@ export function APIButton(): JSX.Element {
       const apiResponse: ChatCompletionMessageParam[] = [...apiMessage, completion.choices[0]["message"]];
       setChatLog(apiResponse);
       // make system
-    }
+    //}
     // Website outputs an error message
+    /*
     catch (error) {
       console.log("Error");
       setValue(JSON.stringify("API: Error. Try resubmitting your API key."));
       setDispInit(true);
       setError(true);
     }
+    */
     console.log(chatLog);
   }
 
