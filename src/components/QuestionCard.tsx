@@ -101,6 +101,7 @@ const QuestionCard: React.FC<QuestionCardProps> = ({
         loadedData = [...loadedData, ...apiAnswers];
       }
     }
+    
 
     // Limit the total length to 16 elements
     if (loadedData.length > 16) {
