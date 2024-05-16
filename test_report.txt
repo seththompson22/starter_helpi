@@ -3,7 +3,7 @@
 > react-scripts test --coverage
 
 FAIL src/App.test.tsx
-  ✕ renders learn react link (58 ms)
+  ✕ renders learn react link (52 ms)
 
   ● renders learn react link
 
@@ -32,68 +32,7 @@ FAIL src/App.test.tsx
                   [36m</a>[39m
                 [36m</li>[39m
               [36m</div>[39m
-              [36m<div[39m
-                [33mclass[39m=[32m"right-links "[39m
-              [36m>[39m
-                [36m<li>[39m
-                  [36m<a[39m
-                    [33mclass[39m=[32m"inverted-btn nav-item"[39m
-                    [33mhref[39m=[32m"/starter_helpi/#/signup"[39m
-                  [36m>[39m
-                    [0mSign Up[0m
-                  [36m</a>[39m
-                [36m</li>[39m
-                [36m<li>[39m
-                  [36m<a[39m
-                    [33mclass[39m=[32m"normal-btn nav-item"[39m
-                    [33mhref[39m=[32m"/starter_helpi/#/login"[39m
-                  [36m>[39m
-                    [0mLogin[0m
-                  [36m</a>[39m
-                [36m</li>[39m
-              [36m</div>[39m
-              [36m<li[39m
-                [33mclass[39m=[32m"menu-button"[39m
-              [36m>[39m
-                [36m<div[39m
-                  [33mclass[39m=[32m"hamburger-icon "[39m
-                [36m>[39m
-                  [36m<div[39m
-                    [33mclass[39m=[32m"line"[39m
-                  [36m/>[39m
-                  [36m<div[39m
-                    [33mclass[39m=[32m"line"[39m
-                  [36m/>[39m
-                  [36m<div[39m
-                    [33mclass[39m=[32m"line"[39m
-                  [36m/>[39m
-                [36m</div>[39m
-              [36m</li>[39m
             [36m</ul>[39m
-            [36m<div[39m
-              [33mclass[39m=[32m"side-navigation "[39m
-            [36m>[39m
-              [36m<ul[39m
-                [33mclass[39m=[32m"side-bar-content"[39m
-              [36m>[39m
-                [36m<li>[39m
-                  [36m<a[39m
-                    [33mclass[39m=[32m""[39m
-                    [33mhref[39m=[32m"/starter_helpi/#/signup"[39m
-                  [36m>[39m
-                    [0mSign Up[0m
-                  [36m</a>[39m
-                [36m</li>[39m
-                [36m<li>[39m
-                  [36m<a[39m
-                    [33mclass[39m=[32m""[39m
-                    [33mhref[39m=[32m"/starter_helpi/#/login"[39m
-                  [36m>[39m
-                    [0mLogin[0m
-                  [36m</a>[39m
-                [36m</li>[39m
-              [36m</ul>[39m
-            [36m</div>[39m
           [36m</nav>[39m
           [36m<div[39m
             [33mclass[39m=[32m"content"[39m
@@ -223,7 +162,7 @@ FAIL src/App.test.tsx
 --------------------------------|---------|----------|---------|---------|-------------------
 File                            | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 --------------------------------|---------|----------|---------|---------|-------------------
-All files                       |   10.76 |     3.63 |   11.42 |   10.95 |                   
+All files                       |    9.63 |     0.96 |   11.59 |    9.81 |                   
  src                            |     2.7 |        0 |      10 |     2.7 |                   
   App.tsx                       |     100 |      100 |     100 |     100 |                   
   ResponsePage.tsx              |       0 |        0 |       0 |       0 | 6-15              
@@ -231,13 +170,13 @@ All files                       |   10.76 |     3.63 |   11.42 |   10.95 |
   reportWebVitals.ts            |       0 |        0 |       0 |       0 | 3-10              
   server.js                     |       0 |      100 |       0 |       0 | 2-44              
   test.tsx                      |       0 |      100 |       0 |       0 | 13                
- src/components                 |      12 |     4.34 |   15.38 |   12.32 |                   
+ src/components                 |   10.34 |     1.16 |   15.78 |   10.63 |                   
   APIButton.tsx                 |       0 |        0 |       0 |       0 | 22-294            
   ButtonToPages.tsx             |       0 |      100 |       0 |       0 | 18                
   ChooseYourPathSection.tsx     |     100 |      100 |     100 |     100 |                   
   CustomFooter.tsx              |   54.54 |       25 |   33.33 |   54.54 | 13,21-37          
   HeroSection.tsx               |     100 |      100 |     100 |     100 |                   
-  NavigationBar.tsx             |   66.66 |       50 |      50 |   66.66 | 12-13             
+  NavigationBar.tsx             |     100 |      100 |     100 |     100 |                   
   PopUpAlert.tsx                |      50 |      100 |       0 |      50 | 16                
   QuestionCard.tsx              |    2.04 |        0 |       0 |    2.17 | 37-165            
   QuizPageCard.tsx              |      50 |      100 |      50 |      50 | 21                
@@ -258,5 +197,5 @@ All files                       |   10.76 |     3.63 |   11.42 |   10.95 |
 Test Suites: 1 failed, 1 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        3.659 s
+Time:        3.513 s
 Ran all test suites.
