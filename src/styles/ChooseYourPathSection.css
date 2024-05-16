@@ -10,6 +10,7 @@
 .path-title {
     margin: 50px auto;
     font-size: 60px;
+    animation: glow 3s infinite alternate;
 }
 
 .path-options {

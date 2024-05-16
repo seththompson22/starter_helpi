@@ -1,11 +1,12 @@
 .card {
     width: 500px;
     height: 400px;
-    background-image: radial-gradient(circle, var(--accent-color), var(--white-color));
-    color: var(--black-color);
+    background-color: var(--black-color);
+    color: var(--white-color);
     padding: 10px;
     margin: auto;
     border-radius: 10px;
+    box-shadow: 0 0 20px 10px var(--accent-color);
 }
 
 .title {
@@ -25,20 +26,20 @@
 
 .link-btn {
     display: block;
-    background-color: var(--white-color);
-    color: var(--black-color);
+    background-color: var(--black-color);
+    color: var(--white-color);
     text-align: center;
     padding: 16px 24px;
     text-decoration: none;
     margin: 0px auto;
-    border: 2.5px solid var(--black-color);
+    box-shadow: 0 0 5px 2.5px var(--white-color);
     border-radius: 5px;
     font-size: 22px;
 }
 
 .link-btn:hover {
-    background-color: var(--black-color);
-    color: var(--white-color);
+    background-color: var(--white-color);
+    color: var(--black-color);
     opacity: 0.9;
 }
 

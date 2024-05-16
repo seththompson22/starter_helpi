@@ -1,6 +1,5 @@
-
 .report-page {
-  padding-top: 61px;
+  padding-top: 100px;
   color: var(--white-color);
   background-color: var(--black-color);
   text-align: center;
@@ -19,4 +18,97 @@
   color: white;
   text-align: center;
   padding: 10px;
+}
+
+/* Career recommendation section */
+.career-recommendations {
+  margin-top: 20px;
+  border: 1px solid var(--white-color);
+  padding: 20px;
+  border-radius: 5px;
+  background-color: var(--black-color);
+  box-shadow: 0 0 10px var(--accent-color);
+}
+
+/* Recommendation cards */
+.recommendation-card {
+  margin-bottom: 20px;
+  padding: 20px;
+  border: 1px solid var(--white-color);
+  border-radius: 5px;
+  background-color: var(--black-color);
+  box-shadow: 0 0 10px var(--accent-color);
+}
+
+/* Recommendation title */
+.recommendation-title {
+  font-size: 24px;
+  color: var(--white-color);
+  margin-bottom: 10px;
+}
+
+/* Recommendation description */
+.recommendation-description {
+  color: var(--white-color);
+  margin-bottom: 15px;
+}
+
+/* Reasons list */
+.reasons-list {
+  margin-bottom: 15px;
+}
+
+/* Reasons list items */
+.reasons-list-item {
+  list-style-type: disc;
+  margin-left: 20px;
+  color: var(--white-color);
+}
+
+/* Experience required */
+.experience-required {
+  font-weight: bold;
+  color: var(--white-color);
+}
+
+/* Next steps section */
+.next-steps {
+  margin-top: 10px;
+}
+
+/* Next steps list */
+.next-steps-list {
+  margin-bottom: 15px;
+}
+
+/* Next steps list items */
+.next-steps-list-item {
+  list-style-type: disc;
+  margin-left: 20px;
+  color: var(--white-color);
+}
+
+/* Responsive design */
+@media screen and (max-width: 1024px) {
+  .career-recommendations {
+    padding: 15px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .career-recommendations {
+    padding: 10px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .recommendation-card {
+    padding: 15px;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .recommendation-card {
+    padding: 10px;
+  }
 }
