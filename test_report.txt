@@ -3,7 +3,7 @@
 > react-scripts test --coverage
 
 FAIL src/App.test.tsx
-  ✕ renders learn react link (58 ms)
+  ✕ renders learn react link (57 ms)
 
   ● renders learn react link
 
@@ -233,7 +233,7 @@ FAIL src/App.test.tsx
 --------------------------------|---------|----------|---------|---------|-------------------
 File                            | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 --------------------------------|---------|----------|---------|---------|-------------------
-All files                       |   10.95 |     4.65 |   11.94 |   11.21 |                   
+All files                       |   10.55 |     4.39 |   11.94 |   10.79 |                   
  src                            |     2.7 |        0 |      10 |     2.7 |                   
   App.tsx                       |     100 |      100 |     100 |     100 |                   
   ResponsePage.tsx              |       0 |        0 |       0 |       0 | 6-15              
@@ -241,8 +241,8 @@ All files                       |   10.95 |     4.65 |   11.94 |   11.21 |
   reportWebVitals.ts            |       0 |        0 |       0 |       0 | 3-10              
   server.js                     |       0 |      100 |       0 |       0 | 2-44              
   test.tsx                      |       0 |      100 |       0 |       0 | 13                
- src/components                 |    12.4 |     5.88 |   16.66 |   12.87 |                   
-  APIButton.tsx                 |       0 |        0 |       0 |       0 | 16-171            
+ src/components                 |   11.72 |     5.47 |   16.66 |   12.14 |                   
+  APIButton.tsx                 |       0 |        0 |       0 |       0 | 16-188            
   ButtonToPages.tsx             |       0 |      100 |       0 |       0 | 18                
   ChooseYourPathSection.tsx     |     100 |      100 |     100 |     100 |                   
   CustomFooter.tsx              |   54.54 |       25 |   33.33 |   54.54 | 13,21-37          
@@ -267,5 +267,5 @@ All files                       |   10.95 |     4.65 |   11.94 |   11.21 |
 Test Suites: 1 failed, 1 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        3.481 s
+Time:        3.342 s
 Ran all test suites.
