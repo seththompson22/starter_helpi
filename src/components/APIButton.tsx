@@ -2,11 +2,8 @@ import React, { useState } from "react";
 import { Button, Form } from "react-bootstrap";
 import { openai } from "../components/CustomFooter";
 import { ChatCompletionMessageParam } from "openai/resources/chat/completions";
-//import OpenAI from "openai";
+import { PopUpAlert } from "./PopUpAlert";
 import { ApiAnswer } from "./QuestionCard";
-//import { apiQuestions, userAnswers } from "./QuestionCard";
-//import { ChatCompletionMessageParam } from "openai/resources/index.mjs";
-//import { ChatCompletionMessageParam } from "openai/resources/index.mjs";
 
 interface OneResult {
   title: string;
@@ -22,8 +19,18 @@ interface ResultType {
 }
 
 export function APIButton(): JSX.Element {
-  // States
-  // The API input. Both are used for the API output.
+  const [showAlert, setShowAlert] = useState<boolean>(false);
+  const [buttonKey, setButtonKey] = useState<number>(0); // Key to force re-render of button
+
+  const handleAlertClose = () => {
+    setShowAlert(false);
+    setButtonKey((prevKey) => prevKey + 1);
+  };
+
+  const openAlert = () => {
+    setShowAlert(true);
+  };
+
   const [value, setValue] = useState<string>("");
   const [results, setResults] = useState<ResultType>({
     recommendations: [
@@ -41,12 +48,10 @@ export function APIButton(): JSX.Element {
   const [dispInit, setDispInit] = useState<boolean>(true);
   const [dispFinal, setDispFinal] = useState<boolean>(false);
   const [error, setError] = useState<boolean>(false);
-  // The whole conversation
 
   let apiQuestions: ChatCompletionMessageParam[];
   let userAnswers: ChatCompletionMessageParam[];
 
-  // Creates the arrays needed for the api calls
   const saveAnswersKey = "apiAnswers";
   const previousData = localStorage.getItem(saveAnswersKey);
 
@@ -120,7 +125,7 @@ export function APIButton(): JSX.Element {
 
   async function careerRecommendation() {
     setError(false);
-    setDispInit(false); // Removes the initial button
+    setDispInit(false);
 
     try {
       const apiMessage: ChatCompletionMessageParam[] = [...chatLog];
@@ -133,9 +138,7 @@ export function APIButton(): JSX.Element {
 
       console.log("API Response:", completion.choices[0].message.content);
 
-      // Check if the content is not null
       if (completion.choices[0].message.content !== null) {
-        // Extracts the message out of API response
         const apiResponseContent: ResultType = JSON.parse(
           completion.choices[0].message.content
         );
@@ -160,7 +163,7 @@ export function APIButton(): JSX.Element {
         completion.choices[0]["message"],
       ];
       setChatLog(apiResponse);
-      setDispFinal(true); // Adds the chat and the other buttons
+      setDispFinal(true);
     } catch (error) {
       console.log("Error:", error);
       setValue("API: Error. Try resubmitting your API key.");
@@ -170,7 +173,6 @@ export function APIButton(): JSX.Element {
   }
 
   async function computeAPI(apiInput: string) {
-    // Tries to call the API
     try {
       const apiMessage: ChatCompletionMessageParam[] = [
         ...chatLog,
@@ -184,75 +186,63 @@ export function APIButton(): JSX.Element {
         response_format: { type: "json_object" },
         temperature: 0.2,
       });
-      // The inititial setValue does not save in the state, so everything has to be copied over again.
+
       setValue(JSON.stringify(completion.choices[0]["message"]["content"]));
-      //console.log(completion.choices[0]);
 
       const apiResponse: ChatCompletionMessageParam[] = [
         ...apiMessage,
         completion.choices[0]["message"],
       ];
       setChatLog(apiResponse);
-      // make system
     } catch (error) {
-      // Website outputs an error message
       console.log("Error");
       setValue(JSON.stringify("Error. Try resubmitting your API key."));
     }
-
-    console.log(chatLog);
   }
-  // Hook does what?
+
   function updateName(event: React.ChangeEvent<HTMLInputElement>) {
     setApiVal(event.target.value);
   }
 
-  // Runs the API on loading the page.
-  /*
-  useEffect(() => {
-    // Run computeAPI() when the component mounts (i.e., when the page loads)
-    computeAPI(""); // You can provide an initial question or input here
-  }, []);
-  */
-
   return (
-    <div className="all-api-content">
+    <div className="all-api-content" id="api-content">
       {dispInit === true && (
         <span>
-          {/* Generates the career advice summary */}
           <Button
+            key={buttonKey}
             className="small-normal-btn"
-            onClick={() => careerRecommendation()}
+            id="generateButton"
+            onClick={() => {
+              openAlert();
+              careerRecommendation();
+            }}
           >
             Generate your Career Advice
           </Button>
         </span>
       )}
-      {error === true && (
-        <span>"API: Error. Try resubmitting your API key."</span>
+      {error === true && showAlert && (
+        <PopUpAlert
+          errorMessage="API: Error. Try resubmitting your API key."
+          onClose={handleAlertClose}
+        />
       )}
       <span>
         {dispFinal === true && (
           <>
             <span>
-              {/* Outputs whatever the API last said */}
-              {/* AI Career Assistant: {value} */}
               {results && (
-                // Inside your React component
                 <div className="career-recommendations">
                   {results && (
                     <div className="recommendations-container">
-                      {/* Access the recommendations */}
                       {results.recommendations &&
                       results.recommendations.length > 0 ? (
                         results.recommendations.map(
                           (recommendation: OneResult, index: number) => (
                             <div key={index} className="recommendation-card">
-                              {/* Display title */}
                               <h2 className="recommendation-title">
                                 {recommendation.title}
                               </h2>
-                              {/* Display description */}
                               <p className="recommendation-description">
                                 {recommendation.description}
                               </p>
@@ -260,7 +250,6 @@ export function APIButton(): JSX.Element {
                                 <strong>Average Salary:</strong>{" "}
                                 {recommendation.avgSalary}
                               </p>
-                              {/* Display reasons as an unordered list */}
                               <div className="reasons">
                                 <strong>Justification:</strong>
                                 <ul className="reasons-list">
@@ -271,12 +260,10 @@ export function APIButton(): JSX.Element {
                                   ))}
                                 </ul>
                               </div>
-                              {/* Display experience */}
                               <p className="experience-required">
                                 <strong>Required Experience:</strong>{" "}
                                 {recommendation.exp}
                               </p>
-                              {/* Display next steps */}
                               <div className="next-steps">
                                 <strong>Next Steps:</strong>
                                 <ul className="next-steps-list">
@@ -301,17 +288,13 @@ export function APIButton(): JSX.Element {
                 </div>
               )}
               <div className="chat-further">
-                {/* Textbox that makes you input your career preferences or whatever */}
-                {
-                  <Form.Group controlId="apiValue">
-                    <Form.Label>
-                      Enter any followup career related questions:{" "}
-                    </Form.Label>
-                    <Form.Control value={apiVal} onChange={updateName} />
-                    <Form.Text className="WhatIsThis">.</Form.Text>
-                  </Form.Group>
-                }
-                {/* Button that calls the API on whatever is in the textbox */}
+                <Form.Group controlId="apiValue">
+                  <Form.Label>
+                    Enter any followup career related questions:{" "}
+                  </Form.Label>
+                  <Form.Control value={apiVal} onChange={updateName} />
+                  <Form.Text className="WhatIsThis">.</Form.Text>
+                </Form.Group>
                 <Button
                   className="small-normal-btn"
                   onClick={() => computeAPI(apiVal)}
