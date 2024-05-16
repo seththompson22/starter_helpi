@@ -2,16 +2,16 @@
 import "../styles/NavigationBar.css";
 //import { Button, Form } from 'react-bootstrap';
 //import { ButtonToPages } from './ButtonToPages';
-import React, { useState } from "react";
+// import React, { useState } from "react";
 
 export function NavigationBar() {
-  const [showMenu, setShowMenu] = useState(false);
-  const [isSideNavOpen, setIsSideNavOpen] = useState(false);
+  // const [showMenu, setShowMenu] = useState(false);
+  // const [isSideNavOpen, setIsSideNavOpen] = useState(false);
 
-  const toggleMenu = () => {
-    setShowMenu(!showMenu);
-    setIsSideNavOpen(!isSideNavOpen);
-  };
+  // const toggleMenu = () => {
+  //   setShowMenu(!showMenu);
+  //   setIsSideNavOpen(!isSideNavOpen);
+  // };
 
   return (
     <nav>
@@ -23,7 +23,7 @@ export function NavigationBar() {
             </a>
           </li>
         </div>
-        <div className={`right-links ${showMenu ? "show-menu" : ""}`}>
+        {/* <div className={`right-links ${showMenu ? "show-menu" : ""}`}>
           <li>
             <a className="inverted-btn nav-item" href="/starter_helpi/#/signup">
               Sign Up
@@ -41,9 +41,9 @@ export function NavigationBar() {
             <div className="line"></div>
             <div className="line"></div>
           </div>
-        </li>
+        </li> */}
       </ul>
-      <div className={`side-navigation ${showMenu ? "show" : ""}`}>
+      {/* <div className={`side-navigation ${showMenu ? "show" : ""}`}>
         <ul className="side-bar-content">
           <li>
             <a className="" href="/starter_helpi/#/signup">
@@ -56,7 +56,7 @@ export function NavigationBar() {
             </a>
           </li>
         </ul>
-      </div>
+      </div> */}
     </nav>
   );
 }
