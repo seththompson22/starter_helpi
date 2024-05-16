@@ -47,12 +47,12 @@ function DetailedQuestions() {
         choices: [],
       },
       {
-        question: `In your ideal ${previousAnswers[1]}, what types of tasks or projects would you be most excited to work on?`,
+        question: `In your ideal work environment (${previousAnswers[3]}), what types of tasks or projects would you be most excited to work on?`,
         photo: "",
         choices: [],
       },
       {
-        question: `Can you share a personal or professional experience that highlights your strengths in ${previousAnswers[2]}?`,
+        question: `Can you share a personal or professional experience that highlights your strengths in the type of role you are interested in? (${previousAnswers[2]})`,
         photo: "",
         choices: [],
       },
