@@ -216,7 +216,7 @@ export function APIButton(): JSX.Element {
   */
 
   return (
-    <div>
+    <div className="all-api-content">
       {dispInit === true && (
         <span>
           {/* Generates the career advice summary */}
@@ -225,13 +225,9 @@ export function APIButton(): JSX.Element {
           </Button>
         </span>
       )}
-      <br></br>
       {error === true && (
         <span>"API: Error. Try resubmitting your API key."</span>
       )}
-
-      <br></br>
-      <br></br>
       <span>
         {dispFinal === true && (
           <>
@@ -242,7 +238,7 @@ export function APIButton(): JSX.Element {
                 // Inside your React component
                 <div className="career-recommendations">
                   {results && (
-                    <div>
+                    <div className="recommendations-container">
                       {/* Access the recommendations */}
                       {results.recommendations &&
                       results.recommendations.length > 0 ? (
@@ -257,17 +253,24 @@ export function APIButton(): JSX.Element {
                               <p className="recommendation-description">
                                 {recommendation.description}
                               </p>
+                              <p className="recommendation-salary">
+                                <strong>Average Salary:</strong>{" "}
+                                {recommendation.avgSalary}
+                              </p>
                               {/* Display reasons as an unordered list */}
-                              <ul className="reasons-list">
-                                {recommendation.reason.map((reason, i) => (
-                                  <li key={i} className="reasons-list-item">
-                                    {reason}
-                                  </li>
-                                ))}
-                              </ul>
+                              <div className="reasons">
+                                <strong>Justification:</strong>
+                                <ul className="reasons-list">
+                                  {recommendation.reason.map((reason, i) => (
+                                    <li key={i} className="reasons-list-item">
+                                      {reason}
+                                    </li>
+                                  ))}
+                                </ul>
+                              </div>
                               {/* Display experience */}
                               <p className="experience-required">
-                                <strong>Experience Required:</strong>{" "}
+                                <strong>Required Experience:</strong>{" "}
                                 {recommendation.exp}
                               </p>
                               {/* Display next steps */}
@@ -294,8 +297,6 @@ export function APIButton(): JSX.Element {
                   )}
                 </div>
               )}
-              <br></br>
-              <br></br>
               {/* Textbox that makes you input your career preferences or whatever */}
               {
                 <Form.Group controlId="apiValue">
@@ -311,19 +312,9 @@ export function APIButton(): JSX.Element {
                 Answer Your Question
               </Button>
             </span>
-            <span>
-              {/* Button that calls the API to generate a rap */}
-              <Button onClick={() => computeAPI("Come up with a rap.")}>
-                {" "}
-                ???{" "}
-              </Button>
-            </span>
-            <span></span>
           </>
         )}
       </span>
-      <br></br>
-      <br></br>
     </div>
   );
 }
