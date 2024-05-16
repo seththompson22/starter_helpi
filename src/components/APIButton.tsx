@@ -220,7 +220,10 @@ export function APIButton(): JSX.Element {
       {dispInit === true && (
         <span>
           {/* Generates the career advice summary */}
-          <Button onClick={() => careerRecommendation()}>
+          <Button
+            className="small-normal-btn"
+            onClick={() => careerRecommendation()}
+          >
             Generate your Career Advice
           </Button>
         </span>
@@ -297,20 +300,25 @@ export function APIButton(): JSX.Element {
                   )}
                 </div>
               )}
-              {/* Textbox that makes you input your career preferences or whatever */}
-              {
-                <Form.Group controlId="apiValue">
-                  <Form.Label>
-                    Enter any followup career related questions:{" "}
-                  </Form.Label>
-                  <Form.Control value={apiVal} onChange={updateName} />
-                  <Form.Text className="WhatIsThis">.</Form.Text>
-                </Form.Group>
-              }
-              {/* Button that calls the API on whatever is in the textbox */}
-              <Button onClick={() => computeAPI(apiVal)}>
-                Answer Your Question
-              </Button>
+              <div className="chat-further">
+                {/* Textbox that makes you input your career preferences or whatever */}
+                {
+                  <Form.Group controlId="apiValue">
+                    <Form.Label>
+                      Enter any followup career related questions:{" "}
+                    </Form.Label>
+                    <Form.Control value={apiVal} onChange={updateName} />
+                    <Form.Text className="WhatIsThis">.</Form.Text>
+                  </Form.Group>
+                }
+                {/* Button that calls the API on whatever is in the textbox */}
+                <Button
+                  className="small-normal-btn"
+                  onClick={() => computeAPI(apiVal)}
+                >
+                  Answer Your Question
+                </Button>
+              </div>
             </span>
           </>
         )}

@@ -113,6 +113,23 @@
   color: var(--white-color);
 }
 
+
+.chat-further {
+  margin-top: 50px;
+}
+
+.small-normal-btn {
+  display: block;
+  background-color: var(--black-color);
+  color: var(--white-color);
+  text-align: center;
+  text-decoration: none;
+  margin: 0px auto;
+  box-shadow: 0 0 5px 2.5px var(--white-color);
+  border-radius: 5px;
+}
+  
+  
 /* Responsive design */
 @media screen and (max-width: 1024px) {
   .career-recommendations {
@@ -150,7 +167,7 @@
   .career-recommendations {
     font-size: .7em;
   }
-  
+
   .recommendation-card {
     padding: 10px;
   }
