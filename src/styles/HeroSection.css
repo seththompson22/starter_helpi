@@ -42,7 +42,6 @@
     text-align: center;
     color: var(--white-color);
     margin-top: 81px;
-    animation: glow 3s infinite alternate;
 }
 
 .over-text h1 {
