@@ -3,7 +3,7 @@
 > react-scripts test --coverage
 
 FAIL src/App.test.tsx
-  ✕ renders learn react link (57 ms)
+  ✕ renders learn react link (58 ms)
 
   ● renders learn react link
 
@@ -196,16 +196,6 @@ FAIL src/App.test.tsx
               [36m>[39m
                 [0mSubmit[0m
               [36m</button>[39m
-              [36m<li[39m
-                [33mclass[39m=[32m"removed-li"[39m
-              [36m>[39m
-                [36m<a[39m
-                  [33mclass[39m=[32m"temp-btn"[39m
-                  [33mhref[39m=[32m"/starter_helpi/#/CareerReport"[39m
-                [36m>[39m
-                  [0mTemp[0m
-                [36m</a>[39m
-              [36m</li>[39m
             [36m</form>[39m
           [36m</footer>[39m
         [36m</div>[39m
@@ -233,7 +223,7 @@ FAIL src/App.test.tsx
 --------------------------------|---------|----------|---------|---------|-------------------
 File                            | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 --------------------------------|---------|----------|---------|---------|-------------------
-All files                       |   10.55 |     4.39 |   11.94 |   10.79 |                   
+All files                       |   10.76 |     3.63 |   11.42 |   10.95 |                   
  src                            |     2.7 |        0 |      10 |     2.7 |                   
   App.tsx                       |     100 |      100 |     100 |     100 |                   
   ResponsePage.tsx              |       0 |        0 |       0 |       0 | 6-15              
@@ -241,13 +231,14 @@ All files                       |   10.55 |     4.39 |   11.94 |   10.79 |
   reportWebVitals.ts            |       0 |        0 |       0 |       0 | 3-10              
   server.js                     |       0 |      100 |       0 |       0 | 2-44              
   test.tsx                      |       0 |      100 |       0 |       0 | 13                
- src/components                 |   11.72 |     5.47 |   16.66 |   12.14 |                   
-  APIButton.tsx                 |       0 |        0 |       0 |       0 | 16-188            
+ src/components                 |      12 |     4.34 |   15.38 |   12.32 |                   
+  APIButton.tsx                 |       0 |        0 |       0 |       0 | 22-294            
   ButtonToPages.tsx             |       0 |      100 |       0 |       0 | 18                
   ChooseYourPathSection.tsx     |     100 |      100 |     100 |     100 |                   
   CustomFooter.tsx              |   54.54 |       25 |   33.33 |   54.54 | 13,21-37          
   HeroSection.tsx               |     100 |      100 |     100 |     100 |                   
   NavigationBar.tsx             |   66.66 |       50 |      50 |   66.66 | 12-13             
+  PopUpAlert.tsx                |      50 |      100 |       0 |      50 | 16                
   QuestionCard.tsx              |    2.04 |        0 |       0 |    2.17 | 37-165            
   QuizPageCard.tsx              |      50 |      100 |      50 |      50 | 21                
   ScrollToSectionButton.tsx     |   11.76 |        0 |      50 |   11.76 | 14-48             
@@ -267,5 +258,5 @@ All files                       |   10.55 |     4.39 |   11.94 |   10.79 |
 Test Suites: 1 failed, 1 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        3.342 s
+Time:        3.659 s
 Ran all test suites.
