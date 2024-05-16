@@ -42,12 +42,23 @@
     text-align: center;
     color: var(--white-color);
     margin-top: 81px;
+    animation: glow 3s infinite alternate;
 }
 
 .over-text h1 {
     margin: 80px auto 40px auto;
     font-size: 60px;
 }
+
+@keyframes glow {
+    from {
+        text-shadow: 0 0 10px var(--accent-color);
+    }
+    to {
+        text-shadow: 0 0 20px var(--accent-color);
+    }
+}
+
 
 .over-text p {
     margin: 0px auto;

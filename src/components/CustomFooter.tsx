@@ -48,11 +48,6 @@ function CustomFooter() {
         <Button className="Submit-Button" onClick={handleSubmit}>
           Submit
         </Button>
-        <li className="removed-li">
-          <a href="/starter_helpi/#/CareerReport" className="temp-btn">
-            Temp
-          </a>
-        </li>
       </Form>
     </footer>
   );

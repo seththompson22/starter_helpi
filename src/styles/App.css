@@ -49,6 +49,10 @@
   justify-content: center;
 }
 
+button {
+  background-color: var(black-color);
+}
+
 body {
   background-color: var(--black-color);
   margin: 0;

@@ -10,15 +10,9 @@ export function CareerReport() {
   return (
     <div className="report-page">
       <NavigationBar />
-      <h1>NAVIGATE YOUR CAREER JOURNEY</h1>
-      <div>
-        <APIButton></APIButton>
-      </div>
-      <p>
-        Discover your path to success today. Take our interactive career quiz
-        and unlock personalized insights tailored just for you. Let's start your
-        journey together!
-      </p>
+      <h1 className="report-title">NAVIGATE YOUR CAREER JOURNEY</h1>
+
+      <APIButton></APIButton>
       <CustomFooter />
     </div>
   );

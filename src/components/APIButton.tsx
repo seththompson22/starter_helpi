@@ -1,34 +1,58 @@
-
 import React, { useState } from "react";
-import { Button, Form } from "react-bootstrap";
-
+import { Button } from "react-bootstrap";
 import { openai } from "../components/CustomFooter";
 import { ChatCompletionMessageParam } from "openai/resources/chat/completions";
-//import OpenAI from "openai";
+import { PopUpAlert } from "./PopUpAlert";
 import { ApiAnswer } from "./QuestionCard";
-//import { apiQuestions, userAnswers } from "./QuestionCard";
-//import { ChatCompletionMessageParam } from "openai/resources/index.mjs";
-//import { ChatCompletionMessageParam } from "openai/resources/index.mjs";
+
+interface OneResult {
+  title: string;
+  description: string;
+  avgSalary: string;
+  reason: string[];
+  exp: string;
+  nextSteps: string[];
+}
+
+interface ResultType {
+  recommendations: OneResult[];
+}
 
 export function APIButton(): JSX.Element {
-  // States
-  // The API input. Both are used for the API output.
-  const [value, setValue] = useState<string>("");               // Sets the input value for the API
-  const [apiVal, setApiVal] = useState<string>("");             // Sets the value of the entire conversation
-  const [dispInit, setDispInit] = useState<boolean>(true);      // Displays the initial output on the launch of the page
-  const [dispFinal, setDispFinal] = useState<boolean>(false);   // Displays the final output after the career recommendation is made
-  const [error, setError] = useState<boolean>(false);           // Displays error messages
-  const [loading, setLoading] = useState<boolean>(false);       // Displays the loading screen text
-  // The whole conversation
+  const [showAlert, setShowAlert] = useState<boolean>(false);
+  const [buttonKey, setButtonKey] = useState<number>(0); // Key to force re-render of button
+
+  const handleAlertClose = () => {
+    setShowAlert(false);
+    setButtonKey((prevKey) => prevKey + 1);
+  };
+
+  const openAlert = () => {
+    setShowAlert(true);
+  };
+
+  //const [value, setValue] = useState<string>(""); // Sets the input value for the API
+  const [results, setResults] = useState<ResultType>({
+    recommendations: [
+      {
+        title: "",
+        description: "",
+        avgSalary: "",
+        reason: [""],
+        exp: "",
+        nextSteps: [""],
+      },
+    ],
+  });
+  //const [apiVal, setApiVal] = useState<string>(""); // Sets the value of the entire conversation
+  const [dispInit, setDispInit] = useState<boolean>(true); // Displays the initial output on the launch of the page
+  const [dispFinal, setDispFinal] = useState<boolean>(false); // Displays the final output after the career recommendation is made
+  const [error, setError] = useState<boolean>(false); // Displays error messages
+  const [loading, setLoading] = useState<boolean>(false); // Displays the loading screen text
 
   let apiQuestions: ChatCompletionMessageParam[];
   let userAnswers: ChatCompletionMessageParam[];
-  
 
-
-
-
-  // Creates the arrays needed for the api calls
   const saveAnswersKey = "apiAnswers";
   const previousData = localStorage.getItem(saveAnswersKey);
 
@@ -37,26 +61,71 @@ export function APIButton(): JSX.Element {
     loadedData = JSON.parse(previousData);
   }
 
-  
+  const questionArray = loadedData.map(
+    (val: { question: string; answer: string | null }): string => val.question
+  );
+  const answerArray = loadedData.map(
+    (val: { question: string; answer: string | null }): string =>
+      val.answer || ""
+  );
 
-  const questionArray = loadedData.map((val: {
-    question: string;
-    answer: string | null;
-    }): string => val.question);
-  const answerArray = loadedData.map((val: {
-    question: string;
-    answer: string | null;
-    }): string => val.answer || "");
+  apiQuestions = questionArray.map(
+    (val: string): ChatCompletionMessageParam => ({
+      role: "assistant",
+      content: val,
+    })
+  );
+  userAnswers = answerArray.map(
+    (val: string): ChatCompletionMessageParam => ({
+      role: "user",
+      content: val,
+    })
+  );
 
+  const example_output: ResultType = {
+    recommendations: [
+      {
+        title: "Software Developer",
+        description:
+          "Software developers design, code, and test computer programs and applications.",
+        avgSalary: "$80,000",
+        reason: [
+          "High demand for software development skills",
+          "Opportunities for remote work",
+          "Potential for career growth",
+        ],
+        exp: "Bachelor's degree in computer science or related field",
+        nextSteps: [
+          "Gain practical experience through internships or personal projects",
+          "Continue learning new programming languages and technologies",
+          "Build a portfolio of projects to showcase skills",
+        ],
+      },
+    ],
+  };
 
-  apiQuestions = questionArray.map((val: string): ChatCompletionMessageParam => ({ role: "assistant", content: val }));
-  userAnswers = answerArray.map((val: string): ChatCompletionMessageParam => ({ role: "user", content: val }));
-  const [chatLog, setChatLog] = useState<ChatCompletionMessageParam[]>([{ role: "system", content: "You are a career advisor." }, { role: "user", content: "I am trying to figure out what my future career should be. Ask me a list of questions that I can answer." },  ...apiQuestions, ...userAnswers, { role: "user", content: "That was all of the answers. Now give me your top three career recommendations. For each career, describe what the career is, explain why this career is a good fit for me, the average salary, and what experience I need for this career, and the next steps I should take."}]);
-
+  const [chatLog, setChatLog] = useState<ChatCompletionMessageParam[]>([
+    {
+      role: "system",
+      content: "You are a career advisor. You give valid JSON output.",
+    },
+    {
+      role: "user",
+      content:
+        "I am trying to figure out what my future career should be. Ask me a list of questions that I can answer.",
+    },
+    ...apiQuestions,
+    ...userAnswers,
+    {
+      role: "user",
+      content:
+        "That was all of the answers. Now give me your top three career recommendations. For the recommendations I want to see the title, description, avgSalary, reason, exp, nextSteps. I want an array of objects called recommendations in the following format:" +
+        JSON.stringify(example_output),
+    },
+  ]);
 
   async function careerRecommendation() {
     setError(false);
-    // Removes the initial button  
     setDispInit(false);
     // Tries to call the API
     try {
@@ -65,133 +134,201 @@ export function APIButton(): JSX.Element {
       const apiMessage: ChatCompletionMessageParam[] = [...chatLog];
       const completion = await openai.chat.completions.create({
         messages: apiMessage,
-        model: "gpt-3.5-turbo",
+        model: "gpt-4o",
+        response_format: { type: "json_object" },
+        temperature: 0.2,
       });
+
       // Disables the loading screen
       setLoading(false);
       // Adds the chat and the other buttons
       setDispFinal(true);
       // Extracts the message out of API response
-      setValue(value + "AI Career Assistant: " + JSON.stringify(completion.choices[0]["message"]["content"]).replace(/\\n/g, "\n"));
-      //console.log(completion.choices[0]);
-      
-      const apiResponse: ChatCompletionMessageParam[] = [...apiMessage, completion.choices[0]["message"]];
+
+      console.log("API Response:", completion.choices[0].message.content);
+
+      if (completion.choices[0].message.content !== null) {
+        const apiResponseContent: ResultType = JSON.parse(
+          completion.choices[0].message.content
+        );
+
+        if (apiResponseContent && apiResponseContent.recommendations) {
+          setResults(apiResponseContent);
+        } else {
+          console.log("API response does not contain recommendations.");
+          setResults({
+            recommendations: [],
+          });
+        }
+      } else {
+        console.log("API response content is null.");
+        setResults({
+          recommendations: [],
+        });
+      }
+
+      const apiResponse: ChatCompletionMessageParam[] = [
+        ...apiMessage,
+        completion.choices[0]["message"],
+      ];
       setChatLog(apiResponse);
       // make system
-    }
-    // Website outputs an error message
-    
-    catch (error) {
+    } catch (error) {
+      // Website outputs an error message
+
       console.log("Error");
       setLoading(false);
-      setValue(JSON.stringify("API: Error. Try resubmitting your API key."));
+      //setValue(JSON.stringify("API: Error. Try resubmitting your API key."));
       setDispInit(true);
       setError(true);
     }
-  
   }
 
+  // USED FOR CONVERSATION (chatbot)
 
-  async function computeAPI(apiInput: string) {
-    // Tries to call the API
-    try {
-      const apiMessage: ChatCompletionMessageParam[] = [...chatLog, {role: "user", content: apiInput }];
-      setValue(value + "\n\nYou: " + apiInput);
+  // async function computeAPI(apiInput: string) {
+  //   try {
+  //     const apiMessage: ChatCompletionMessageParam[] = [
+  //       ...chatLog,
+  //       { role: "user", content: apiInput },
+  //     ];
+  //     setValue(value + "\n\nYou: " + apiInput);
 
-      setLoading(true);
-      const completion = await openai.chat.completions.create({
-        messages: apiMessage,
-        model: "gpt-4o",
-      });
-      setLoading(false);
-      // The inititial setValue does not save in the state, so everything has to be copied over again.
-      setValue(value + "\n\nYou: " + apiInput + "\n\nAI Career Assistant: " + JSON.stringify(completion.choices[0]["message"]["content"]).replace(/\\n/g, "\n"));
-      //console.log(completion.choices[0]);
-      
-      const apiResponse: ChatCompletionMessageParam[] = [...apiMessage, completion.choices[0]["message"]];
-      setChatLog(apiResponse);
-      // make system
-    }
-    // Website outputs an error message
-    catch (error) {
-      console.log("Error");
-      setLoading(false);
-      setValue(JSON.stringify("Error. Try resubmitting your API key."));
+  //     setLoading(true);
+  //     const completion = await openai.chat.completions.create({
+  //       messages: apiMessage,
+  //       model: "gpt-4o",
+  //       response_format: { type: "json_object" },
+  //       temperature: 0.2,
+  //     });
+  //     setLoading(false);
 
-    }
-    
-    console.log(chatLog);
-  }
-  // Hook does what?
-  function updateName(event: React.ChangeEvent<HTMLInputElement>) {
-     setApiVal(event.target.value);
-  }
+  //     setValue(JSON.stringify(completion.choices[0]["message"]["content"]));
 
-  // Runs the API on loading the page.
-  /*
-  useEffect(() => {
-    // Run computeAPI() when the component mounts (i.e., when the page loads)
-    computeAPI(""); // You can provide an initial question or input here
-  }, []);
-  */
+  //     const apiResponse: ChatCompletionMessageParam[] = [
+  //       ...apiMessage,
+  //       completion.choices[0]["message"],
+  //     ];
+  //     setChatLog(apiResponse);
+  //   } catch (error) {
+  //     console.log("Error");
+  //     setLoading(false);
+  //     setValue(JSON.stringify("Error. Try resubmitting your API key."));
+  //   }
+  // }
+
+  // function updateName(event: React.ChangeEvent<HTMLInputElement>) {
+  //   setApiVal(event.target.value);
+  // }
 
   return (
-    <div>
-      {dispInit === true &&
-      <span>
-          {/* Generates the career advice summary */}
-          <Button onClick={() => careerRecommendation()}>Generate your Career Advice</Button>
-      </span>}
-      <br></br>
-      {error === true &&
+    <div className="all-api-content" id="api-content">
+      {dispInit === true && (
         <span>
-          "API: Error. Try resubmitting your API key."
-      </span>}
-      
-      <br></br>
-      <br></br>
-
-      {(loading === true && dispFinal === false) && <span>
-        Loading ...
-        </span>}
-      
-      <br></br>
-      <br></br>
-
+          <p>
+            Discover your path to success today. Take our interactive career
+            quiz and unlock personalized insights tailored just for you. Let's
+            start your journey together!
+          </p>
+          <Button
+            key={buttonKey}
+            className="small-normal-btn"
+            id="generateButton"
+            onClick={() => {
+              openAlert();
+              careerRecommendation();
+            }}
+          >
+            Generate your Career Advice
+          </Button>
+        </span>
+      )}
+      {loading && !dispFinal && <h2>Loading...</h2>}
+      {error === true && showAlert && (
+        <PopUpAlert
+          errorMessage="API: Error. Try resubmitting your API key."
+          onClose={handleAlertClose}
+        />
+      )}
       <span>
-      {dispFinal === true && 
-      <><span>
-      {/* Outputs whatever the API last said */}
-      AI Career Assistant: {value}
-
-      <br></br>
-      <br></br>
-
-      {loading === true && <span>
-        Loading ...
-        </span>}
-      <br></br>
-      <br></br>
-
-      {/* Textbox that makes you input your career preferences or whatever */}
-      {<Form.Group controlId="apiValue">
-        <Form.Label>Enter any followup career related questions: </Form.Label>
-        <Form.Control value={apiVal} onChange={updateName} />
-        <Form.Text className="WhatIsThis">
-                    .
-        </Form.Text>
-      </Form.Group>}
-      {/* Button that calls the API on whatever is in the textbox */}
-      <Button onClick={() => computeAPI(apiVal)}>Answer Your Question</Button>
-          </span><span>
-              {/* Button that calls the API to generate a rap */}
-              <Button onClick={() => computeAPI("Come up with a rap.")}> ??? </Button>
-            </span><span>
-      </span></>
-        }
+        {dispFinal === true && (
+          <>
+            <span>
+              {results && (
+                <div className="career-recommendations">
+                  {results && (
+                    <div className="recommendations-container">
+                      {results.recommendations &&
+                      results.recommendations.length > 0 ? (
+                        results.recommendations.map(
+                          (recommendation: OneResult, index: number) => (
+                            <div key={index} className="recommendation-card">
+                              <h2 className="recommendation-title">
+                                {recommendation.title}
+                              </h2>
+                              <p className="recommendation-description">
+                                {recommendation.description}
+                              </p>
+                              <p className="recommendation-salary">
+                                <strong>Average Salary:</strong>{" "}
+                                {recommendation.avgSalary}
+                              </p>
+                              <div className="reasons">
+                                <strong>Justification:</strong>
+                                <ul className="reasons-list">
+                                  {recommendation.reason.map((reason, i) => (
+                                    <li key={i} className="reasons-list-item">
+                                      {reason}
+                                    </li>
+                                  ))}
+                                </ul>
+                              </div>
+                              <p className="experience-required">
+                                <strong>Required Experience:</strong>{" "}
+                                {recommendation.exp}
+                              </p>
+                              <div className="next-steps">
+                                <strong>Next Steps:</strong>
+                                <ul className="next-steps-list">
+                                  {recommendation.nextSteps.map((step, i) => (
+                                    <li
+                                      key={i}
+                                      className="next-steps-list-item"
+                                    >
+                                      {step}
+                                    </li>
+                                  ))}
+                                </ul>
+                              </div>
+                            </div>
+                          )
+                        )
+                      ) : (
+                        <p>No recommendations available</p>
+                      )}
+                    </div>
+                  )}
+                </div>
+              )}
+              {/* <div className="chat-further">
+                <Form.Group controlId="apiValue">
+                  <Form.Label>
+                    Enter any followup career related questions:{" "}
+                  </Form.Label>
+                  <Form.Control value={apiVal} onChange={updateName} />
+                  <Form.Text className="WhatIsThis">.</Form.Text>
+                </Form.Group>
+                <Button
+                  className="small-normal-btn"
+                  onClick={() => computeAPI(apiVal)}
+                >
+                  Answer Your Question
+                </Button>
+              </div> */}
+            </span>
+          </>
+        )}
       </span>
-      <br></br>
-      <br></br>
     </div>
   );
 }

@@ -164,36 +164,43 @@ const QuestionCard: React.FC<QuestionCardProps> = ({
         totalQuestions={questions.length}
         answeredQuestions={answers.filter((value) => value !== null).length}
       />
+
       <div className="navigation">
-        <button
-          className="prev-btn btn"
-          onClick={prevQuestion}
-          disabled={currentQuestion === 0 || submitted}
-        >
-          Previous
-        </button>
-        <button
-          className="next-btn btn"
-          onClick={nextQuestion}
-          disabled={
-            currentQuestion === questions.length - 1 ||
-            submitted ||
-            (questions[currentQuestion].choices.length > 0 &&
-              answers[currentQuestion] === null) ||
-            (questions[currentQuestion].choices.length === 0 &&
-              (answers[currentQuestion] === null ||
-                answers[currentQuestion] === ""))
-          }
-        >
-          Next
-        </button>
-        <button
-          className="submit-btn btn"
-          onClick={handleSubmit}
-          disabled={!allQuestionsAnswered || submitted}
-        >
-          Submit
-        </button>
+        {currentQuestion !== 0 && (
+          <button
+            className="prev-btn btn"
+            onClick={prevQuestion}
+            disabled={currentQuestion === 0 || submitted}
+          >
+            Previous
+          </button>
+        )}
+        {currentQuestion !== questions.length - 1 && (
+          <button
+            className="next-btn btn"
+            onClick={nextQuestion}
+            disabled={
+              currentQuestion === questions.length - 1 ||
+              submitted ||
+              (questions[currentQuestion].choices.length > 0 &&
+                answers[currentQuestion] === null) ||
+              (questions[currentQuestion].choices.length === 0 &&
+                (answers[currentQuestion] === null ||
+                  answers[currentQuestion] === ""))
+            }
+          >
+            Next
+          </button>
+        )}
+        {currentQuestion === questions.length - 1 && (
+          <button
+            className="submit-btn btn"
+            onClick={handleSubmit}
+            disabled={!allQuestionsAnswered || submitted}
+          >
+            Submit
+          </button>
+        )}
       </div>
     </div>
   );
