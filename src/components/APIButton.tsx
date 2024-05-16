@@ -31,7 +31,7 @@ export function APIButton(): JSX.Element {
     setShowAlert(true);
   };
 
-  const [value, setValue] = useState<string>("");
+  const [value, setValue] = useState<string>("");               // Sets the input value for the API
   const [results, setResults] = useState<ResultType>({
     recommendations: [
       {
@@ -44,10 +44,11 @@ export function APIButton(): JSX.Element {
       },
     ],
   });
-  const [apiVal, setApiVal] = useState<string>("");
-  const [dispInit, setDispInit] = useState<boolean>(true);
-  const [dispFinal, setDispFinal] = useState<boolean>(false);
-  const [error, setError] = useState<boolean>(false);
+  const [apiVal, setApiVal] = useState<string>("");             // Sets the value of the entire conversation
+  const [dispInit, setDispInit] = useState<boolean>(true);      // Displays the initial output on the launch of the page
+  const [dispFinal, setDispFinal] = useState<boolean>(false);   // Displays the final output after the career recommendation is made
+  const [error, setError] = useState<boolean>(false);           // Displays error messages
+  const [loading, setLoading] = useState<boolean>(false);       // Displays the loading screen text
 
   let apiQuestions: ChatCompletionMessageParam[];
   let userAnswers: ChatCompletionMessageParam[];
@@ -126,8 +127,10 @@ export function APIButton(): JSX.Element {
   async function careerRecommendation() {
     setError(false);
     setDispInit(false);
-
+    // Tries to call the API
     try {
+      // Enables the loading screen
+      setLoading(true);
       const apiMessage: ChatCompletionMessageParam[] = [...chatLog];
       const completion = await openai.chat.completions.create({
         messages: apiMessage,
@@ -135,6 +138,12 @@ export function APIButton(): JSX.Element {
         response_format: { type: "json_object" },
         temperature: 0.2,
       });
+
+      // Disables the loading screen
+      setLoading(false);
+      // Adds the chat and the other buttons
+      setDispFinal(true);
+      // Extracts the message out of API response
 
       console.log("API Response:", completion.choices[0].message.content);
 
@@ -163,10 +172,14 @@ export function APIButton(): JSX.Element {
         completion.choices[0]["message"],
       ];
       setChatLog(apiResponse);
-      setDispFinal(true);
-    } catch (error) {
-      console.log("Error:", error);
-      setValue("API: Error. Try resubmitting your API key.");
+      // make system
+    }
+    // Website outputs an error message
+    
+    catch (error) {
+      console.log("Error");
+      setLoading(false);
+      setValue(JSON.stringify("API: Error. Try resubmitting your API key."));
       setDispInit(true);
       setError(true);
     }
@@ -180,12 +193,14 @@ export function APIButton(): JSX.Element {
       ];
       setValue(value + "\n\nYou: " + apiInput);
 
+      setLoading(true);
       const completion = await openai.chat.completions.create({
         messages: apiMessage,
         model: "gpt-4o",
         response_format: { type: "json_object" },
         temperature: 0.2,
       });
+      setLoading(false);
 
       setValue(JSON.stringify(completion.choices[0]["message"]["content"]));
 
@@ -196,6 +211,7 @@ export function APIButton(): JSX.Element {
       setChatLog(apiResponse);
     } catch (error) {
       console.log("Error");
+      setLoading(false);
       setValue(JSON.stringify("Error. Try resubmitting your API key."));
     }
   }
