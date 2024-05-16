@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button, Form } from "react-bootstrap";
+import { Button } from "react-bootstrap";
 import { openai } from "../components/CustomFooter";
 import { ChatCompletionMessageParam } from "openai/resources/chat/completions";
 import { PopUpAlert } from "./PopUpAlert";
@@ -31,7 +31,7 @@ export function APIButton(): JSX.Element {
     setShowAlert(true);
   };
 
-  const [value, setValue] = useState<string>("");               // Sets the input value for the API
+  //const [value, setValue] = useState<string>(""); // Sets the input value for the API
   const [results, setResults] = useState<ResultType>({
     recommendations: [
       {
@@ -44,11 +44,11 @@ export function APIButton(): JSX.Element {
       },
     ],
   });
-  const [apiVal, setApiVal] = useState<string>("");             // Sets the value of the entire conversation
-  const [dispInit, setDispInit] = useState<boolean>(true);      // Displays the initial output on the launch of the page
-  const [dispFinal, setDispFinal] = useState<boolean>(false);   // Displays the final output after the career recommendation is made
-  const [error, setError] = useState<boolean>(false);           // Displays error messages
-  const [loading, setLoading] = useState<boolean>(false);       // Displays the loading screen text
+  //const [apiVal, setApiVal] = useState<string>(""); // Sets the value of the entire conversation
+  const [dispInit, setDispInit] = useState<boolean>(true); // Displays the initial output on the launch of the page
+  const [dispFinal, setDispFinal] = useState<boolean>(false); // Displays the final output after the career recommendation is made
+  const [error, setError] = useState<boolean>(false); // Displays error messages
+  const [loading, setLoading] = useState<boolean>(false); // Displays the loading screen text
 
   let apiQuestions: ChatCompletionMessageParam[];
   let userAnswers: ChatCompletionMessageParam[];
@@ -173,52 +173,53 @@ export function APIButton(): JSX.Element {
       ];
       setChatLog(apiResponse);
       // make system
-    }
-    // Website outputs an error message
-    
-    catch (error) {
+    } catch (error) {
+      // Website outputs an error message
+
       console.log("Error");
       setLoading(false);
-      setValue(JSON.stringify("API: Error. Try resubmitting your API key."));
+      //setValue(JSON.stringify("API: Error. Try resubmitting your API key."));
       setDispInit(true);
       setError(true);
     }
   }
 
-  async function computeAPI(apiInput: string) {
-    try {
-      const apiMessage: ChatCompletionMessageParam[] = [
-        ...chatLog,
-        { role: "user", content: apiInput },
-      ];
-      setValue(value + "\n\nYou: " + apiInput);
+  // USED FOR CONVERSATION (chatbot)
 
-      setLoading(true);
-      const completion = await openai.chat.completions.create({
-        messages: apiMessage,
-        model: "gpt-4o",
-        response_format: { type: "json_object" },
-        temperature: 0.2,
-      });
-      setLoading(false);
+  // async function computeAPI(apiInput: string) {
+  //   try {
+  //     const apiMessage: ChatCompletionMessageParam[] = [
+  //       ...chatLog,
+  //       { role: "user", content: apiInput },
+  //     ];
+  //     setValue(value + "\n\nYou: " + apiInput);
 
-      setValue(JSON.stringify(completion.choices[0]["message"]["content"]));
+  //     setLoading(true);
+  //     const completion = await openai.chat.completions.create({
+  //       messages: apiMessage,
+  //       model: "gpt-4o",
+  //       response_format: { type: "json_object" },
+  //       temperature: 0.2,
+  //     });
+  //     setLoading(false);
 
-      const apiResponse: ChatCompletionMessageParam[] = [
-        ...apiMessage,
-        completion.choices[0]["message"],
-      ];
-      setChatLog(apiResponse);
-    } catch (error) {
-      console.log("Error");
-      setLoading(false);
-      setValue(JSON.stringify("Error. Try resubmitting your API key."));
-    }
-  }
+  //     setValue(JSON.stringify(completion.choices[0]["message"]["content"]));
 
-  function updateName(event: React.ChangeEvent<HTMLInputElement>) {
-    setApiVal(event.target.value);
-  }
+  //     const apiResponse: ChatCompletionMessageParam[] = [
+  //       ...apiMessage,
+  //       completion.choices[0]["message"],
+  //     ];
+  //     setChatLog(apiResponse);
+  //   } catch (error) {
+  //     console.log("Error");
+  //     setLoading(false);
+  //     setValue(JSON.stringify("Error. Try resubmitting your API key."));
+  //   }
+  // }
+
+  // function updateName(event: React.ChangeEvent<HTMLInputElement>) {
+  //   setApiVal(event.target.value);
+  // }
 
   return (
     <div className="all-api-content" id="api-content">
@@ -242,6 +243,7 @@ export function APIButton(): JSX.Element {
           </Button>
         </span>
       )}
+      {loading && !dispFinal && <h2>Loading...</h2>}
       {error === true && showAlert && (
         <PopUpAlert
           errorMessage="API: Error. Try resubmitting your API key."
