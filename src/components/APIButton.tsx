@@ -208,6 +208,11 @@ export function APIButton(): JSX.Element {
     <div className="all-api-content" id="api-content">
       {dispInit === true && (
         <span>
+          <p>
+            Discover your path to success today. Take our interactive career
+            quiz and unlock personalized insights tailored just for you. Let's
+            start your journey together!
+          </p>
           <Button
             key={buttonKey}
             className="small-normal-btn"
@@ -287,7 +292,7 @@ export function APIButton(): JSX.Element {
                   )}
                 </div>
               )}
-              <div className="chat-further">
+              {/* <div className="chat-further">
                 <Form.Group controlId="apiValue">
                   <Form.Label>
                     Enter any followup career related questions:{" "}
@@ -301,7 +306,7 @@ export function APIButton(): JSX.Element {
                 >
                   Answer Your Question
                 </Button>
-              </div>
+              </div> */}
             </span>
           </>
         )}
