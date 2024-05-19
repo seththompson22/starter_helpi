@@ -54,7 +54,7 @@ const OpenResponse = forwardRef(
           placeholder="Type your answer here..."
           disabled={disabled}
           required
-          isInvalid={showError && !validated} // Only show invalid state when showError is true
+          isInvalid={showError && !validated}
         />
         <Form.Control.Feedback type="invalid">
           Please enter at least 10 characters.

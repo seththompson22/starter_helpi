@@ -68,6 +68,7 @@ const QuestionCard: React.FC<QuestionCardProps> = ({
         validate(() => setCurrentQuestion(currentQuestion + 1));
       } else {
         setAttemptedNextWithoutSelection(true);
+        openResponseRef.current?.triggerValidation();
       }
     }
   };
