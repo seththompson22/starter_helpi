@@ -42,6 +42,8 @@ const QuestionCard: React.FC<QuestionCardProps> = ({
   const openResponseRef = useRef<{ triggerValidation: () => void } | null>(
     null
   );
+  const [attemptedNextWithoutSelection, setAttemptedNextWithoutSelection] =
+    useState(false);
 
   // State to track the number of answered questions
   const [, setAnsweredQuestions] = useState(0);
@@ -61,7 +63,12 @@ const QuestionCard: React.FC<QuestionCardProps> = ({
 
   const nextQuestion = () => {
     if (currentQuestion < questions.length - 1) {
-      validate(() => setCurrentQuestion(currentQuestion + 1));
+      if (answers[currentQuestion] !== null) {
+        setAttemptedNextWithoutSelection(false);
+        validate(() => setCurrentQuestion(currentQuestion + 1));
+      } else {
+        setAttemptedNextWithoutSelection(true);
+      }
     }
   };
 
@@ -160,6 +167,7 @@ const QuestionCard: React.FC<QuestionCardProps> = ({
                 onSelectChoice={handleChoiceChange}
                 disabled={submitted}
                 onAnswer={handleAnswerQuestion}
+                showErrorMessage={attemptedNextWithoutSelection}
               />
             ) : (
               <OpenResponse
