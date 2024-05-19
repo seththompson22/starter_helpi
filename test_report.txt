@@ -149,10 +149,10 @@ FAIL src/App.test.tsx
      [90m  9 |[39m })[33m;[39m
      [90m 10 |[39m[0m
 
-      at Object.getElementError (node_modules/@testing-library/react/node_modules/@testing-library/dom/dist/config.js:37:19)
-      at node_modules/@testing-library/react/node_modules/@testing-library/dom/dist/query-helpers.js:76:38
-      at node_modules/@testing-library/react/node_modules/@testing-library/dom/dist/query-helpers.js:52:17
-      at getByText (node_modules/@testing-library/react/node_modules/@testing-library/dom/dist/query-helpers.js:95:19)
+      at Object.getElementError (node_modules/@testing-library/dom/dist/config.js:37:19)
+      at node_modules/@testing-library/dom/dist/query-helpers.js:76:38
+      at node_modules/@testing-library/dom/dist/query-helpers.js:52:17
+      at getByText (node_modules/@testing-library/dom/dist/query-helpers.js:95:19)
       at Object.<anonymous> (src/App.test.tsx:7:30)
       at TestScheduler.scheduleTests (node_modules/@jest/core/build/TestScheduler.js:333:13)
       at runJest (node_modules/@jest/core/build/runJest.js:404:19)
@@ -162,7 +162,7 @@ FAIL src/App.test.tsx
 --------------------------------|---------|----------|---------|---------|-------------------
 File                            | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 --------------------------------|---------|----------|---------|---------|-------------------
-All files                       |    9.63 |     0.96 |   11.59 |    9.81 |                   
+All files                       |    8.26 |     0.87 |   10.52 |    8.46 |                   
  src                            |     2.7 |        0 |      10 |     2.7 |                   
   App.tsx                       |     100 |      100 |     100 |     100 |                   
   ResponsePage.tsx              |       0 |        0 |       0 |       0 | 6-15              
@@ -170,15 +170,15 @@ All files                       |    9.63 |     0.96 |   11.59 |    9.81 |
   reportWebVitals.ts            |       0 |        0 |       0 |       0 | 3-10              
   server.js                     |       0 |      100 |       0 |       0 | 2-44              
   test.tsx                      |       0 |      100 |       0 |       0 | 13                
- src/components                 |   10.34 |     1.16 |   15.78 |   10.63 |                   
-  APIButton.tsx                 |       0 |        0 |       0 |       0 | 22-294            
+ src/components                 |    8.92 |     1.09 |   14.28 |     9.2 |                   
+  APIButton.tsx                 |       0 |        0 |       0 |       0 | 23-314            
   ButtonToPages.tsx             |       0 |      100 |       0 |       0 | 18                
   ChooseYourPathSection.tsx     |     100 |      100 |     100 |     100 |                   
-  CustomFooter.tsx              |   54.54 |       25 |   33.33 |   54.54 | 13,21-37          
+  CustomFooter.tsx              |      60 |       50 |   33.33 |      60 | 10,18-24          
   HeroSection.tsx               |     100 |      100 |     100 |     100 |                   
   NavigationBar.tsx             |     100 |      100 |     100 |     100 |                   
   PopUpAlert.tsx                |      50 |      100 |       0 |      50 | 16                
-  QuestionCard.tsx              |    2.04 |        0 |       0 |    2.17 | 37-165            
+  QuestionCard.tsx              |    1.53 |        0 |       0 |    1.63 | 37-215            
   QuizPageCard.tsx              |      50 |      100 |      50 |      50 | 21                
   ScrollToSectionButton.tsx     |   11.76 |        0 |      50 |   11.76 | 14-48             
   progressBar.tsx               |   33.33 |      100 |       0 |   33.33 | 18-20             
@@ -189,13 +189,13 @@ All files                       |    9.63 |     0.96 |   11.59 |    9.81 |
   Home.tsx                      |     100 |      100 |     100 |     100 |                   
   Login.tsx                     |       0 |      100 |       0 |       0 | 11                
   SignUp.tsx                    |       0 |      100 |       0 |       0 | 11                
- src/question-format-components |   14.28 |      100 |       0 |   14.28 |                   
-  MultipleChoiceQuestion.tsx    |   16.66 |      100 |       0 |   16.66 | 20-34             
-  OpenResponse.tsx              |      25 |      100 |       0 |      25 | 18-22             
+ src/question-format-components |     7.4 |        0 |       0 |    7.69 |                   
+  MultipleChoiceQuestion.tsx    |   16.66 |        0 |       0 |   16.66 | 22-36             
+  OpenResponse.tsx              |    5.88 |        0 |       0 |    6.25 | 19-43             
   RangedResponseQuestion.tsx    |       0 |      100 |       0 |       0 | 12-22             
 --------------------------------|---------|----------|---------|---------|-------------------
 Test Suites: 1 failed, 1 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        3.513 s
+Time:        3.247 s
 Ran all test suites.
