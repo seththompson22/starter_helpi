@@ -91,7 +91,7 @@ function DetailedQuestions() {
       {/* Render QuestionCard only if not completed */}
       {!completed && (
         <>
-          <h1 style={{ fontSize: "3rem" }}>Detailed Questions Page</h1>
+          <h1 className="basic-q-title">Detailed Questions Page</h1>
           {followUpQuestions.length > 0 && (
             <QuestionCard
               questions={followUpQuestions}
