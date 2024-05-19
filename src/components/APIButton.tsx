@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { Button } from "react-bootstrap";
-import { openai } from "../components/CustomFooter";
 import { ChatCompletionMessageParam } from "openai/resources/chat/completions";
 import { PopUpAlert } from "./PopUpAlert";
 import { ApiAnswer } from "./QuestionCard";
+import OpenAI from "openai";
+import { saveKeyData } from "./CustomFooter";
 
 interface OneResult {
   title: string;
@@ -49,6 +50,9 @@ export function APIButton(): JSX.Element {
   const [dispFinal, setDispFinal] = useState<boolean>(false); // Displays the final output after the career recommendation is made
   const [error, setError] = useState<boolean>(false); // Displays error messages
   const [loading, setLoading] = useState<boolean>(false); // Displays the loading screen text
+  const [errorMessage, setErrorMessage] = useState<string>(
+    "API: Error. Try resubmitting your API key."
+  );
 
   let apiQuestions: ChatCompletionMessageParam[];
   let userAnswers: ChatCompletionMessageParam[];
@@ -127,58 +131,77 @@ export function APIButton(): JSX.Element {
   async function careerRecommendation() {
     setError(false);
     setDispInit(false);
-    // Tries to call the API
-    try {
-      // Enables the loading screen
-      setLoading(true);
-      const apiMessage: ChatCompletionMessageParam[] = [...chatLog];
-      const completion = await openai.chat.completions.create({
-        messages: apiMessage,
-        model: "gpt-4o",
-        response_format: { type: "json_object" },
-        temperature: 0.2,
+
+    if (
+      localStorage.getItem(saveKeyData) !== null &&
+      localStorage.getItem(saveKeyData) !== ""
+    ) {
+      let openai = new OpenAI({
+        apiKey:
+          localStorage.getItem(saveKeyData)?.replace(/"/g, "") || undefined,
+        dangerouslyAllowBrowser: true,
       });
 
-      // Disables the loading screen
-      setLoading(false);
-      // Adds the chat and the other buttons
-      setDispFinal(true);
-      // Extracts the message out of API response
+      try {
+        // Enables the loading screen
+        setLoading(true);
+        const apiMessage: ChatCompletionMessageParam[] = [...chatLog];
+        const completion = await openai.chat.completions.create({
+          messages: apiMessage,
+          model: "gpt-4o",
+          response_format: { type: "json_object" },
+          temperature: 0.2,
+        });
 
-      console.log("API Response:", completion.choices[0].message.content);
+        // Disables the loading screen
+        setLoading(false);
+        // Adds the chat and the other buttons
+        setDispFinal(true);
+        // Extracts the message out of API response
 
-      if (completion.choices[0].message.content !== null) {
-        const apiResponseContent: ResultType = JSON.parse(
-          completion.choices[0].message.content
-        );
+        console.log("API Response:", completion.choices[0].message.content);
 
-        if (apiResponseContent && apiResponseContent.recommendations) {
-          setResults(apiResponseContent);
+        if (completion.choices[0].message.content !== null) {
+          const apiResponseContent: ResultType = JSON.parse(
+            completion.choices[0].message.content
+          );
+
+          if (apiResponseContent && apiResponseContent.recommendations) {
+            setResults(apiResponseContent);
+          } else {
+            console.log("API response does not contain recommendations.");
+            setResults({
+              recommendations: [],
+            });
+          }
         } else {
-          console.log("API response does not contain recommendations.");
+          console.log("API response content is null.");
           setResults({
             recommendations: [],
           });
         }
-      } else {
-        console.log("API response content is null.");
-        setResults({
-          recommendations: [],
-        });
+
+        const apiResponse: ChatCompletionMessageParam[] = [
+          ...apiMessage,
+          completion.choices[0]["message"],
+        ];
+        setChatLog(apiResponse);
+        // make system
+      } catch (error) {
+        // Website outputs an error message
+
+        console.log("Error: ", error);
+        setLoading(false);
+        //setValue(JSON.stringify("API: Error. Try resubmitting your API key."));
+        setDispInit(true);
+        setErrorMessage("API: Error. Try resubmitting your API key.");
+        setError(true);
       }
-
-      const apiResponse: ChatCompletionMessageParam[] = [
-        ...apiMessage,
-        completion.choices[0]["message"],
-      ];
-      setChatLog(apiResponse);
-      // make system
-    } catch (error) {
-      // Website outputs an error message
-
-      console.log("Error");
+    } else {
       setLoading(false);
-      //setValue(JSON.stringify("API: Error. Try resubmitting your API key."));
+      setErrorMessage(
+        "You Must Enter A Valid API Key before generating results."
+      );
       setDispInit(true);
       setError(true);
     }
@@ -245,10 +268,7 @@ export function APIButton(): JSX.Element {
       )}
       {loading && !dispFinal && <h2>Loading...</h2>}
       {error === true && showAlert && (
-        <PopUpAlert
-          errorMessage="API: Error. Try resubmitting your API key."
-          onClose={handleAlertClose}
-        />
+        <PopUpAlert errorMessage={errorMessage} onClose={handleAlertClose} />
       )}
       <span>
         {dispFinal === true && (

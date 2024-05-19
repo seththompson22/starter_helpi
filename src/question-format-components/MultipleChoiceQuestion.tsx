@@ -8,6 +8,7 @@ interface QuestionOptionProps {
   onSelectChoice: (choice: string) => void;
   disabled?: boolean;
   onAnswer: () => void;
+  showErrorMessage: boolean;
 }
 
 const MultipleChoiceQuestion: React.FC<QuestionOptionProps> = ({
@@ -16,6 +17,7 @@ const MultipleChoiceQuestion: React.FC<QuestionOptionProps> = ({
   onSelectChoice,
   disabled,
   onAnswer,
+  showErrorMessage,
 }) => {
   const handleChoiceChange = (choice: string) => {
     onSelectChoice(choice);
@@ -37,6 +39,11 @@ const MultipleChoiceQuestion: React.FC<QuestionOptionProps> = ({
           className="form-check"
         />
       ))}
+      {showErrorMessage && selectedChoice === "" && (
+        <div className="invalid-selected">
+          Please select an option before going forward.
+        </div>
+      )}
     </Form.Group>
   );
 };

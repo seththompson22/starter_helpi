@@ -18,6 +18,12 @@
   height: 81px;
 }
 
+.detailed-q-page .basic-q-title {
+  padding: 30px;
+  margin-bottom: 30px;
+  font-size: 60px;
+}
+
 .detailed-q-page .container {
   width: 100%;
   margin: auto;
