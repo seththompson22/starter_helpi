@@ -61,17 +61,7 @@ const QuestionCard: React.FC<QuestionCardProps> = ({
 
   const nextQuestion = () => {
     if (currentQuestion < questions.length - 1) {
-      if (questions[currentQuestion].choices.length === 0) {
-        openResponseRef.current?.triggerValidation();
-        if (
-          answers[currentQuestion] &&
-          answers[currentQuestion]!.length >= 10
-        ) {
-          setCurrentQuestion(currentQuestion + 1);
-        }
-      } else {
-        setCurrentQuestion(currentQuestion + 1);
-      }
+      validate(() => setCurrentQuestion(currentQuestion + 1));
     }
   };
 
@@ -84,7 +74,6 @@ const QuestionCard: React.FC<QuestionCardProps> = ({
 
   const handleSubmit = () => {
     setSubmitted(true);
-
     // You can handle the submission of answers here, for example, sending them to an API
     const saveAnswersKey = "apiAnswers";
     const previousData = localStorage.getItem(saveAnswersKey);
@@ -125,6 +114,21 @@ const QuestionCard: React.FC<QuestionCardProps> = ({
     // Check if all questions are answered
     if (answers.every((answer) => answer !== null)) {
       onCompletion(); // Call the onCompletion function
+    }
+  };
+
+  const minChars = (value: string | null): boolean => {
+    return value!.length >= 10;
+  };
+
+  const validate = (desiredFunction: () => void) => {
+    if (questions[currentQuestion].choices.length === 0) {
+      openResponseRef.current?.triggerValidation();
+      if (answers[currentQuestion] && minChars(answers[currentQuestion])) {
+        desiredFunction();
+      }
+    } else {
+      desiredFunction();
     }
   };
 
@@ -198,7 +202,9 @@ const QuestionCard: React.FC<QuestionCardProps> = ({
         {currentQuestion === questions.length - 1 && (
           <button
             className="submit-btn btn submit"
-            onClick={handleSubmit}
+            onClick={() => {
+              validate(handleSubmit);
+            }}
             disabled={!allQuestionsAnswered || submitted}
           >
             Submit
