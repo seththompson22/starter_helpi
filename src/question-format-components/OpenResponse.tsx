@@ -1,5 +1,10 @@
-import { Form } from "react-bootstrap";
-import React from "react";
+import { Form, InputGroup } from "react-bootstrap";
+import React, {
+  useState,
+  useEffect,
+  forwardRef,
+  useImperativeHandle,
+} from "react";
 import "../styles/OpenResponse.css";
 
 interface OpenResponseProps {
@@ -9,31 +14,54 @@ interface OpenResponseProps {
   className: string;
 }
 
-const OpenResponse: React.FC<OpenResponseProps> = ({
-  value,
-  onChange,
-  disabled,
-  className,
-}) => {
-  const handleTextChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    onChange(e.target.value);
-  };
+const OpenResponse = forwardRef(
+  ({ value, onChange, disabled, className }: OpenResponseProps, ref) => {
+    const [textValue, setTextValue] = useState<string>(value);
+    const [validated, setValidated] = useState<boolean>(false);
+    const [showError, setShowError] = useState<boolean>(false);
 
-  return (
-    <Form.Group
-      controlId="openResponse"
-      className={className + " question-option"}
-    >
-      <Form.Control
-        as="textarea"
-        rows={3}
-        value={value}
-        onChange={handleTextChange}
-        placeholder="Type your answer here..."
-        disabled={disabled}
-      />
-    </Form.Group>
-  );
-};
+    useEffect(() => {
+      setTextValue(value);
+      setValidated(value.length >= 10);
+    }, [value]);
+
+    function updateValue(e: React.ChangeEvent<HTMLInputElement>) {
+      const newValue = e.target.value;
+      setTextValue(newValue);
+      onChange(newValue);
+      setValidated(newValue.length >= 10);
+      setShowError(false); // Reset error on input change
+    }
+
+    useImperativeHandle(ref, () => ({
+      triggerValidation() {
+        setValidated(textValue.length >= 10);
+        setShowError(textValue.length < 10); // Show error if invalid
+      },
+    }));
+
+    return (
+      <InputGroup
+        id="openResponse"
+        className={className + " question-option"}
+        hasValidation
+      >
+        <Form.Control
+          as="textarea"
+          rows={3}
+          value={textValue}
+          onChange={updateValue}
+          placeholder="Type your answer here..."
+          disabled={disabled}
+          required
+          isInvalid={showError && !validated} // Only show invalid state when showError is true
+        />
+        <Form.Control.Feedback type="invalid">
+          Please enter at least 10 characters.
+        </Form.Control.Feedback>
+      </InputGroup>
+    );
+  }
+);
 
 export default OpenResponse;

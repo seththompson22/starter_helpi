@@ -1,7 +1,7 @@
 import "../styles/QuestionCard.css";
 import MultipleChoiceQuestion from "../question-format-components/MultipleChoiceQuestion";
 import OpenResponse from "../question-format-components/OpenResponse"; // Import the OpenResponse component
-import { useState } from "react";
+import { useRef, useState } from "react";
 import ProgressBar from "./progressBar";
 import React from "react";
 import { Col, Container, Row } from "react-bootstrap";
@@ -39,6 +39,9 @@ const QuestionCard: React.FC<QuestionCardProps> = ({
     Array(questions.length).fill(null)
   );
   const [submitted, setSubmitted] = useState(false);
+  const openResponseRef = useRef<{ triggerValidation: () => void } | null>(
+    null
+  );
 
   // State to track the number of answered questions
   const [, setAnsweredQuestions] = useState(0);
@@ -58,7 +61,17 @@ const QuestionCard: React.FC<QuestionCardProps> = ({
 
   const nextQuestion = () => {
     if (currentQuestion < questions.length - 1) {
-      setCurrentQuestion(currentQuestion + 1);
+      if (questions[currentQuestion].choices.length === 0) {
+        openResponseRef.current?.triggerValidation();
+        if (
+          answers[currentQuestion] &&
+          answers[currentQuestion]!.length >= 10
+        ) {
+          setCurrentQuestion(currentQuestion + 1);
+        }
+      } else {
+        setCurrentQuestion(currentQuestion + 1);
+      }
     }
   };
 
@@ -101,7 +114,6 @@ const QuestionCard: React.FC<QuestionCardProps> = ({
         loadedData = [...loadedData, ...apiAnswers];
       }
     }
-    
 
     // Limit the total length to 16 elements
     if (loadedData.length > 16) {
@@ -121,6 +133,7 @@ const QuestionCard: React.FC<QuestionCardProps> = ({
   return (
     <div className="question-card">
       <h2>{questions[currentQuestion].question}</h2>
+
       <Container>
         <Row>
           {/* Render the image in the first column */}
@@ -146,6 +159,7 @@ const QuestionCard: React.FC<QuestionCardProps> = ({
               />
             ) : (
               <OpenResponse
+                ref={openResponseRef}
                 value={answers[currentQuestion] || ""}
                 onChange={(text) => {
                   const newAnswers = [...answers];
@@ -160,6 +174,7 @@ const QuestionCard: React.FC<QuestionCardProps> = ({
           </Col>
         </Row>
       </Container>
+
       <ProgressBar
         totalQuestions={questions.length}
         answeredQuestions={answers.filter((value) => value !== null).length}
@@ -176,25 +191,13 @@ const QuestionCard: React.FC<QuestionCardProps> = ({
           </button>
         )}
         {currentQuestion !== questions.length - 1 && (
-          <button
-            className="next-btn btn"
-            onClick={nextQuestion}
-            disabled={
-              currentQuestion === questions.length - 1 ||
-              submitted ||
-              (questions[currentQuestion].choices.length > 0 &&
-                answers[currentQuestion] === null) ||
-              (questions[currentQuestion].choices.length === 0 &&
-                (answers[currentQuestion] === null ||
-                  answers[currentQuestion] === ""))
-            }
-          >
+          <button className="next-btn btn" onClick={nextQuestion}>
             Next
           </button>
         )}
         {currentQuestion === questions.length - 1 && (
           <button
-            className="submit-btn btn"
+            className="submit-btn btn submit"
             onClick={handleSubmit}
             disabled={!allQuestionsAnswered || submitted}
           >
